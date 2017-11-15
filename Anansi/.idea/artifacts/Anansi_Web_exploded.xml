@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Anansi:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Anansi.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Anansi/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Anansi" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javax.annotation" />
+          <element id="library" level="project" name="language-tool" />
+          <element id="library" level="project" name="languages-native-libs" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Anansi/ejb/EJB" />
+      <element id="module-output" name="Anansi" />
+    </root>
+  </artifact>
+</component>
