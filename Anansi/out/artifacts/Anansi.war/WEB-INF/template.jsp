@@ -84,8 +84,10 @@
     <!--link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" /-->
     <link rel="stylesheet" type="text/css" href="static/css/timepicker.css"/>
 </head>
+
+
 <body>
-<h1>OYOYOYOYOYOYOY</h1>
+
 <div>
     <!--jsp:include page="header/header.jsp"/-->
     <c:forEach var="jsp_file" items="${ page_jsp_files }">
@@ -97,9 +99,3 @@
 <!--jsp:include page="user/login.jsp"/-->
 </body>
 </html>
-
-<c:if test="${ login_modal == \"yes\" }">
-    <script>
-        $('#login-modal').modal('show');
-    </script>
-</c:if>

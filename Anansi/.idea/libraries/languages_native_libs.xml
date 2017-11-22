@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="languages-native-libs">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/pasta sem nome/languages-native-libs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/language-native-libs/languages-native-libs.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

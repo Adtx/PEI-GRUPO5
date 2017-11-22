@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jstl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../epark/epark/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../epark/epark/lib/javax.ejb-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../epark/epark/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../epark/epark/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../epark/epark/lib/jstl-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -43,10 +43,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}#login">Login</a>
+                    <a class="nav-link js-scroll-trigger" href="#login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}#registar">Registar</a>
+                    <a class="nav-link js-scroll-trigger" href="#registar">Registar</a>
                 </li>
             </ul>
         </div>
@@ -74,24 +74,24 @@
             <div class="col-lg-8 mx-auto">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form name="sentMessage" id="contactForm1" novalidate>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Email</label>
-                            <input class="form-control" id="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
+                            <input class="form-control" id="email1" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Password</label>
-                            <input class="form-control" id="password" type="password" placeholder="Password" required data-validation-required-message="Por favor a sua password.">
+                            <input class="form-control" id="password1" type="password" placeholder="Password" required data-validation-required-message="Por favor a sua password.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <div id="success"></div>
+                    <div id="success1"></div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Entrar</button>
+                        <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton1">Entrar</button>
                     </div>
                 </form>
             </div>
@@ -110,7 +110,7 @@
             <div class="col-lg-8 mx-auto">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form name="sentMessage" id="contactForm2" novalidate>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
                             <label>Name completo</label>

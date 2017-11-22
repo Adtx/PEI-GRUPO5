@@ -13,6 +13,17 @@
 
     <!-- SEARCH -->
     <servlet>
+        <servlet-name>corrector</servlet-name>
+        <servlet-class>Servlet.Corrector</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>corrector</servlet-name>
+        <url-pattern>/corrector</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- HOMEPAGE -->
+    <servlet>
         <servlet-name>homepage</servlet-name>
         <servlet-class>Servlet.Corrector</servlet-class>
     </servlet>

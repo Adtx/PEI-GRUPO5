@@ -99,9 +99,3 @@
 <!--jsp:include page="user/login.jsp"/-->
 </body>
 </html>
-
-<c:if test="${ login_modal == \"yes\" }">
-    <script>
-        $('#login-modal').modal('show');
-    </script>
-</c:if>
