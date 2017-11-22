@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="hunspell">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-darwin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-linux-i386.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-linux-i386.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-linux-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-win32-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-darwin-i386.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-linux-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-jws.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-darwin-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-jws.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-win32-amd64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/jna-win32-x86.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-darwin-ppc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/lib/hunspell/hunspell-win32-x86.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

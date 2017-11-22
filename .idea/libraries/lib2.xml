@@ -1,0 +1,64 @@
+<component name="libraryTable">
+  <library name="lib2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morfologik-stemming.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/guava.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jna.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/berkeleylm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morphology-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jcommander.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/slf4j-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-codec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jackson-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morfologik-fsa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-collections4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-commandline.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morfologik-fsa-builders.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/segment.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languages.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/cjftransform.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-core-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/slf4j-nop.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.transaction.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jackson-annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/bcprov-jdk15on.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/lucene-backward-codecs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.ejb-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/hamcrest-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/openregex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/lucene-gosen-ipadic.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-gui-commons.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/hppc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/java-jwt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.servlet.jsp.jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/language-detector.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/ictclas4j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jwordsplitter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-lang3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jackson-databind.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morfologik-speller.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/opennlp-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.annotation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languages-native-libs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/lucene-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/morfologik-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/jsonic.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/icu4j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/commons-cli.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/languagetool-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Escrita/WEB-INF/lib/javax.jms.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

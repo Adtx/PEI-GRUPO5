@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.ejb-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.transaction.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Anansi/out/artifacts/Anansi_EJB_exploded/WEB-INF/lib/javax.annotation.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

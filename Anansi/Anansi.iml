@@ -18,6 +18,86 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Escrita/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Escrita" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web3">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Anansi.war/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Anansi.war" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web4">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Anansi_EJB_exploded/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Anansi_EJB_exploded" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web5">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web6">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Escrita/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Escrita" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web7">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Anansi.war/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Anansi.war" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web8">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/out/artifacts/Anansi_EJB_exploded/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/out/artifacts/Anansi_EJB_exploded" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="web" name="Web9">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -29,5 +109,7 @@
     <orderEntry type="library" name="languages-native-libs" level="project" />
     <orderEntry type="library" name="javax.annotation" level="project" />
     <orderEntry type="library" name="language-tool" level="project" />
+    <orderEntry type="library" name="lib2" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
