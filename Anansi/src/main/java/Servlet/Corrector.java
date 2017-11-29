@@ -48,7 +48,7 @@ public class Corrector  extends HttpServlet {
 
             for (String s : langTool.sentenceTokenize("Isto é um maçã. A maca murcou.")){
                 Pattern p = Pattern.compile("([aeiouyã])+?\\w*?[^e]");
-                System.out.print( s + "  ----   " );
+                System.out.print( s + "  ----   " + p.split(s.toLowerCase()).length);
                 for (String s1 : p.split(s.toLowerCase())){
                     System.out.print(s1 + " ");
                 }
