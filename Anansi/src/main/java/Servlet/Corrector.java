@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 @WebServlet(name = "corrector")
@@ -44,6 +45,16 @@ public class Corrector  extends HttpServlet {
             //    }
             //}
             List<RuleMatch> matches = langTool.check("Isto é um maçã. A maca murcou.");
+
+            for (String s : langTool.sentenceTokenize("Isto é um maçã. A maca murcou.")){
+                Pattern p = Pattern.compile("([aeiouyã])+?\\w*?[^e]");
+                System.out.print( s + "  ----   " );
+                for (String s1 : p.split(s.toLowerCase())){
+                    System.out.print(s1 + " ");
+                }
+                System.out.println();
+            }
+
             for (RuleMatch match : matches) {
                 System.out.println("Potential typo at line " +
                         match.getLine() + ", column " +

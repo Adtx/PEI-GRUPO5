@@ -1,0 +1,56 @@
+<component name="libraryTable">
+  <library name="language-tool">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/bcprov-jdk15on.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/berkeleylm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/cjftransform.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-cli.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-codec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-collections4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-lang3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/guava.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/hamcrest-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/hppc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/ictclas4j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/icu4j.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jackson-annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jackson-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jackson-databind.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/java-jwt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jcommander.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jna.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jsonic.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/junit.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/jwordsplitter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/language-detector.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languages.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-commandline.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-core-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-gui-commons.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-server.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/languagetool.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/lucene-backward-codecs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/lucene-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/lucene-gosen-ipadic.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morfologik-fsa-builders.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morfologik-fsa.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morfologik-speller.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morfologik-stemming.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morfologik-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/morphology-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/opennlp-tools.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/openregex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/segment.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/slf4j-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/languagetool/slf4j-nop.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

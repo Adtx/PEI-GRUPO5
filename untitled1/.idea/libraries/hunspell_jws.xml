@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="hunspell-jws">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/hunspell/hunspell-jws.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/hunspell/hunspell.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/hunspell/jna-jws.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Anansi/lib/hunspell/jna.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
