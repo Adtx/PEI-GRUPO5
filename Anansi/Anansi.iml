@@ -35,5 +35,6 @@
     <orderEntry type="library" exported="" name="javax.annotation" level="project" />
     <orderEntry type="library" exported="" name="language-tool" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
+    <orderEntry type="library" name="orm" level="project" />
   </component>
 </module>
