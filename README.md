@@ -6,13 +6,13 @@ e substituir o PATH na linha 25 do ficheiro LexicalDensity.java, pelo PATH corre
 
 E acrescentar:
 
-\<dependencies\><br />
-        <pre>&#9</pre>\<dependency\><br />
-            <pre>&#9</pre>\<groupId\>org.apache.opennlp\</groupId\><br />
-            <pre>&#9</pre>\<artifactId\>opennlp-tools\</artifactId\><br />
-            <pre>&#9</pre>\<version\>1.8.3\</version\><br />
-            <pre>&#9</pre>\<type\>jar\</type\><br />
-        <pre>&#9</pre>\</dependency\><br />
-\</dependencies\><br />
+&ltdependencies&gt
+        <div style="margin-left:3em">&ltdependency&gt</div>
+            <div style="margin-left:6em">&ltgroupId&gtorg.apache.opennlp&lt/groupId&gt</div>
+            <div style="margin-left:6em">&ltartifactId&gtopennlp-tools&lt/artifactId&gt</div>
+            <div style="margin-left:6em">&ltversion&gt1.8.3&lt/version&gt</div>
+            <div style="margin-left:6em">&lttype&gtjar&lt/type&gt</div>
+        <div style="margin-left:3em">&lt/dependency&gt</div>
+&lt/dependencies&gt<br /><br />
 
 ao ficheiro pom.xml
