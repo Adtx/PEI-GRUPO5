@@ -19,6 +19,9 @@ public class Test {
     private float smog_grade;
     private float automated_readibility_index;
 
+    //lexical density
+    private double lexical_density;
+
 
 
     public Test_Result run_test(String texto) throws IOException {
@@ -40,7 +43,11 @@ public class Test {
         automated_readibility_index=rs.automated_readibility_index(letter_count,total_words,total_sentences);
 
         //Calculate lexical density
-        
+        LexicalDensity ld=new LexicalDensity();
+        lexical_density=ld.calculate(texto,total_words);
+
+        //Calculate lexical richness
+
 
         return new Test_Result();
     }

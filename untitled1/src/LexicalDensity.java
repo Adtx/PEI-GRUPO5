@@ -20,7 +20,7 @@ import opennlp.tools.postag.POSTaggerME;
  */
 public class LexicalDensity {
 
-    public static double calculate(String text) throws IOException{
+    public double calculate(String text,int totalWords) throws IOException{
 
         InputStream modelIn = new FileInputStream("C:\\Users\\adt\\Documents\\NetBeansProjects\\LexicalDensity\\en-pos-maxent.bin");
         POSModel model = new POSModel(modelIn);
@@ -48,7 +48,7 @@ public class LexicalDensity {
             if(Arrays.asList(lexicalTags).contains(tag)) tokens++;
         //System.out.println(tag);
 
-        double totalWords = text.split(" ").length;
+        //double totalWords = text.split(" ").length;
 
         double density = tokens/totalWords*100;
 
