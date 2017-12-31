@@ -94,13 +94,13 @@ public class StanfordLemmatizer {
         return total_common_words;
     }
 
-    public int different_basic_words(Map<String,Integer> repeated_words){
-        int total_different_basic_words=0;
+    public int different_advanced_words(Map<String,Integer> repeated_words){
+        int total_different_advanced_words=0;
         for(String i:repeated_words.keySet()){
-            if(basic_words.contains(i)){
-                total_different_basic_words++;
+            if(!basic_words.contains(i)){
+                total_different_advanced_words++;
             }
         }
-        return total_different_basic_words;
+        return total_different_advanced_words;
     }
 }

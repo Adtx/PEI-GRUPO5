@@ -12,7 +12,7 @@ public class Test {
     private int letter_count;
     private int common_words;
     private int total_different_words;
-    private int different_basic_words;
+    private int different_advanced_words;
 
     //readibility scores
     private float flesch_reading_ease;
@@ -29,7 +29,17 @@ public class Test {
     private float beyond_2000;
     private float advanced_ttr;
     private float advanced_guiraud;
+    private float ttr;
+    private float rttr;
+    private float cttr;
+    private float m;
+    private float h;
+    private float s;
+    private float u;
+    private float mwf;
+    private float r;
 
+    //
 
 
     public Test_Result run_test(String texto) throws IOException {
@@ -44,7 +54,7 @@ public class Test {
         letter_count=ts.letter_count(texto);
         total_different_words=repeated_words.size();
         common_words=lsem.common_words();
-        different_basic_words=lsem.different_basic_words(repeated_words);
+        different_advanced_words=lsem.different_advanced_words(repeated_words);
 
         //Calculate all readibility scores
         Readability rs=new Readability();
@@ -62,8 +72,17 @@ public class Test {
         //Calculate lexical richness
         Lexical_Richness lr=new Lexical_Richness();
         beyond_2000=lr.beyond_2000(total_words,common_words);
-        advanced_ttr=lr.advanced_ttr(different_basic_words,total_words);
-        advanced_guiraud=lr.advanced_guiraud(different_basic_words,total_words);
+        advanced_ttr=lr.advanced_ttr(different_advanced_words,total_words);
+        advanced_guiraud=lr.advanced_guiraud(different_advanced_words,total_words);
+        ttr=lr.ttr(total_different_words,total_words);
+        rttr=lr.rttr(total_different_words,total_words);
+        cttr=lr.cttr(total_different_words,total_words);
+        m=lr.m(total_different_words,total_words);
+        h=lr.h(total_different_words,total_words);
+        s=lr.s(total_different_words,total_words);
+        u=lr.u(total_different_words,total_words);
+        mwf=lr.mwf(total_different_words,total_words);
+        r=lr.r(total_different_words,total_words);
 
 
         return new Test_Result();
