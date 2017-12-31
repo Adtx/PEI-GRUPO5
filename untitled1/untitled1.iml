@@ -14,5 +14,18 @@
     <orderEntry type="library" name="language-tool" level="project" />
     <orderEntry type="library" name="hunspell-jws" level="project" />
     <orderEntry type="library" name="languages-native-libs" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../StanfordNLP/stanford-corenlp-full-2017-06-09" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../StanfordNLP/stanford-corenlp-full-2017-06-09" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../../StanfordNLP/stanford-corenlp-full-2017-06-09" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../StanfordNLP/stanford-corenlp-full-2017-06-09" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>

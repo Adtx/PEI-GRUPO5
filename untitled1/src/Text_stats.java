@@ -180,6 +180,11 @@ public class Text_stats {
 
         return letterCount;
     }
+
+    public int common_words(String texto) {
+        StanfordLemmatizer lemma= new StanfordLemmatizer();
+        return lemma.common_words();
+    }
 }
 
 

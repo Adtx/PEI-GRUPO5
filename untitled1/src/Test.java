@@ -10,6 +10,9 @@ public class Test {
     private int total_syllables;
     private int complex_words;
     private int letter_count;
+    private int common_words;
+    private int total_different_words;
+    private int different_basic_words;
 
     //readibility scores
     private float flesch_reading_ease;
@@ -22,16 +25,26 @@ public class Test {
     //lexical density
     private double lexical_density;
 
+    //lexical richness
+    private float beyond_2000;
+    private float advanced_ttr;
+    private float advanced_guiraud;
+
 
 
     public Test_Result run_test(String texto) throws IOException {
         // Remove stats from text (can be optimized to minimize the number of times the text is read)
         Text_stats ts=new Text_stats();
+        StanfordLemmatizer lsem= new StanfordLemmatizer();
+        lsem.lemmatize(texto);
         repeated_words=ts.palavras_repetidas(texto);
         total_sentences=ts.sentences(texto);
         total_syllables=ts.count_all_syllables(texto);
         complex_words=ts.count_complex_words(texto);
         letter_count=ts.letter_count(texto);
+        total_different_words=repeated_words.size();
+        common_words=lsem.common_words();
+        different_basic_words=lsem.different_basic_words(repeated_words);
 
         //Calculate all readibility scores
         Readability rs=new Readability();
@@ -47,6 +60,10 @@ public class Test {
         lexical_density=ld.calculate(texto,total_words);
 
         //Calculate lexical richness
+        Lexical_Richness lr=new Lexical_Richness();
+        beyond_2000=lr.beyond_2000(total_words,common_words);
+        advanced_ttr=lr.advanced_ttr(different_basic_words,total_words);
+        advanced_guiraud=lr.advanced_guiraud(different_basic_words,total_words);
 
 
         return new Test_Result();
