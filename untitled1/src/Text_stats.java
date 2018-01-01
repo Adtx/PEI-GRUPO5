@@ -185,6 +185,11 @@ public class Text_stats {
         StanfordLemmatizer lemma= new StanfordLemmatizer();
         return lemma.common_words();
     }
+
+    public int count_paragraphs(String texto){
+        String[] lines = texto.split("\r\n|\r|\n");
+        return  lines.length;
+    }
 }
 
 

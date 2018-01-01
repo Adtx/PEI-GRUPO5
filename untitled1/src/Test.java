@@ -13,6 +13,7 @@ public class Test {
     private int common_words;
     private int total_different_words;
     private int different_advanced_words;
+    private int total_paragraphs;
 
     //readibility scores
     private float flesch_reading_ease;
@@ -39,7 +40,8 @@ public class Test {
     private float mwf;
     private float r;
 
-    //
+    //language modeling
+    private float bigram_model;
 
 
     public Test_Result run_test(String texto) throws IOException {
@@ -55,6 +57,7 @@ public class Test {
         total_different_words=repeated_words.size();
         common_words=lsem.common_words();
         different_advanced_words=lsem.different_advanced_words(repeated_words);
+        total_paragraphs=ts.count_paragraphs(texto);
 
         //Calculate all readibility scores
         Readability rs=new Readability();
@@ -83,6 +86,10 @@ public class Test {
         u=lr.u(total_different_words,total_words);
         mwf=lr.mwf(total_different_words,total_words);
         r=lr.r(total_different_words,total_words);
+
+        //language modelling
+        Language_moddeling lm=new Language_moddeling(texto);
+        bigram_model=lm.bigram_model_value();
 
 
         return new Test_Result();
