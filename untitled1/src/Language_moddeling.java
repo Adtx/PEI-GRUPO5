@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import static java.lang.Math.log;
+
 public class Language_moddeling {
 
 
@@ -16,11 +18,9 @@ public class Language_moddeling {
     // "tutorial" here http://sleep.dashnine.org/manual/index.html
     private Scalar bigram_model;
 
-     public Language_moddeling (String text){
+     public Language_moddeling (){
          //String delimiters = "?!.";
          //sentences = text.split("\\?|!|.");
-         sentences=new ArrayList<>();
-         sentence_spliter(text);
          load_bigram_model();
      }
 
@@ -43,8 +43,9 @@ public class Language_moddeling {
     }
 
 
-    public float bigram_model_value() {
-
+    public float bigram_model_value(String text) {
+        sentences=new ArrayList<>();
+        sentence_spliter(text);
         ScriptLoader loader=new ScriptLoader();
         ScriptInstance script=null;
         float res=0;
@@ -69,7 +70,7 @@ public class Language_moddeling {
                 variables.putScalar("$word2", SleepUtils.getScalar(second));
                 script.runScript();
                 Scalar value = variables.getScalar("$res");
-                res += value.doubleValue();
+                res += log(value.doubleValue());
             }
         }
     return res;

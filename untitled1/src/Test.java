@@ -42,15 +42,43 @@ public class Test {
 
     //language modeling
     private float bigram_model;
+    private float bigram_perplexety;
 
 
-    public Test_Result run_test(String texto) throws IOException {
+    //for better optimization
+    private Language_moddeling lm;
+    private Text_stats ts;
+    private StanfordLemmatizer lsem;
+    private Readability rs;
+    private LexicalDensity ld;
+    private Lexical_Richness lr;
+    private int a1_words;
+    private int a2_words;
+    private int b1_words;
+    private int b2_words;
+    private int c1_words;
+    private int c2_words;
+
+    public Test(){
+        System.out.println("Entrei no test");
+        lm=new Language_moddeling();
+        ts=new Text_stats();
+        lsem= new StanfordLemmatizer();
+        rs=new Readability();
+        ld=new LexicalDensity();
+        lr=new Lexical_Richness();
+        //run_test(texto);
+        //return new Test_Result();
+    }
+
+    public void run_test(String texto) throws IOException {
         // Remove stats from text (can be optimized to minimize the number of times the text is read)
-        Text_stats ts=new Text_stats();
-        StanfordLemmatizer lsem= new StanfordLemmatizer();
+
         lsem.lemmatize(texto);
         repeated_words=ts.palavras_repetidas(texto);
+        total_words=ts.countWords(texto);
         total_sentences=ts.sentences(texto);
+        System.out.println(total_sentences);
         total_syllables=ts.count_all_syllables(texto);
         complex_words=ts.count_complex_words(texto);
         letter_count=ts.letter_count(texto);
@@ -60,7 +88,6 @@ public class Test {
         total_paragraphs=ts.count_paragraphs(texto);
 
         //Calculate all readibility scores
-        Readability rs=new Readability();
         flesch_kinkaid=rs.flesch_kincaid_grade_level(total_words,total_sentences,total_syllables);
         flesch_reading_ease=rs.flesch_reading_ease(total_words,total_sentences,total_syllables);
         gunning_fog=rs.gunning_fog_score(total_words,total_sentences,complex_words);
@@ -69,11 +96,9 @@ public class Test {
         automated_readibility_index=rs.automated_readibility_index(letter_count,total_words,total_sentences);
 
         //Calculate lexical density
-        LexicalDensity ld=new LexicalDensity();
         lexical_density=ld.calculate(texto,total_words);
 
         //Calculate lexical richness
-        Lexical_Richness lr=new Lexical_Richness();
         beyond_2000=lr.beyond_2000(total_words,common_words);
         advanced_ttr=lr.advanced_ttr(different_advanced_words,total_words);
         advanced_guiraud=lr.advanced_guiraud(different_advanced_words,total_words);
@@ -88,10 +113,95 @@ public class Test {
         r=lr.r(total_different_words,total_words);
 
         //language modelling
-        Language_moddeling lm=new Language_moddeling(texto);
-        bigram_model=lm.bigram_model_value();
+        bigram_model=lm.bigram_model_value(texto);
+        bigram_perplexety=(float) Math.pow(2,(bigram_model/total_words));
+
+        //words per level
+
+        a1_words=lsem.a1_words();
+        a2_words=lsem.a2_words();
+        b1_words=lsem.b1_words();
+        b2_words=lsem.b2_words();
+        c1_words=lsem.c1_words();
+        c2_words=lsem.c2_words();
 
 
-        return new Test_Result();
+
+        //return new Test_Result();
+    }
+
+
+    public String print_test() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(total_words);
+        sb.append(';');
+        sb.append(total_sentences);
+        sb.append(';');
+        sb.append(total_syllables);
+        sb.append(';');
+        sb.append(complex_words);
+        sb.append(';');
+        sb.append(letter_count);
+        sb.append(';');
+        sb.append(common_words);
+        sb.append(';');
+        sb.append(total_different_words);
+        sb.append(';');
+        sb.append(different_advanced_words);
+        sb.append(';');
+        sb.append(flesch_reading_ease);
+        sb.append(';');
+        sb.append(flesch_kinkaid);
+        sb.append(';');
+        sb.append(gunning_fog);
+        sb.append(';');
+        sb.append(coleman_liau);
+        sb.append(';');
+        sb.append(smog_grade);
+        sb.append(';');
+        sb.append(automated_readibility_index);
+        sb.append(';');
+        sb.append(lexical_density);
+        sb.append(';');
+        sb.append(beyond_2000);
+        sb.append(';');
+        sb.append(advanced_ttr);
+        sb.append(';');
+        sb.append(advanced_guiraud);
+        sb.append(';');
+        sb.append(ttr);
+        sb.append(';');
+        sb.append(rttr);
+        sb.append(';');
+        sb.append(cttr);
+        sb.append(';');
+        sb.append(m);
+        sb.append(';');
+        sb.append(h);
+        sb.append(';');
+        sb.append(s);
+        sb.append(';');
+        sb.append(u);
+        sb.append(';');
+        sb.append(mwf);
+        sb.append(';');
+        sb.append(r);
+        sb.append(';');
+        sb.append(bigram_model);
+        sb.append(';');
+        sb.append(bigram_perplexety);
+        sb.append(';');
+        sb.append(a1_words);
+        sb.append(';');
+        sb.append(a2_words);
+        sb.append(';');
+        sb.append(b1_words);
+        sb.append(';');
+        sb.append(b2_words);
+        sb.append(';');
+        sb.append(c1_words);
+        sb.append(';');
+        sb.append(c2_words);
+        return sb.toString();
     }
 }

@@ -22,7 +22,7 @@ public class LexicalDensity {
 
     public double calculate(String text,int totalWords) throws IOException{
 
-        InputStream modelIn = new FileInputStream("C:\\Users\\adt\\Documents\\NetBeansProjects\\LexicalDensity\\en-pos-maxent.bin");
+        InputStream modelIn = new FileInputStream("C:\\Users\\Utilizador\\Downloads\\en-pos-maxent.bin");
         POSModel model = new POSModel(modelIn);
         POSTaggerME tagger = new POSTaggerME(model);
         ArrayList<String> tokenized = new ArrayList<>();

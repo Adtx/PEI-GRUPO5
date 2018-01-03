@@ -64,7 +64,7 @@ public class Text_stats {
 
     // Recebe um texto, e retorna um inteiro com o número de palavras.
 
-    public static int countWords(String s){
+    public int countWords(String s){
 
         int wordCount = 0;
 
@@ -118,7 +118,10 @@ public class Text_stats {
         String[] words = text.split("\\s");
         int syllables = 0;
         for(String str:words){
-            syllables += countSyllables(str);
+            //System.out.println(str);
+            if(str.length()>0) {
+                syllables += countSyllables(str);
+            }
         }
         return syllables;
     }
@@ -129,16 +132,18 @@ public class Text_stats {
         // EfficientDocument (module 2).
         int count = 0;
         word = word.toLowerCase();
-
-        if (word.charAt(word.length()-1) == 'e') {
-            if (silente(word)){
-                String newword = word.substring(0, word.length()-1);
-                count = count + countit(newword);
+        //System.out.println(word);
+        if(word.length()>0) {
+            if (word.charAt(word.length() - 1) == 'e') {
+                if (silente(word)) {
+                    String newword = word.substring(0, word.length() - 1);
+                    count = count + countit(newword);
+                } else {
+                    count++;
+                }
             } else {
-                count++;
+                count = count + countit(word);
             }
-        } else {
-            count = count + countit(word);
         }
         return count;
     }
