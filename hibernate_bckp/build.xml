@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<project name="PEIMVP" default="compile">
+	<description>
+		PEIMVP
+	</description>
+
+	<property name="src.dir" location="src" />
+	<property name="lib.dir" location="lib" />
+	<property name="classes.dir" location="classes" />
+	<property name="javac.debug" value="on" />
+
+	<target name="compile" description="Compile PEIMVP">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="${javac.debug}">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+			</classpath>
+		</javac>
+		<copy todir="${classes.dir}">
+			<fileset dir="/bean/src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean" description="Clean PEIMVP">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="createSchema" description="Run create data schema sample">
+		<java classname="CreatePEIMVPDatabaseSchema" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="createdata" description="Run create test data sample">
+		<java classname="CreatePEIMVPData" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="retrievedata" description="Run retrieve data sample">
+		<java classname="RetrieveAndUpdatePEIMVPData" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="deletedata" description="Run delete data sample">
+		<java classname="DeletePEIMVPData" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="dropschema" description="Run drop schema sample">
+		<java classname="DropPEIMVPDatabaseSchema" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="listdata" description="Run list data sample">
+		<java classname="ListPEIMVPData" fork="true">
+			<classpath>
+				<fileset dir="/bean/lib" includes="*.jar"/>
+				<pathelement location="${classes.dir}"/>
+			</classpath>
+		</java>
+	</target>
+
+</project>
