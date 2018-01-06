@@ -22,6 +22,7 @@ public class Language_moddeling {
          //String delimiters = "?!.";
          //sentences = text.split("\\?|!|.");
          load_bigram_model();
+         //exp();
      }
 
     private void load_bigram_model() {
@@ -39,7 +40,6 @@ public class Language_moddeling {
         script.runScript();
         ScriptVariables variables = script.getScriptVariables();
         bigram_model = variables.getScalar("$model");
-
     }
 
 
@@ -70,11 +70,91 @@ public class Language_moddeling {
                 variables.putScalar("$word2", SleepUtils.getScalar(second));
                 script.runScript();
                 Scalar value = variables.getScalar("$res");
-                res += log(value.doubleValue());
+                res += value.doubleValue();
             }
+            System.out.println("LM res=" +res);
         }
     return res;
      }
+
+    public float bigram_model_value_reverse(String text) {
+        sentences=new ArrayList<>();
+        sentence_spliter(text);
+        ScriptLoader loader=new ScriptLoader();
+        ScriptInstance script=null;
+        float res=0;
+        try {
+            script = loader.loadScript("bigram_model_script_reverse.ls");
+        }catch (YourCodeSucksException syntaxErrors){
+            System.out.println(syntaxErrors.formatErrors());
+
+        }catch (IOException ioError){
+            System.out.println("io exception");
+        }
+        ScriptVariables variables = script.getScriptVariables();
+        for(String s:sentences) {
+            s=remove_punctuation(s);
+            String[] words = s.split("\\s");
+            for (int i = 0; i < words.length - 1; i++) {
+                String first = words[i];
+                String second = words[i + 1];
+                //System.out.println(first+"         "+ second);
+                variables.putScalar("$model", SleepUtils.getScalar(bigram_model));
+                variables.putScalar("$word1", SleepUtils.getScalar(first));
+                variables.putScalar("$word2", SleepUtils.getScalar(second));
+                script.runScript();
+                Scalar value = variables.getScalar("$res");
+                    res += value.doubleValue();
+
+            }
+            System.out.println("LM res rev=" +res);
+        }
+        return res;
+    }
+
+    public float exp() {
+      /*  sentences=new ArrayList<>();
+        sentence_spliter();*/
+        load_bigram_model();
+        ScriptLoader loader = new ScriptLoader();
+        ScriptInstance script = null;
+        String s = "Yesterday Tom had his breakfast. He then went for a walk with his dog and some friends. After the walk they had a picnic. Everybody had a good day. In the evening Tom was tired and went to bed.\n";
+
+        float res = 0;
+        try {
+            script = loader.loadScript("exp.ls");
+            //script.runScript();
+        } catch (YourCodeSucksException syntaxErrors) {
+            System.out.println(syntaxErrors.formatErrors());
+
+        } catch (IOException ioError) {
+            System.out.println("io exception");
+        }
+        ScriptVariables variables = script.getScriptVariables();
+        //for(String s:sentences) {
+        s = remove_punctuation(s);
+        System.out.println(s);
+        String[] words = s.split("\\s");
+        for (int i = 0; i < words.length - 1; i++) {
+            String first = words[i];
+            String second = words[i + 1];
+            //System.out.println(first+"         "+ second);
+            variables.putScalar("$model", SleepUtils.getScalar(bigram_model));
+            variables.putScalar("$word1", SleepUtils.getScalar(first));
+            variables.putScalar("$word2", SleepUtils.getScalar(second));
+            script.runScript();
+            Scalar value = variables.getScalar("$res");
+            Scalar value2 = variables.getScalar("$res2");
+            System.out.println(value);
+            System.out.println(value2);
+            res += value.doubleValue();
+            //System.out.println(res);
+            }
+            //}
+        System.out.println(res);
+            return res;
+        }
+
 
     private void sentence_spliter(String source) {
         BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);

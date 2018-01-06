@@ -85,6 +85,18 @@ public class Auto_tester {
         sb.append(';');
         sb.append("c2_words");
         sb.append(';');
+        sb.append("bigram_model_reverse");
+        sb.append(';');
+        sb.append("bigram_perplexety_reverse");
+        sb.append(';');
+        sb.append("words_per_sentence");
+        sb.append(';');
+        sb.append("sentences_per_paragraph");
+        sb.append(';');
+        sb.append("simple_errors_per_word");
+        sb.append(';');
+        sb.append("complex_errors_per_word");
+        sb.append(';');
         sb.append("level");
         sb.append('\n');
 

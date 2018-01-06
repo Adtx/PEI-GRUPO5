@@ -14,6 +14,8 @@ public class Test {
     private int total_different_words;
     private int different_advanced_words;
     private int total_paragraphs;
+    private float words_per_sentence;
+    private float sentences_per_paragraph;
 
     //readibility scores
     private float flesch_reading_ease;
@@ -52,12 +54,20 @@ public class Test {
     private Readability rs;
     private LexicalDensity ld;
     private Lexical_Richness lr;
-    private int a1_words;
-    private int a2_words;
-    private int b1_words;
-    private int b2_words;
-    private int c1_words;
-    private int c2_words;
+    private float a1_words;
+    private float a2_words;
+    private float b1_words;
+    private float b2_words;
+    private float c1_words;
+    private float c2_words;
+    private float bigram_model_reverse;
+    private float bigram_perplexety_reverse;
+
+    //mistake stats
+    private int simple_errors;
+    private int complex_errors;
+    private float simple_errors_per_word;
+    private float complex_errors_per_word;
 
     public Test(){
         System.out.println("Entrei no test");
@@ -78,7 +88,7 @@ public class Test {
         repeated_words=ts.palavras_repetidas(texto);
         total_words=ts.countWords(texto);
         total_sentences=ts.sentences(texto);
-        System.out.println(total_sentences);
+        //System.out.println(total_sentences);
         total_syllables=ts.count_all_syllables(texto);
         complex_words=ts.count_complex_words(texto);
         letter_count=ts.letter_count(texto);
@@ -86,6 +96,8 @@ public class Test {
         common_words=lsem.common_words();
         different_advanced_words=lsem.different_advanced_words(repeated_words);
         total_paragraphs=ts.count_paragraphs(texto);
+        words_per_sentence=total_words/(float)total_sentences;
+        sentences_per_paragraph=total_sentences/(float)total_paragraphs;
 
         //Calculate all readibility scores
         flesch_kinkaid=rs.flesch_kincaid_grade_level(total_words,total_sentences,total_syllables);
@@ -100,6 +112,7 @@ public class Test {
 
         //Calculate lexical richness
         beyond_2000=lr.beyond_2000(total_words,common_words);
+        System.out.println(beyond_2000);
         advanced_ttr=lr.advanced_ttr(different_advanced_words,total_words);
         advanced_guiraud=lr.advanced_guiraud(different_advanced_words,total_words);
         ttr=lr.ttr(total_different_words,total_words);
@@ -114,16 +127,31 @@ public class Test {
 
         //language modelling
         bigram_model=lm.bigram_model_value(texto);
-        bigram_perplexety=(float) Math.pow(2,(bigram_model/total_words));
+        bigram_model_reverse=lm.bigram_model_value_reverse(texto);
+        //bigram_perplexety=(float) Math.pow(2,(-bigram_model/total_words));
+        //bigram_perplexety=(float)  nthroot(total_words,bigram_model);
+        //bigram_perplexety_reverse=(float)  nthroot(total_words,bigram_model_reverse);
+        bigram_perplexety=(float)  bigram_model/ (float) total_words;
+        bigram_perplexety_reverse=(float)  bigram_model_reverse/(float) total_words;
 
         //words per level
 
-        a1_words=lsem.a1_words();
-        a2_words=lsem.a2_words();
-        b1_words=lsem.b1_words();
-        b2_words=lsem.b2_words();
-        c1_words=lsem.c1_words();
-        c2_words=lsem.c2_words();
+        a1_words=lsem.a1_words()/ (float) total_words;
+        a2_words=lsem.a2_words()/ (float) total_words;
+        b1_words=lsem.b1_words()/ (float) total_words;
+        b2_words=lsem.b2_words()/ (float) total_words;
+        c1_words=lsem.c1_words()/ (float) total_words;
+        c2_words=lsem.c2_words()/ (float) total_words;
+
+        //mistake stats;
+
+        Mistakes_Stats ms= new Mistakes_Stats();
+        simple_errors=ms.get_simple_errors(texto);
+        complex_errors=ms.get_complex_errors(texto);
+        simple_errors_per_word=simple_errors/(float) total_words;
+        complex_errors_per_word=complex_errors/ (float) total_words;
+
+
 
 
 
@@ -163,6 +191,7 @@ public class Test {
         sb.append(';');
         sb.append(lexical_density);
         sb.append(';');
+        //System.out.println(beyond_2000);
         sb.append(beyond_2000);
         sb.append(';');
         sb.append(advanced_ttr);
@@ -202,6 +231,37 @@ public class Test {
         sb.append(c1_words);
         sb.append(';');
         sb.append(c2_words);
+        sb.append(';');
+        sb.append(bigram_model_reverse);
+        sb.append(';');
+        sb.append(bigram_perplexety_reverse);
+        sb.append(';');
+        sb.append(words_per_sentence);
+        sb.append(';');
+        sb.append(sentences_per_paragraph);
+        sb.append(';');
+        sb.append(simple_errors_per_word);
+        sb.append(';');
+        sb.append(complex_errors_per_word);
         return sb.toString();
+    }
+
+    public static double nthroot(int n, double A) {
+        return nthroot(n, A, .001);
+    }
+    public static double nthroot(int n, double A, double p) {
+        if(A < 0) {
+            System.err.println("A < 0");// we handle only real positive numbers
+            return -1;
+        } else if(A == 0) {
+            return 0;
+        }
+        double x_prev = A;
+        double x = A / n;  // starting "guessed" value...
+        while(Math.abs(x - x_prev) > p) {
+            x_prev = x;
+            x = ((n - 1.0) * x + A / Math.pow(x, n - 1.0)) / n;
+        }
+        return x;
     }
 }
