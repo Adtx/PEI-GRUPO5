@@ -29,6 +29,7 @@ public class Corrector {
     public Corrector() {
         button1.addActionListener(new OperationBtnClicked());
 
+
     }
     private static final String PARAGRAPH_SPLIT_REGEX = "\\n";
 
@@ -84,7 +85,10 @@ public class Corrector {
 
 
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e){
+
+        }
+        /*public void actionPerformed(ActionEvent e) {
 
 
             try {
@@ -170,6 +174,6 @@ public class Corrector {
                 ex.printStackTrace();
             }
 
-        }
+        }*/
     }
 }

@@ -43,11 +43,14 @@ public class Main {
         //l.bigram_model_value();
 
         //sentence_spliter(texto);
-        System.out.println("comecei");
+        /*System.out.println("comecei");
         Auto_tester t=new Auto_tester();
-        t.text_all_texts();
+        t.text_all_texts();*/
         //Mistakes_Stats ms=new Mistakes_Stats();
         //ms.give_mistakes("");
+
+        SVM_Classifier svm= new SVM_Classifier();
+        svm.train_classifier();
 
     }
 

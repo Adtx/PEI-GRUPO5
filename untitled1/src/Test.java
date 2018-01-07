@@ -150,11 +150,6 @@ public class Test {
         complex_errors=ms.get_complex_errors(texto);
         simple_errors_per_word=simple_errors/(float) total_words;
         complex_errors_per_word=complex_errors/ (float) total_words;
-
-
-
-
-
         //return new Test_Result();
     }
 

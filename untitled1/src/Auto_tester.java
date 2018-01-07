@@ -14,7 +14,9 @@ public class Auto_tester {
         Test t=new Test();
         System.out.println("iniciei test");
         PrintWriter pw = new PrintWriter(new File("test_results.csv"));
+        PrintWriter pw2 = new PrintWriter(new File("svm_format.csv"));
         StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
         sb.append("total_words");
         sb.append(';');
         sb.append("total_sentences");
