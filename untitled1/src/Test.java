@@ -45,6 +45,8 @@ public class Test {
     //language modeling
     private float bigram_model;
     private float bigram_perplexety;
+    private float bigram_model_reverse;
+    private float bigram_perplexety_reverse;
 
 
     //for better optimization
@@ -54,14 +56,15 @@ public class Test {
     private Readability rs;
     private LexicalDensity ld;
     private Lexical_Richness lr;
+
+    //level of words
     private float a1_words;
     private float a2_words;
     private float b1_words;
     private float b2_words;
     private float c1_words;
     private float c2_words;
-    private float bigram_model_reverse;
-    private float bigram_perplexety_reverse;
+
 
     //mistake stats
     private int simple_errors;
@@ -258,5 +261,185 @@ public class Test {
             x = ((n - 1.0) * x + A / Math.pow(x, n - 1.0)) / n;
         }
         return x;
+    }
+
+    public Map<String,Integer> get_repeated_words(){
+        return repeated_words;
+    }
+
+    public int get_total_words(){
+        return total_words;
+    }
+
+    public int get_total_sentences(){
+        return total_sentences;
+    }
+
+    public int get_total_syllables(){
+        return total_syllables;
+    }
+
+    public int get_complex_words(){
+        return complex_words;
+    }
+
+    public int get_letter_count(){
+        return letter_count;
+    }
+
+    public int get_common_words(){
+        return common_words;
+    }
+
+    public int get_total_different_words(){
+        return total_different_words;
+    }
+
+    public int get_different_advanced_words(){
+        return different_advanced_words;
+    }
+
+    public int get_total_paragraphs(){
+        return total_paragraphs;
+    }
+
+    public float get_words_per_sentence(){
+        return words_per_sentence;
+    }
+
+    public float get_sentences_per_paragraph(){
+        return sentences_per_paragraph;
+    }
+
+    public float get_flesh_reading_ease(){
+        return flesch_reading_ease;
+    }
+
+    public float get_flesch_kinkaid(){
+        return flesch_kinkaid;
+    }
+
+    public float get_gunning_fog(){
+        return gunning_fog;
+    }
+
+    public float get_coleman_liau(){
+        return coleman_liau;
+    }
+
+    public float get_smog_grade(){
+        return smog_grade;
+    }
+
+    public float get_automated_readibility_index(){
+        return automated_readibility_index;
+    }
+
+    public double get_lexical_density(){
+        return lexical_density;
+    }
+
+    public float get_beyond_2000(){
+        return beyond_2000;
+    }
+
+    public float get_advanced_ttr(){
+        return advanced_ttr;
+    }
+
+    public float get_advanced_guiraud(){
+        return advanced_guiraud;
+    }
+
+    public float get_ttr(){
+        return ttr;
+    }
+
+    public float get_rttr(){
+        return rttr;
+    }
+
+    public float get_cttr(){
+        return cttr;
+    }
+
+    public float get_m(){
+        return m;
+    }
+
+    public float get_h(){
+        return h;
+    }
+
+    public float get_s(){
+        return s;
+    }
+
+    public float get_u(){
+        return u;
+    }
+
+    public float get_mwf(){
+        return mwf;
+    }
+
+    public float get_r(){
+        return r;
+    }
+
+    public float get_bigram_model(){
+        return bigram_model;
+    }
+
+    public float get_bigram_perplexity(){
+        return bigram_perplexety;
+    }
+
+    public float get_bigram_model_reverse(){
+        return bigram_model_reverse;
+    }
+
+    public float get_bigram_perplexity_reverse(){
+        return bigram_perplexety_reverse;
+    }
+
+    public float get_a1_words(){
+        return a1_words;
+    }
+
+    public float get_a2_words(){
+        return a2_words;
+    }
+
+    public float get_b1_words(){
+        return b1_words;
+    }
+
+    public float get_b2_words(){
+        return b2_words;
+    }
+
+    public float get_c1_words(){
+        return c1_words;
+    }
+
+    public float get_c2_words(){
+        return c2_words;
+    }
+
+    public int get_simple_errors(){
+        return simple_errors;
+    }
+
+    public int get_complex_errors(){
+        return complex_errors;
+    }
+
+    public float get_simple_errors_per_word(){
+        return simple_errors_per_word;
+    }
+
+    public float get_complex_errors_per_word(){
+        return complex_errors_per_word;
     }
 }

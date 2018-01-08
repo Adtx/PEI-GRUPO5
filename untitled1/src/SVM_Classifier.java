@@ -15,6 +15,10 @@ public class SVM_Classifier {
     svm_problem prob;
     svm_model model;
 
+    public SVM_Classifier(){
+        train_classifier();
+    }
+
     public void train_classifier(){
         //start model with desired parameters
         setup_model();
@@ -22,9 +26,7 @@ public class SVM_Classifier {
         //load data
         load_data("test_results.csv",";");
 
-
         //prepare data
-
         prepare_data();
 
         //train the model
@@ -33,6 +35,49 @@ public class SVM_Classifier {
         //test the model
         test_model();
     }
+
+    public double predict(String teste_results,String separator){
+
+        load_for_prediction(teste_results,separator);
+
+        double result=predict();
+
+        return result;
+
+    }
+
+    private double predict(){
+        int total_features=data.get(0).length;
+        svm_node[] x_test = new svm_node[total_features];
+        double[] current_case=data.get(0);
+        int f=1;
+        for(f=0;f<total_features;f++){
+            x_test[f]= new svm_node();
+            x_test[f].index = f+1;
+            x_test[f].value = current_case[f];
+        }
+        //int level= (int) current_case[f];
+        double d = svm.svm_predict(model, x_test);
+        //System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
+        return  d;
+    }
+
+    private void load_for_prediction(String teste_results,String separator){
+        //String line = "";
+        String cvsSplitBy = separator;
+        data=new ArrayList<>();
+        //System.out.println(line);
+        // use ; as separator
+        String[] values = teste_results.split(cvsSplitBy);
+
+        double[] doubleValues = Arrays.stream(values)
+                .mapToDouble(Double::parseDouble)
+                .toArray();
+
+        data.add(doubleValues);
+    }
+
+
 
     private void test_model(){
         //currently it is testing with training data, when we have more data adapt in order to train with other type of data
@@ -133,7 +178,7 @@ public class SVM_Classifier {
             }
         }
 
-        }
+    }
 
     public void test(){
         svm_parameter param = new svm_parameter();

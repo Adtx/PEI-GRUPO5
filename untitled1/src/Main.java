@@ -25,12 +25,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        /*JFrame frame = new JFrame("Corrector");
+        JFrame frame = new JFrame("Corrector");
         frame.setContentPane(new Corrector().Panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();*/
+        frame.pack();
 
-        /*frame.setVisible(true);
+        frame.setVisible(true);
         /*String texto = "Exeter has a comprehensive selection of sports and leisure facilities . These include sports centres , running tracks , indoor bowling greens , a golf course and a driving range as well as swimming pools , sports pitches and an artificial turf pitch . Tennis courts are available in many of the public  parks , and are free to use . \n" +
                 "The main swimming pool in Exeter has recently been renovated and is now very attractive . A fitness centre and sauna are also available . There is an open-air swimming pool for use in the summer months . \n" +
                 "The local countryside provides the perfect opportunity for horse-riding , which needs to be booked in advance . There are many lovely walks on the nearby hills .\n" +
@@ -49,8 +49,8 @@ public class Main {
         //Mistakes_Stats ms=new Mistakes_Stats();
         //ms.give_mistakes("");
 
-        SVM_Classifier svm= new SVM_Classifier();
-        svm.train_classifier();
+        //SVM_Classifier svm= new SVM_Classifier();
+        //svm.train_classifier();
 
     }
 
