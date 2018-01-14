@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <title>Line Chart - Cubic interpolation mode</title>
+    <script src="Chart.min.js"></script>
+</head>
+
+<body>
+    <div style="width:50%;">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+
+    var check = function(value, index, values) {
+                    var level = ''
+                    switch(value) {
+                        case 1:
+                            level = 'A1'
+                            break;
+                        case 2:
+                            level = 'A2'
+                            break;
+                        case 3:
+                            level = 'B1'
+                            break;
+                        case 4:
+                            level = 'B2'
+                            break;
+                        case 5:
+                            level = 'C1'
+                            break;
+                        case 6:
+                            level = 'C2'
+                            break;
+                        default:
+                            break;
+                    }
+                    return level;
+                }
+
+    var levelColor = function(value) {
+                    var color = ''
+                    switch(value) {
+                        case 1:
+                            color = 'rgba(255, 0, 0, 0.1)'
+                            break;
+                        case 2:
+                            color = 'rgba(255, 0, 0, 0.3)'
+                            break;
+                        case 3:
+                            color = 'rgba(255, 0, 0, 0.5)'
+                            break;
+                        case 4:
+                            color = 'rgba(255, 0, 0, 0.7)'
+                            break;
+                        case 5:
+                            color = 'rgba(255, 0, 0, 0.8)'
+                            break;
+                        case 6:
+                            color = 'rgba(255, 0, 0, 0.9)'
+                            break;
+                        default:
+                            break;
+                    }
+                    return color;
+                }
+
+    var data = [1,2,3,4,5,6];
+    var colors = Array.from(data, x => levelColor(x));
+
+
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+            datasets: [{
+                data: data,
+                label: ["A", "B"],
+                backgroundColor: colors,
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        callback: check   
+                    },
+                    position: 'left'
+                }]
+            },
+            legend: {
+                display: true,
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
