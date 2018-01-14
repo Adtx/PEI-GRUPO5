@@ -17,6 +17,24 @@ public class SVM_Classifier {
 
     public SVM_Classifier(){
         train_classifier();
+        save_model("svm_classifier");
+    }
+
+    public SVM_Classifier(String model_name){
+        try {
+            model=svm.svm_load_model(model_name);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save_model(String name){
+        try {
+            svm.svm_save_model(name, model);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //svm.svm_save_model();
     }
 
     public void train_classifier(){

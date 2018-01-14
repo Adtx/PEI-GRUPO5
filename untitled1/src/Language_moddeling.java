@@ -64,7 +64,6 @@ public class Language_moddeling {
             for (int i = 0; i < words.length - 1; i++) {
                 String first = words[i];
                 String second = words[i + 1];
-                //System.out.println(first+"         "+ second);
                 variables.putScalar("$model", SleepUtils.getScalar(bigram_model));
                 variables.putScalar("$word1", SleepUtils.getScalar(first));
                 variables.putScalar("$word2", SleepUtils.getScalar(second));
@@ -72,7 +71,7 @@ public class Language_moddeling {
                 Scalar value = variables.getScalar("$res");
                 res += value.doubleValue();
             }
-            System.out.println("LM res=" +res);
+
         }
     return res;
      }
@@ -98,7 +97,6 @@ public class Language_moddeling {
             for (int i = 0; i < words.length - 1; i++) {
                 String first = words[i];
                 String second = words[i + 1];
-                //System.out.println(first+"         "+ second);
                 variables.putScalar("$model", SleepUtils.getScalar(bigram_model));
                 variables.putScalar("$word1", SleepUtils.getScalar(first));
                 variables.putScalar("$word2", SleepUtils.getScalar(second));
@@ -107,7 +105,6 @@ public class Language_moddeling {
                     res += value.doubleValue();
 
             }
-            System.out.println("LM res rev=" +res);
         }
         return res;
     }
@@ -133,25 +130,19 @@ public class Language_moddeling {
         ScriptVariables variables = script.getScriptVariables();
         //for(String s:sentences) {
         s = remove_punctuation(s);
-        System.out.println(s);
         String[] words = s.split("\\s");
         for (int i = 0; i < words.length - 1; i++) {
             String first = words[i];
             String second = words[i + 1];
-            //System.out.println(first+"         "+ second);
             variables.putScalar("$model", SleepUtils.getScalar(bigram_model));
             variables.putScalar("$word1", SleepUtils.getScalar(first));
             variables.putScalar("$word2", SleepUtils.getScalar(second));
             script.runScript();
             Scalar value = variables.getScalar("$res");
             Scalar value2 = variables.getScalar("$res2");
-            System.out.println(value);
-            System.out.println(value2);
             res += value.doubleValue();
-            //System.out.println(res);
             }
             //}
-        System.out.println(res);
             return res;
         }
 
@@ -165,7 +156,6 @@ public class Language_moddeling {
              end != BreakIterator.DONE;
              start = end, end = iterator.next()) {
             sentences.add(source.substring(start, end));
-            //System.out.println(source.substring(start, end));
         }
     }
 

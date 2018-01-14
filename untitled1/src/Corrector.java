@@ -27,12 +27,17 @@ public class Corrector {
     private JTextPane textPane1;
     private JComboBox comboBox1;
     private Test tester;
-    private SVM_Classifier classifier;
+    private SVM_Classifier svm_classifier;
+    private KNN knn_classifier;
 
     public Corrector() {
         button1.addActionListener(new OperationBtnClicked());
         tester=new Test();
-        classifier=new SVM_Classifier();
+        svm_classifier=new SVM_Classifier("svm_classifier");
+        //knn_classifier=new KNN("knn_arf");
+        knn_classifier=new KNN();
+        knn_classifier.train_model();
+
     }
     private static final String PARAGRAPH_SPLIT_REGEX = "\\n";
 
@@ -97,26 +102,49 @@ public class Corrector {
             }
             String test_result=tester.print_test();
             System.out.println(test_result);
-            double test_grade=classifier.predict(test_result,";");
-            if(test_grade==1){
-                System.out.println("CEFR level: A1");
+            double svm_test_grade=svm_classifier.predict(test_result,";");
+            double knn_test_grade= knn_classifier.predict(test_result,";");
+
+            //svm test grade
+            if(svm_test_grade==1){
+                System.out.println("SVM CEFR level: A1");
             }
-            if(test_grade==2){
-                System.out.println("CEFR level: A2");
+            if(svm_test_grade==2){
+                System.out.println("SVM CEFR level: A2");
             }
-            if(test_grade==3){
-                System.out.println("CEFR level: B1");
+            if(svm_test_grade==3){
+                System.out.println("SVM CEFR level: B1");
             }
-            if(test_grade==4){
-                System.out.println("CEFR level: B2");
+            if(svm_test_grade==4){
+                System.out.println("SVM CEFR level: B2");
             }
-            if(test_grade==5){
-                System.out.println("CEFR level: C1");
+            if(svm_test_grade==5){
+                System.out.println("SVM CEFR level: C1");
             }
-            if(test_grade==6){
-                System.out.println("CEFR level: C2");
+            if(svm_test_grade==6){
+                System.out.println("SVM CEFR level: C2");
             }
-            System.out.println("Number of words: "+tester.get_total_words());
+
+            //KNN grade
+            if(knn_test_grade==1){
+                System.out.println("KNN CEFR level: A1");
+            }
+            if(knn_test_grade==2){
+                System.out.println("KNN CEFR level: A2");
+            }
+            if(knn_test_grade==3){
+                System.out.println("KNN CEFR level: B1");
+            }
+            if(knn_test_grade==4){
+                System.out.println("KNN CEFR level: B2");
+            }
+            if(knn_test_grade==5){
+                System.out.println("KNN CEFR level: C1");
+            }
+            if(knn_test_grade==6){
+                System.out.println("KNN CEFR level: C2");
+            }
+            /*System.out.println("Number of words: "+tester.get_total_words());
             System.out.println("Number of sentences: "+ tester.get_total_sentences());
             System.out.println("Number of syllables: "+tester.get_total_syllables());
             System.out.println("Number of complex words: "+tester.get_complex_words());
@@ -159,7 +187,7 @@ public class Corrector {
             System.out.println("Number of simple errors: "+tester.get_simple_errors());
             System.out.println("Number of complex errors: "+tester.get_complex_errors());
             System.out.println("Simple errors per word: "+tester.get_simple_errors_per_word());
-            System.out.println("Comple errors per word: "+tester.get_complex_errors_per_word());
+            System.out.println("Comple errors per word: "+tester.get_complex_errors_per_word());*/
 
 
         }

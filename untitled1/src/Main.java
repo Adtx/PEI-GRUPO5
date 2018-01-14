@@ -29,13 +29,21 @@ public class Main {
         frame.setContentPane(new Corrector().Panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-
         frame.setVisible(true);
         /*String texto = "Exeter has a comprehensive selection of sports and leisure facilities . These include sports centres , running tracks , indoor bowling greens , a golf course and a driving range as well as swimming pools , sports pitches and an artificial turf pitch . Tennis courts are available in many of the public  parks , and are free to use . \n" +
                 "The main swimming pool in Exeter has recently been renovated and is now very attractive . A fitness centre and sauna are also available . There is an open-air swimming pool for use in the summer months . \n" +
                 "The local countryside provides the perfect opportunity for horse-riding , which needs to be booked in advance . There are many lovely walks on the nearby hills .\n" +
                 "Cycling in Exeter is popular both as a recreational activity and as a convenient way of getting to work or the shops .\n";
-        */
+Man I hope this works, otherwise im screwed.
+But it is going to work.
+Because I believe in it.
+        Test tester=new Test();
+        tester.run_test(texto);
+        String results=tester.print_test();
+        KNN knn = new KNN();
+        knn.train_model();
+        double result= knn.predict(results,";");
+        System.out.println("KNN: " + result);
         //String texto2="to be";
 
         //Language_moddeling l= new Language_moddeling(texto);
