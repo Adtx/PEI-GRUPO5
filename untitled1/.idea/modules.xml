@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/dl4j-examples/dl4j-examples.iml" filepath="$PROJECT_DIR$/dl4j-examples/dl4j-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled1.iml" filepath="$PROJECT_DIR$/untitled1.iml" />
     </modules>
   </component>
