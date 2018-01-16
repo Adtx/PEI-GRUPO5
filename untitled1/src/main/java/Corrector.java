@@ -29,6 +29,7 @@ public class Corrector {
     private Test tester;
     private SVM_Classifier svm_classifier;
     private KNN knn_classifier;
+    private NeuralNet nn_classifier;
 
     public Corrector() {
         button1.addActionListener(new OperationBtnClicked());
@@ -37,6 +38,7 @@ public class Corrector {
         //knn_classifier=new KNN("knn_arf");
         knn_classifier=new KNN();
         knn_classifier.train_model();
+        nn_classifier=new NeuralNet("MyMultiLayerNetwork.zip");
 
     }
     private static final String PARAGRAPH_SPLIT_REGEX = "\\n";
@@ -104,6 +106,7 @@ public class Corrector {
             System.out.println(test_result);
             double svm_test_grade=svm_classifier.predict(test_result,";");
             double knn_test_grade= knn_classifier.predict(test_result,";");
+            double nn_test_grade=nn_classifier.predict(test_result,";");
 
             //svm test grade
             if(svm_test_grade==1){
@@ -144,6 +147,27 @@ public class Corrector {
             if(knn_test_grade==6){
                 System.out.println("KNN CEFR level: C2");
             }
+
+            //Neural Net Grade
+            if(nn_test_grade==1){
+                System.out.println("NN CEFR level: A1");
+            }
+            if(nn_test_grade==2){
+                System.out.println("NN CEFR level: A2");
+            }
+            if(nn_test_grade==3){
+                System.out.println("NN CEFR level: B1");
+            }
+            if(nn_test_grade==4){
+                System.out.println("NN CEFR level: B2");
+            }
+            if(nn_test_grade==5){
+                System.out.println("NN CEFR level: C1");
+            }
+            if(nn_test_grade==6){
+                System.out.println("NN CEFR level: C2");
+            }
+
             /*System.out.println("Number of words: "+tester.get_total_words());
             System.out.println("Number of sentences: "+ tester.get_total_sentences());
             System.out.println("Number of syllables: "+tester.get_total_syllables());

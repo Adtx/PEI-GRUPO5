@@ -14,9 +14,10 @@ public class Auto_tester {
         Test t=new Test();
         System.out.println("iniciei test");
         PrintWriter pw = new PrintWriter(new File("test_results.csv"));
-        PrintWriter pw2 = new PrintWriter(new File("svm_format.csv"));
+        PrintWriter pw2 = new PrintWriter(new File("test_results_neural_net.csv"));
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
+        //FILE FOR EVERYONE
         sb.append("total_words");
         sb.append(';');
         sb.append("total_sentences");
@@ -102,40 +103,140 @@ public class Auto_tester {
         sb.append("level");
         sb.append('\n');
 
+        //FILE FOR NEURAL NET
+        sb2.append("level");
+        sb2.append(';');
+        sb2.append("total_words");
+        sb2.append(';');
+        sb2.append("total_sentences");
+        sb2.append(';');
+        sb2.append("total_syllables");
+        sb2.append(';');
+        sb2.append("complex_words");
+        sb2.append(';');
+        sb2.append("letter_count");
+        sb2.append(';');
+        sb2.append("common_words");
+        sb2.append(';');
+        sb2.append("total_different_words");
+        sb2.append(';');
+        sb2.append("different_advanced_words");
+        sb2.append(';');
+        sb2.append("flesch_reading_ease");
+        sb2.append(';');
+        sb2.append("flesch_kinkaid");
+        sb2.append(';');
+        sb2.append("gunning_fog");
+        sb2.append(';');
+        sb2.append("coleman_liau");
+        sb2.append(';');
+        sb2.append("smog_grade");
+        sb2.append(';');
+        sb2.append("automated_readibility_index");
+        sb2.append(';');
+        sb2.append("lexical_density");
+        sb2.append(';');
+        sb2.append("beyond_2000");
+        sb2.append(';');
+        sb2.append("advanced_ttr");
+        sb2.append(';');
+        sb2.append("advanced_guiraud");
+        sb2.append(';');
+        sb2.append("ttr");
+        sb2.append(';');
+        sb2.append("rttr");
+        sb2.append(';');
+        sb2.append("cttr");
+        sb2.append(';');
+        sb2.append("m");
+        sb2.append(';');
+        sb2.append("h");
+        sb2.append(';');
+        sb2.append("s");
+        sb2.append(';');
+        sb2.append("u");
+        sb2.append(';');
+        sb2.append("mwf");
+        sb2.append(';');
+        sb2.append("r");
+        sb2.append(';');
+        sb2.append("bigram_model");
+        sb2.append(';');
+        sb2.append("bigram_perplexety");
+        sb2.append(';');
+        sb2.append("a1_words");
+        sb2.append(';');
+        sb2.append("a2_words");
+        sb2.append(';');
+        sb2.append("b1_words");
+        sb2.append(';');
+        sb2.append("b2_words");
+        sb2.append(';');
+        sb2.append("c1_words");
+        sb2.append(';');
+        sb2.append("c2_words");
+        sb2.append(';');
+        sb2.append("bigram_model_reverse");
+        sb2.append(';');
+        sb2.append("bigram_perplexety_reverse");
+        sb2.append(';');
+        sb2.append("words_per_sentence");
+        sb2.append(';');
+        sb2.append("sentences_per_paragraph");
+        sb2.append(';');
+        sb2.append("simple_errors_per_word");
+        sb2.append(';');
+        sb2.append("complex_errors_per_word");
+        sb2.append('\n');
+
         for(String s:a1){
             t.run_test(s);
+            sb2.append("1;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";1\n");
         }
         for(String s:a2){
             //System.out.println("New test");
             t.run_test(s);
+            sb2.append("2;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";2\n");
         }
         for(String s:b1){
             t.run_test(s);
+            sb2.append("3;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";3\n");
         }
         for(String s:b2){
             t.run_test(s);
+            sb2.append("4;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";4\n");
         }
         for(String s:c1){
             t.run_test(s);
+            sb2.append("5;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";5\n");
         }
         for(String s:c2){
             t.run_test(s);
+            sb2.append("6;");
+            sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";6\n");
         }
 
         pw.write(sb.toString());
         pw.close();
+        pw2.write(sb2.toString());
+        pw2.close();
         System.out.println("done!");
     }
 

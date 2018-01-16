@@ -13,6 +13,7 @@ import org.deeplearning4j.nn.conf.layers.OutputLayer;
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
+import org.deeplearning4j.util.ModelSerializer;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.DataSet;
@@ -21,140 +22,183 @@ import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class NeuralNet {
 
+    List<double[]> data;
+    MultiLayerNetwork model;
 
+    public NeuralNet(){
+    }
 
-
-    /**
-     * "Linear" Data Classification Example
-     *
-     * Based on the data from Jason Baldridge:
-     * https://github.com/jasonbaldridge/try-tf/tree/master/simdata
-     *
-     * @author Josh Patterson
-     * @author Alex Black (added plots)
-     *
-     */
-    public class MLPClassifierLinear {
-
-
-        public void main(String[] args) throws Exception {
-            int seed = 123;
-            double learningRate = 0.01;
-            int batchSize = 50;
-            int nEpochs = 30;
-
-            int numInputs = 2;
-            int numOutputs = 2;
-            int numHiddenNodes = 20;
-
-            final String filenameTrain  = new ClassPathResource("/classification/linear_data_train.csv").getFile().getPath();
-            final String filenameTest  = new ClassPathResource("/classification/linear_data_eval.csv").getFile().getPath();
-
-            //Load the training data:
-            RecordReader rr = new CSVRecordReader();
-//        rr.initialize(new FileSplit(new File("src/main/resources/classification/linear_data_train.csv")));
-            rr.initialize(new FileSplit(new File(filenameTrain)));
-            DataSetIterator trainIter = new RecordReaderDataSetIterator(rr,batchSize,0,2);
-
-            //Load the test/evaluation data:
-            RecordReader rrTest = new CSVRecordReader();
-            rrTest.initialize(new FileSplit(new File(filenameTest)));
-            DataSetIterator testIter = new RecordReaderDataSetIterator(rrTest,batchSize,0,2);
-
-            MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-                    .seed(seed)
-                    .iterations(1)
-                    .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
-                    .learningRate(learningRate)
-                    .updater(Updater.NESTEROVS)     //To configure: .updater(new Nesterovs(0.9))
-                    .list()
-                    .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
-                            .weightInit(WeightInit.XAVIER)
-                            .activation(Activation.RELU)
-                            .build())
-                    .layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
-                            .weightInit(WeightInit.XAVIER)
-                            .activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER)
-                            .nIn(numHiddenNodes).nOut(numOutputs).build())
-                    .pretrain(false).backprop(true).build();
-
-
-            MultiLayerNetwork model = new MultiLayerNetwork(conf);
-            model.init();
-            model.setListeners(new ScoreIterationListener(10));  //Print score every 10 parameter updates
-
-
-            for ( int n = 0; n < nEpochs; n++) {
-                model.fit( trainIter );
-            }
-
-            System.out.println("Evaluate model....");
-            Evaluation eval = new Evaluation(numOutputs);
-            while(testIter.hasNext()){
-                DataSet t = testIter.next();
-                INDArray features = t.getFeatureMatrix();
-                INDArray lables = t.getLabels();
-                INDArray predicted = model.output(features,false);
-
-                eval.eval(lables, predicted);
-
-            }
-
-            //Print the evaluation statistics
-            System.out.println(eval.stats());
-
-
-            //------------------------------------------------------------------------------------
-            //Training is complete. Code that follows is for plotting the data & predictions only
-
-            //Plot the data:
-            double xMin = 0;
-            double xMax = 1.0;
-            double yMin = -0.2;
-            double yMax = 0.8;
-
-            //Let's evaluate the predictions at every point in the x/y input space
-            int nPointsPerAxis = 100;
-            double[][] evalPoints = new double[nPointsPerAxis*nPointsPerAxis][2];
-            int count = 0;
-            for( int i=0; i<nPointsPerAxis; i++ ){
-                for( int j=0; j<nPointsPerAxis; j++ ){
-                    double x = i * (xMax-xMin)/(nPointsPerAxis-1) + xMin;
-                    double y = j * (yMax-yMin)/(nPointsPerAxis-1) + yMin;
-
-                    evalPoints[count][0] = x;
-                    evalPoints[count][1] = y;
-
-                    count++;
-                }
-            }
-
-            INDArray allXYPoints = Nd4j.create(evalPoints);
-            INDArray predictionsAtXYPoints = model.output(allXYPoints);
-
-            //Get all of the training data in a single array, and plot it:
-            rr.initialize(new FileSplit(new ClassPathResource("/classification/linear_data_train.csv").getFile()));
-            rr.reset();
-            int nTrainPoints = 1000;
-            trainIter = new RecordReaderDataSetIterator(rr,nTrainPoints,0,2);
-            DataSet ds = trainIter.next();
-            //PlotUtil.plotTrainingData(ds.getFeatures(), ds.getLabels(), allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
-
-
-            //Get test data, run the test data through the network to generate predictions, and plot those predictions:
-            rrTest.initialize(new FileSplit(new ClassPathResource("/classification/linear_data_eval.csv").getFile()));
-            rrTest.reset();
-            int nTestPoints = 500;
-            testIter = new RecordReaderDataSetIterator(rrTest,nTestPoints,0,2);
-            ds = testIter.next();
-            INDArray testPredicted = model.output(ds.getFeatures());
-            //PlotUtil.plotTestData(ds.getFeatures(), ds.getLabels(), testPredicted, allXYPoints, predictionsAtXYPoints, nPointsPerAxis);
-
-            System.out.println("****************Example finished********************");
+    public NeuralNet(String model_file){
+        try {
+            model = ModelSerializer.restoreMultiLayerNetwork(model_file);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    public void train_neural_net(){
+        int seed = 123;
+        double learningRate = 0.01;
+        int batchSize = 50;
+        int nEpochs = 30;
+
+        //need to be changed manually in case of change to the train/test file
+        int numInputs = 41;
+        int numOutputs = 6;
+        int numHiddenNodes = 20;
+
+        String filenameTrain="test_results_neural_net.csv";
+        String filenameTest="test_results_neural_net.csv";
+        /*
+        try {
+            filenameTrain = new ClassPathResource("test_results_neural_net.csv").getFile().getPath();
+            filenameTest  = new ClassPathResource("test_results_neural_net.csv").getFile().getPath();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        */
+
+        //Load the training data:
+        RecordReader rr = new CSVRecordReader(1,";");
+        //rr.initialize(new FileSplit(new File(filenameTrain)));
+        try {
+            rr.initialize(new FileSplit(new File(filenameTrain)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        DataSetIterator trainIter = new RecordReaderDataSetIterator(rr,batchSize,0,6);
+
+        //Load the test/evaluation data:
+        RecordReader rrTest = new CSVRecordReader(1,";");
+        try {
+            rrTest.initialize(new FileSplit(new File(filenameTest)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        DataSetIterator testIter = new RecordReaderDataSetIterator(rrTest,batchSize,0,6);
+
+        MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
+                .seed(seed)
+                .iterations(1)
+                .optimizationAlgo(OptimizationAlgorithm.STOCHASTIC_GRADIENT_DESCENT)
+                .learningRate(learningRate)
+                .updater(Updater.NESTEROVS)     //To configure: .updater(new Nesterovs(0.9))
+                .list()
+                .layer(0, new DenseLayer.Builder().nIn(numInputs).nOut(numHiddenNodes)
+                        .weightInit(WeightInit.XAVIER)
+                        .activation(Activation.RELU)
+                        .build())
+                .layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
+                        .weightInit(WeightInit.XAVIER)
+                        .activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER)
+                        .nIn(numHiddenNodes).nOut(numOutputs).build())
+                .pretrain(false).backprop(true).build();
+
+
+        model = new MultiLayerNetwork(conf);
+        model.init();
+        model.setListeners(new ScoreIterationListener(10));  //Print score every 10 parameter updates
+
+
+        for ( int n = 0; n < nEpochs; n++) {
+            model.fit( trainIter );
+        }
+
+        System.out.println("Evaluate model....");
+        Evaluation eval = new Evaluation(numOutputs);
+        while(testIter.hasNext()){
+            DataSet t = testIter.next();
+            INDArray features = t.getFeatureMatrix();
+            INDArray lables = t.getLabels();
+            INDArray predicted = model.output(features,false);
+
+            eval.eval(lables, predicted);
+
+        }
+
+        //Print the evaluation statistics
+        System.out.println(eval.stats());
+
+        //Save the model
+        File locationToSave = new File("MyMultiLayerNetwork.zip");      //Where to save the network. Note: the file is in .zip format - can be opened externally
+        boolean saveUpdater = true;                                             //Updater: i.e., the state for Momentum, RMSProp, Adagrad etc. Save this if you want to train your network more in the future
+        try {
+            ModelSerializer.writeModel(model, locationToSave, saveUpdater);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //------------------------------------------------------------------------------------
+    //Training is complete. Code that follows is for plotting the data & predictions only
+
+
+    public double predict(String teste_results,String separator){
+        load_for_prediction(teste_results,separator);
+
+        double res=predict();
+
+        return res;
+    }
+
+    private double predict(){
+        double res=100;
+
+        double[] d=data.get(0);
+        double[][] evalPoints = new double[1][d.length];
+        for( int i=0; i<d.length; i++ ){
+            evalPoints[0][i] = d[i];
+        }
+
+        INDArray allXYPoints = Nd4j.create(evalPoints);
+        //System.out.println(allXYPoints.getFeatureMatrix());
+        //INDArray lables = t.getLabels();
+        //INDArray predicted = model.output(features,false););
+        //if(allXYPoints==null){
+
+        //}
+        INDArray predictionsAtXYPoints = model.output(allXYPoints);
+        int[] predictions=model.predict(allXYPoints);
+        //int[] predict = model.predict(convert);
+
+        res=predictions[0];
+
+        //System.out.println(predictionsAtXYPoints);
+
+        //res=predictionsAtXYPoints.getDouble(0,0);
+
+        //System.out.println(res);
+
+//get the value from INDArray
+
+        return res;
+    }
+
+    private void load_for_prediction(String teste_results, String separator) {
+        String cvsSplitBy = separator;
+        data=new ArrayList<>();
+        //System.out.println(line);
+        // use ; as separator
+        String[] values = teste_results.split(cvsSplitBy);
+
+        double[] doubleValues = Arrays.stream(values)
+                .mapToDouble(Double::parseDouble)
+                .toArray();
+
+        data.add(doubleValues);
     }
 }
