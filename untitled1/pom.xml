@@ -13,6 +13,7 @@
 
     <name>DeepLearning4j Examples</name>
 
+
     <repositories>
         <repository>
             <id>snapshots-repo</id>
@@ -41,6 +42,7 @@
 
     <dependencyManagement>
         <dependencies>
+
             <dependency>
                 <groupId>org.nd4j</groupId>
                 <artifactId>nd4j-native-platform</artifactId>
@@ -230,5 +232,7 @@
             </dependencies>
         </profile>
     </profiles>
+
+
 
 </project>

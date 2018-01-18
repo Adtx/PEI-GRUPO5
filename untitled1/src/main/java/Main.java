@@ -32,6 +32,7 @@ public class Main {
         frame.setVisible(true);
 
         //run_all_tests();
+
         //train_all_classifiers();
 
 

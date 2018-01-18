@@ -48,13 +48,13 @@ public class NeuralNet {
     public void train_neural_net(){
         int seed = 123;
         double learningRate = 0.01;
-        int batchSize = 50;
-        int nEpochs = 30;
+        int batchSize = 5;
+        int nEpochs = 500;
 
         //need to be changed manually in case of change to the train/test file
         int numInputs = 41;
         int numOutputs = 6;
-        int numHiddenNodes = 20;
+        int numHiddenNodes = 60;
 
         String filenameTrain="test_results_neural_net.csv";
         String filenameTest="test_results_neural_net.csv";
@@ -110,7 +110,7 @@ public class NeuralNet {
 
         model = new MultiLayerNetwork(conf);
         model.init();
-        model.setListeners(new ScoreIterationListener(10));  //Print score every 10 parameter updates
+        model.setListeners(new ScoreIterationListener(1));  //Print score every 10 parameter updates
 
 
         for ( int n = 0; n < nEpochs; n++) {

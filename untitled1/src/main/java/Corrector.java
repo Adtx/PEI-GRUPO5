@@ -110,61 +110,79 @@ public class Corrector {
 
             //svm test grade
             if(svm_test_grade==1){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: A1\n");
                 System.out.println("SVM CEFR level: A1");
             }
             if(svm_test_grade==2){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: A2\n");
                 System.out.println("SVM CEFR level: A2");
             }
             if(svm_test_grade==3){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: B1\n");
                 System.out.println("SVM CEFR level: B1");
             }
             if(svm_test_grade==4){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: B2\n");
                 System.out.println("SVM CEFR level: B2");
             }
             if(svm_test_grade==5){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: C1\n");
                 System.out.println("SVM CEFR level: C1");
             }
             if(svm_test_grade==6){
+                textPane1.setText(textPane1.getText()+"SVM CEFR level: C2\n");
                 System.out.println("SVM CEFR level: C2");
             }
 
             //KNN grade
             if(knn_test_grade==1){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: A1\n");
                 System.out.println("KNN CEFR level: A1");
             }
             if(knn_test_grade==2){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: A2\n");
                 System.out.println("KNN CEFR level: A2");
             }
             if(knn_test_grade==3){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: B1\n");
                 System.out.println("KNN CEFR level: B1");
             }
             if(knn_test_grade==4){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: B2\n");
                 System.out.println("KNN CEFR level: B2");
             }
             if(knn_test_grade==5){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: C1\n");
                 System.out.println("KNN CEFR level: C1");
             }
             if(knn_test_grade==6){
+                textPane1.setText(textPane1.getText()+"KNN CEFR level: C2\n");
                 System.out.println("KNN CEFR level: C2");
             }
 
             //Neural Net Grade
             if(nn_test_grade==1){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: A1\n");
                 System.out.println("NN CEFR level: A1");
             }
             if(nn_test_grade==2){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: A2\n");
                 System.out.println("NN CEFR level: A2");
             }
             if(nn_test_grade==3){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: B1\n");
                 System.out.println("NN CEFR level: B1");
             }
             if(nn_test_grade==4){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: B2\n");
                 System.out.println("NN CEFR level: B2");
             }
             if(nn_test_grade==5){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: C1\n");
                 System.out.println("NN CEFR level: C1");
             }
             if(nn_test_grade==6){
+                textPane1.setText(textPane1.getText()+"NN CEFR level: C2\n");
                 System.out.println("NN CEFR level: C2");
             }
 
