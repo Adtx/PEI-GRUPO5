@@ -96,6 +96,7 @@ public class Corrector {
 
         @Override
         public void actionPerformed(ActionEvent e){
+            textPane1.setText("");
             String s = textArea1.getText();
             try {
                 tester.run_test(s);

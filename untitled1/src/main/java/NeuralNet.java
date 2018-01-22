@@ -56,7 +56,7 @@ public class NeuralNet {
         int numOutputs = 6;
         int numHiddenNodes = 60;
 
-        String filenameTrain="test_results_neural_net.csv";
+        String filenameTrain="train_results_neural_net.csv";
         String filenameTest="test_results_neural_net.csv";
         /*
         try {

@@ -73,7 +73,6 @@ public class Test {
     private float complex_errors_per_word;
 
     public Test(){
-        System.out.println("Entrei no test");
         lm=new Language_moddeling();
         ts=new Text_stats();
         lsem= new StanfordLemmatizer();
@@ -91,7 +90,7 @@ public class Test {
         repeated_words=ts.palavras_repetidas(texto);
         total_words=ts.countWords(texto);
         total_sentences=ts.sentences(texto);
-        //System.out.println(total_sentences);
+
         total_syllables=ts.count_all_syllables(texto);
         complex_words=ts.count_complex_words(texto);
         letter_count=ts.letter_count(texto);
@@ -115,7 +114,6 @@ public class Test {
 
         //Calculate lexical richness
         beyond_2000=lr.beyond_2000(total_words,common_words);
-        System.out.println(beyond_2000);
         advanced_ttr=lr.advanced_ttr(different_advanced_words,total_words);
         advanced_guiraud=lr.advanced_guiraud(different_advanced_words,total_words);
         ttr=lr.ttr(total_different_words,total_words);
@@ -134,25 +132,25 @@ public class Test {
         //bigram_perplexety=(float) Math.pow(2,(-bigram_model/total_words));
         //bigram_perplexety=(float)  nthroot(total_words,bigram_model);
         //bigram_perplexety_reverse=(float)  nthroot(total_words,bigram_model_reverse);
-        bigram_perplexety=(float)  bigram_model/ (float) total_words;
-        bigram_perplexety_reverse=(float)  bigram_model_reverse/(float) total_words;
+        bigram_perplexety=(float)  bigram_model;
+        bigram_perplexety_reverse=(float)  bigram_model_reverse;
 
         //words per level
 
-        a1_words=lsem.a1_words()/ (float) total_words;
-        a2_words=lsem.a2_words()/ (float) total_words;
-        b1_words=lsem.b1_words()/ (float) total_words;
-        b2_words=lsem.b2_words()/ (float) total_words;
-        c1_words=lsem.c1_words()/ (float) total_words;
-        c2_words=lsem.c2_words()/ (float) total_words;
+        a1_words=lsem.a1_words();
+        a2_words=lsem.a2_words();
+        b1_words=lsem.b1_words();
+        b2_words=lsem.b2_words();
+        c1_words=lsem.c1_words();
+        c2_words=lsem.c2_words();
 
         //mistake stats;
 
         Mistakes_Stats ms= new Mistakes_Stats();
         simple_errors=ms.get_simple_errors(texto);
         complex_errors=ms.get_complex_errors(texto);
-        simple_errors_per_word=simple_errors/(float) total_words;
-        complex_errors_per_word=complex_errors/ (float) total_words;
+        simple_errors_per_word=simple_errors;
+        complex_errors_per_word=complex_errors;
         //return new Test_Result();
     }
 
@@ -189,7 +187,6 @@ public class Test {
         sb.append(';');
         sb.append(lexical_density);
         sb.append(';');
-        //System.out.println(beyond_2000);
         sb.append(beyond_2000);
         sb.append(';');
         sb.append(advanced_ttr);

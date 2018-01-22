@@ -25,13 +25,12 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        JFrame frame = new JFrame("Corrector");
+        /*JFrame frame = new JFrame("Corrector");
         frame.setContentPane(new Corrector().Panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);
-
-        //run_all_tests();
+        frame.setVisible(true);*/
+        update_train_dataset();
 
         //train_all_classifiers();
 
@@ -39,20 +38,33 @@ public class Main {
 
     }
 
-    private static void run_all_tests(){
+    private static void update_train_dataset(){
         Auto_tester t=new Auto_tester();
         try {
-            t.text_all_texts();
+            t.train_texts();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private static void update_test_dataset(){
+        Auto_tester t=new Auto_tester();
+        try {
+            t.test_texts();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void train_all_classifiers(){
         SVM_Classifier svm= new SVM_Classifier();
         svm.train_classifier();
         NeuralNet nn=new NeuralNet();
         nn.train_neural_net();
+        //KNN knn_classifier=new KNN();
+        //knn_classifier.test_model();
+
     }
 
 

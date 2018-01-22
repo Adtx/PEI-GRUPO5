@@ -42,7 +42,7 @@ public class SVM_Classifier {
         setup_model();
 
         //load data
-        load_data("test_results.csv",";");
+        load_data("train_results.csv",";");
 
         //prepare data
         prepare_data();
@@ -76,7 +76,7 @@ public class SVM_Classifier {
         }
         //int level= (int) current_case[f];
         double d = svm.svm_predict(model, x_test);
-        //System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
+
         return  d;
     }
 
@@ -84,7 +84,6 @@ public class SVM_Classifier {
         //String line = "";
         String cvsSplitBy = separator;
         data=new ArrayList<>();
-        //System.out.println(line);
         // use ; as separator
         String[] values = teste_results.split(cvsSplitBy);
 
@@ -99,8 +98,9 @@ public class SVM_Classifier {
 
     private void test_model(){
         //currently it is testing with training data, when we have more data adapt in order to train with other type of data
+        load_data("test_results.csv",";");
         int total_features=data.get(0).length-1;
-        for(int i = 0; i <= prob.l; i++){
+        for(int i = 0; i <= data.size()-1; i++){
             svm_node[] x_test = new svm_node[total_features];
             double[] current_case=data.get(i);
             int f=1;
@@ -177,7 +177,6 @@ public class SVM_Classifier {
                         .toArray();
 
                 data.add(doubleValues);
-                //System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
 
 
             }
@@ -231,7 +230,7 @@ public class SVM_Classifier {
             prob.x[i][0].value = (i%2!=0)?-1:1;
             prob.x[i][1].value = (i/2%2==0)?-1:1;
             prob.y[i] = (prob.x[i][0].value == 1 && prob.x[i][1].value == 1)?1:-1;
-            System.out.println("X = [ " + prob.x[i][0].value + ", " + prob.x[i][1].value + " ] \t ->  " + prob.y[i] );
+            //System.out.println("X = [ " + prob.x[i][0].value + ", " + prob.x[i][1].value + " ] \t ->  " + prob.y[i] );
         }
         svm_model model = svm.svm_train(prob, param);
 

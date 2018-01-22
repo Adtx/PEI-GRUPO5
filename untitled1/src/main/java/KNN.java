@@ -16,6 +16,7 @@ public class KNN {
     Classifier knn;
     Instance one_test;
     Instances isTrainingSet;
+    Instances isTestingSet;
 
     public KNN() {
 
@@ -49,7 +50,7 @@ public class KNN {
         //double class1 = ibk.classifyInstance(first);
         //double class2 = ibk.classifyInstance(second);
 
-        //System.out.println("first: " + class1 + "\nsecond: " + class2);
+
     }
 
 
@@ -79,7 +80,59 @@ public class KNN {
         try {
             br = new BufferedReader(new FileReader(csvFile));
             line=br.readLine(); // this will read the first line
-            //System.out.println(line);
+
+            //this part is specific for the KNN because we don't print our files like weka
+            String[] attributes= line.split(cvsSplitBy);
+            attributes_names=attributes;
+
+
+
+
+            line = null;
+            while ((line = br.readLine()) != null) {
+
+                // use ; as separator
+                String[] values = line.split(cvsSplitBy);
+
+                double[] doubleValues = Arrays.stream(values)
+                        .mapToDouble(Double::parseDouble)
+                        .toArray();
+
+                data.add(doubleValues);
+
+
+
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    private void load_test_data(String data_file, String separator) {
+        //Instances data=new Instances();
+
+        String csvFile = data_file;
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = separator;
+        data = new ArrayList<>();
+
+        try {
+            br = new BufferedReader(new FileReader(csvFile));
+            line=br.readLine(); // this will read the first line
+
             //this part is specific for the KNN because we don't print our files like weka
             String[] attributes= line.split(cvsSplitBy);
             attributes_names=attributes;
@@ -89,8 +142,7 @@ public class KNN {
 
             line = null;
             while ((line = br.readLine()) != null) {
-                //System.out.println(line);
-                //System.out.println(line);
+
                 // use ; as separator
                 String[] values = line.split(cvsSplitBy);
 
@@ -99,7 +151,7 @@ public class KNN {
                         .toArray();
 
                 data.add(doubleValues);
-                //System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+
 
 
             }
@@ -121,8 +173,10 @@ public class KNN {
     }
 
     public void train_model(){
-        load_data("test_results.csv",";");
-        //System.out.println("Attr names: "+attributes_names.length);
+        //load and prepare training
+        load_data("train_results.csv",";");
+
+
         fvWekaAttributes= new FastVector(attributes_names.length);
         for(String s:attributes_names) {
             Attribute Attribute1 = new Attribute(s);
@@ -144,6 +198,35 @@ public class KNN {
             isTrainingSet.add(iExample);
         }
 
+
+        //load and prepare test dataset
+        load_data("test_results.csv",";");
+
+
+        /*fvWekaAttributes= new FastVector(attributes_names.length);
+        for(String s:attributes_names) {
+            Attribute Attribute1 = new Attribute(s);
+            fvWekaAttributes.addElement(Attribute1);
+        }*/
+
+        // Create an empty test set
+        isTestingSet = new Instances("Rel", fvWekaAttributes,data.size());
+        // Set class index
+        isTestingSet.setClassIndex(attributes_names.length-1);
+
+
+        for(double[] d:data){
+            Instance iExample = new DenseInstance(attributes_names.length);
+            for(int i=0;i<d.length;i++){
+                iExample.setValue((Attribute)fvWekaAttributes.elementAt(i), d[i]);
+            }
+            // add the instance
+            isTestingSet.add(iExample);
+        }
+
+
+
+
         knn = new IBk();
         try {
             knn.buildClassifier(isTrainingSet);
@@ -163,6 +246,8 @@ public class KNN {
 
     }
 
+
+
     public double predict(String teste_results,String separator){
 
         load_for_prediction(teste_results,separator);
@@ -178,10 +263,9 @@ public class KNN {
         //Instance iExample.setDataset(isTrainingSet);
         Instance iExample = new DenseInstance(attributes_names.length);
         iExample.setDataset(isTrainingSet);
-        System.out.println(attributes_names.length);
-        System.out.println(fvWekaAttributes.size());
+
         for(double[] d:data){
-            System.out.println(d.length);
+
             for(int i=0;i<d.length;i++) {
                 iExample.setValue((Attribute) fvWekaAttributes.elementAt(i), d[i]);
             }
@@ -213,7 +297,7 @@ public class KNN {
         //Create the new instance i1
         Instance i1 = new DenseInstance(isTrainingSet.numAttributes());
         for(double[] d:data){
-            System.out.println(d.length);
+
             for(int i=0;i<d.length;i++) {
                 i1.setValue((Attribute) fvWekaAttributes.elementAt(i), d[i]);
             }
@@ -237,7 +321,7 @@ public class KNN {
     private void load_for_prediction(String teste_results, String separator) {
         String cvsSplitBy = separator;
         data=new ArrayList<>();
-        //System.out.println(line);
+
         // use ; as separator
         String[] values = teste_results.split(cvsSplitBy);
 
@@ -248,19 +332,25 @@ public class KNN {
         data.add(doubleValues);
     }
 
-    public void test_model(){
+    /*public void test_model(){
         // Test the model need to be implemented when i have a testing set
         // tutorial here https://weka.wikispaces.com/Programmatic+Use
-        /*
-        Evaluation eTest = new Evaluation(isTrainingSet);
-        eTest.evaluateModel(cModel, isTestingSet);
+
+        /*Evaluation eTest = null;
+        try {
+            eTest = new Evaluation(isTrainingSet);
+            eTest.evaluateModel(knn, isTestingSet);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         // Print the result à la Weka explorer:
         String strSummary = eTest.toSummaryString();
         System.out.println(strSummary);
 
         // Get the confusion matrix
-        double[][] cmMatrix = eTest.confusionMatrix();*/
-    }
+        double[][] cmMatrix = eTest.confusionMatrix();
+    }*/
 }
 

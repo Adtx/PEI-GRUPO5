@@ -47,6 +47,7 @@
             </constraints>
             <properties>
               <text value="Button"/>
+              <verticalAlignment value="1"/>
             </properties>
           </component>
           <component id="e2ab3" class="javax.swing.JLabel" binding="Label1">

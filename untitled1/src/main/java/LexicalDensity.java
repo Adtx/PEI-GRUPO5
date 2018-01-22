@@ -46,7 +46,6 @@ public class LexicalDensity {
 
         for(String tag : tags)
             if(Arrays.asList(lexicalTags).contains(tag)) tokens++;
-        //System.out.println(tag);
 
         //double totalWords = text.split(" ").length;
 

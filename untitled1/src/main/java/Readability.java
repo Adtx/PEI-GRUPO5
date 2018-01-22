@@ -40,15 +40,13 @@ public class Readability {
     }
 
     public float flesch_kincaid_grade_level(int total_words,int total_sentences, int total_syllables){
-        System.out.println(total_sentences);
-        System.out.println(total_words);
+
         float result= (float) (0.39*(total_words/total_sentences)+11.8*(total_syllables/total_words)-15.59);
         return result;
     }
 
     public float gunning_fog_score(int total_words,int total_sentences, int complex_words){
-        //System.out.println(total_sentences);
-        //System.out.println(total_words);
+
         float result=(float)  0.4*((total_words/total_sentences)+100*(complex_words/total_words));
         return result;
     }

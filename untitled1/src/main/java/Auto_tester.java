@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Auto_tester {
 
-    public void text_all_texts() throws IOException {
+    public void test_texts() throws IOException {
         System.out.println("entrei aqui");
         Test t=new Test();
         System.out.println("iniciei test");
@@ -191,7 +191,7 @@ public class Auto_tester {
 
         for(String s:a1){
             t.run_test(s);
-            sb2.append("1;");
+            sb2.append("0;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";1\n");
@@ -199,35 +199,35 @@ public class Auto_tester {
         for(String s:a2){
             //System.out.println("New test");
             t.run_test(s);
-            sb2.append("2;");
+            sb2.append("1;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";2\n");
         }
         for(String s:b1){
             t.run_test(s);
-            sb2.append("3;");
+            sb2.append("2;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";3\n");
         }
         for(String s:b2){
             t.run_test(s);
-            sb2.append("4;");
+            sb2.append("3;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";4\n");
         }
         for(String s:c1){
             t.run_test(s);
-            sb2.append("5;");
+            sb2.append("4;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";5\n");
         }
         for(String s:c2){
             t.run_test(s);
-            sb2.append("6;");
+            sb2.append("5;");
             sb2.append(t.print_test()+"\n");
             sb.append(t.print_test());
             sb.append(";6\n");
@@ -240,6 +240,260 @@ public class Auto_tester {
         System.out.println("done!");
     }
 
+    public void train_texts() throws IOException {
+        //System.out.println("entrei aqui");
+        Test t=new Test();
+        //System.out.println("iniciei test");
+        PrintWriter pw = new PrintWriter(new File("train_results.csv"));
+        PrintWriter pw2 = new PrintWriter(new File("train_results_neural_net.csv"));
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        //FILE FOR EVERYONE
+        sb.append("total_words");
+        sb.append(';');
+        sb.append("total_sentences");
+        sb.append(';');
+        sb.append("total_syllables");
+        sb.append(';');
+        sb.append("complex_words");
+        sb.append(';');
+        sb.append("letter_count");
+        sb.append(';');
+        sb.append("common_words");
+        sb.append(';');
+        sb.append("total_different_words");
+        sb.append(';');
+        sb.append("different_advanced_words");
+        sb.append(';');
+        sb.append("flesch_reading_ease");
+        sb.append(';');
+        sb.append("flesch_kinkaid");
+        sb.append(';');
+        sb.append("gunning_fog");
+        sb.append(';');
+        sb.append("coleman_liau");
+        sb.append(';');
+        sb.append("smog_grade");
+        sb.append(';');
+        sb.append("automated_readibility_index");
+        sb.append(';');
+        sb.append("lexical_density");
+        sb.append(';');
+        sb.append("beyond_2000");
+        sb.append(';');
+        sb.append("advanced_ttr");
+        sb.append(';');
+        sb.append("advanced_guiraud");
+        sb.append(';');
+        sb.append("ttr");
+        sb.append(';');
+        sb.append("rttr");
+        sb.append(';');
+        sb.append("cttr");
+        sb.append(';');
+        sb.append("m");
+        sb.append(';');
+        sb.append("h");
+        sb.append(';');
+        sb.append("s");
+        sb.append(';');
+        sb.append("u");
+        sb.append(';');
+        sb.append("mwf");
+        sb.append(';');
+        sb.append("r");
+        sb.append(';');
+        sb.append("bigram_model");
+        sb.append(';');
+        sb.append("bigram_perplexety");
+        sb.append(';');
+        sb.append("a1_words");
+        sb.append(';');
+        sb.append("a2_words");
+        sb.append(';');
+        sb.append("b1_words");
+        sb.append(';');
+        sb.append("b2_words");
+        sb.append(';');
+        sb.append("c1_words");
+        sb.append(';');
+        sb.append("c2_words");
+        sb.append(';');
+        sb.append("bigram_model_reverse");
+        sb.append(';');
+        sb.append("bigram_perplexety_reverse");
+        sb.append(';');
+        sb.append("words_per_sentence");
+        sb.append(';');
+        sb.append("sentences_per_paragraph");
+        sb.append(';');
+        sb.append("simple_errors_per_word");
+        sb.append(';');
+        sb.append("complex_errors_per_word");
+        sb.append(';');
+        sb.append("level");
+        sb.append('\n');
+
+        //FILE FOR NEURAL NET
+        sb2.append("level");
+        sb2.append(';');
+        sb2.append("total_words");
+        sb2.append(';');
+        sb2.append("total_sentences");
+        sb2.append(';');
+        sb2.append("total_syllables");
+        sb2.append(';');
+        sb2.append("complex_words");
+        sb2.append(';');
+        sb2.append("letter_count");
+        sb2.append(';');
+        sb2.append("common_words");
+        sb2.append(';');
+        sb2.append("total_different_words");
+        sb2.append(';');
+        sb2.append("different_advanced_words");
+        sb2.append(';');
+        sb2.append("flesch_reading_ease");
+        sb2.append(';');
+        sb2.append("flesch_kinkaid");
+        sb2.append(';');
+        sb2.append("gunning_fog");
+        sb2.append(';');
+        sb2.append("coleman_liau");
+        sb2.append(';');
+        sb2.append("smog_grade");
+        sb2.append(';');
+        sb2.append("automated_readibility_index");
+        sb2.append(';');
+        sb2.append("lexical_density");
+        sb2.append(';');
+        sb2.append("beyond_2000");
+        sb2.append(';');
+        sb2.append("advanced_ttr");
+        sb2.append(';');
+        sb2.append("advanced_guiraud");
+        sb2.append(';');
+        sb2.append("ttr");
+        sb2.append(';');
+        sb2.append("rttr");
+        sb2.append(';');
+        sb2.append("cttr");
+        sb2.append(';');
+        sb2.append("m");
+        sb2.append(';');
+        sb2.append("h");
+        sb2.append(';');
+        sb2.append("s");
+        sb2.append(';');
+        sb2.append("u");
+        sb2.append(';');
+        sb2.append("mwf");
+        sb2.append(';');
+        sb2.append("r");
+        sb2.append(';');
+        sb2.append("bigram_model");
+        sb2.append(';');
+        sb2.append("bigram_perplexety");
+        sb2.append(';');
+        sb2.append("a1_words");
+        sb2.append(';');
+        sb2.append("a2_words");
+        sb2.append(';');
+        sb2.append("b1_words");
+        sb2.append(';');
+        sb2.append("b2_words");
+        sb2.append(';');
+        sb2.append("c1_words");
+        sb2.append(';');
+        sb2.append("c2_words");
+        sb2.append(';');
+        sb2.append("bigram_model_reverse");
+        sb2.append(';');
+        sb2.append("bigram_perplexety_reverse");
+        sb2.append(';');
+        sb2.append("words_per_sentence");
+        sb2.append(';');
+        sb2.append("sentences_per_paragraph");
+        sb2.append(';');
+        sb2.append("simple_errors_per_word");
+        sb2.append(';');
+        sb2.append("complex_errors_per_word");
+        sb2.append('\n');
+
+        List<String> texts=Arrays.asList();
+        A1_Texts a1=new A1_Texts();
+        texts=a1.get_texts();
+        System.out.println("Total de textos de treino nível A1: "+texts.size());
+        for(String s:texts){
+            t.run_test(s);
+            sb2.append("0;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";1\n");
+        }
+
+        A2_Texts a2=new A2_Texts();
+        texts=a2.get_texts();
+        System.out.println("Total de textos de treino nível A2: "+texts.size());
+        for(String s:texts){
+            //System.out.println("New test");
+            t.run_test(s);
+            sb2.append("1;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";2\n");
+        }
+
+        B1_Texts b1=new B1_Texts();
+        texts=b1.get_texts();
+        System.out.println("Total de textos de treino nível B1: "+texts.size());
+        for(String s:texts){
+            t.run_test(s);
+            sb2.append("2;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";3\n");
+        }
+
+        B2_Texts b2=new B2_Texts();
+        texts=b2.get_texts();
+        System.out.println("Total de textos de treino nível B2: "+texts.size());
+        for(String s:texts){
+            t.run_test(s);
+            sb2.append("3;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";4\n");
+        }
+
+        C1_Texts c1=new C1_Texts();
+        texts=c1.get_texts();
+        System.out.println("Total de textos de treino nível C1: "+texts.size());
+        for(String s:texts){
+            t.run_test(s);
+            sb2.append("4;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";5\n");
+        }
+
+        C2_Texts c2=new C2_Texts();
+        texts=c2.get_texts();
+        System.out.println("Total de textos de treino nível C2: "+texts.size());
+        for(String s:texts){
+            t.run_test(s);
+            sb2.append("5;");
+            sb2.append(t.print_test()+"\n");
+            sb.append(t.print_test());
+            sb.append(";6\n");
+        }
+
+        pw.write(sb.toString());
+        pw.close();
+        pw2.write(sb2.toString());
+        pw2.close();
+        System.out.println("done!");
+    }
 
 
 
