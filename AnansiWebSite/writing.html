@@ -56,17 +56,29 @@
       <div class="container" >
         <br><br>
         <h6 class="text-center" style="color:black">Escreva um texto sobre as suas atividades extra-curriculares</h6>
-        <p class="text-center" style="color:black">Número de palavras: 120-150</p>
+        <p class="text-center" style="color:black">É necessário escrever, no mínimo, 30 palavras. Contudo, são esperados textos maiores para níveis superiores.</p>
         
         <hr class="star-primary" style="background-color:#18bc9c;">
         <br>
         <div class="row">
-          <textarea class="form-control" rows="8" id="comment"></textarea>
+          <textarea onkeyup="verify(this)" class="form-control" rows="8" id="text"></textarea>
         </div>
-        <div style="text-align:center" >
+        <!--<div style="text-align:center" >
           <br>
-          <button type="button" class="btn btn-primary">Submeter</button>
+          <button type="button" id="submit" class="btn btn-primary">Submeter</button>
+        </div>-->
+        <br>
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-danger" id="words">Palavras: 0</button>
+          </div>
+          <div class="col-sm-6" style="text-align:center" >
+            <button type="button" id="submit" class="btn btn-primary" disabled>Submeter</button>
+          </div>
+          <div class="col-sm-3">
+          </div>
         </div>
+        
       </div>
     </section>
 
@@ -154,6 +166,32 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
+
+    <script>
+      function verify(textarea){
+        var number_of_words = textarea.value.trim().split(" ").length;  
+
+        /*alert(
+          '|' + textarea.value.trim() + '|\n' 
+          + '|' + textarea.value.trim() + '|\n' 
+          + '|' + textarea.value.trim().split(" ") + '|\n' 
+          + '|' + textarea.value.trim().split(" ").length
+        );*/
+
+        var submit = document.getElementById("submit");
+        var words = document.getElementById("words");
+        words.innerHTML = 'Palavras: ' + number_of_words;
+        
+        if (number_of_words<30){
+          submit.disabled = true;
+          words.className="btn btn-danger";
+        }
+        else {
+          submit.disabled = false;
+          words.className="btn btn-default";
+        }
+      }
+    </script>
 
   </body>
 
