@@ -27,6 +27,8 @@
       }
     </style>
 
+    <script src="Chart.min.js"></script>
+
   </head>
 
   <body id="page-top">
@@ -55,28 +57,111 @@
     <section id="test" style="background-color:#18bc9c; margin-top:25px;">
       <div class="container" >
         <br><br>
-        <h6 class="text-center" style="color:black">Escreva um texto sobre as suas atividades extra-curriculares</h6>
-        <p class="text-center" style="color:black">É necessário escrever, no mínimo, 30 palavras. Contudo, são esperados textos maiores para níveis superiores.</p>
+        <h6 class="text-center" style="color:black">Histórico de avaliações</h6>
+        <p class="text-center" style="color:black">Pode visualizar, no gráfico seguinte, a sua evolução ao longo das avaliações realizadas.</p>
         
         <hr class="star-primary" style="background-color:#18bc9c;">
         <br>
         <div class="row">
-          <textarea onkeyup="verify(this)" class="form-control" rows="8" id="text"></textarea>
-        </div>
-        <!--<div style="text-align:center" >
-          <br>
-          <button type="button" id="submit" class="btn btn-primary">Submeter</button>
-        </div>-->
-        <br>
-        <div class="row">
-          <div class="col-sm-3" style="text-align:center" >
-            <button class="btn btn-danger" id="words">Palavras: 0</button>
+          <div class="container" style="width:66%; text-align:center">
+              <canvas id="myChart" width="400" height="200"></canvas>
           </div>
-          <div class="col-sm-6" style="text-align:center" >
-            <button type="button" id="submit" class="btn btn-primary" style="cursor:pointer;" disabled>Submeter</button>
-          </div>
-          <div class="col-sm-3">
-          </div>
+          <script>
+          var ctx = document.getElementById("myChart").getContext('2d');
+
+          var check = function(value, index, values) {
+                          var level = ''
+                          switch(value) {
+                              case 1:
+                                  level = 'A1'
+                                  break;
+                              case 2:
+                                  level = 'A2'
+                                  break;
+                              case 3:
+                                  level = 'B1'
+                                  break;
+                              case 4:
+                                  level = 'B2'
+                                  break;
+                              case 5:
+                                  level = 'C1'
+                                  break;
+                              case 6:
+                                  level = 'C2'
+                                  break;
+                              default:
+                                  break;
+                          }
+                          return level;
+                      }
+
+          var levelColor = function(value) {
+                          var color = ''
+                          switch(value) {
+                              case 1:
+                                  color = 'rgba(255, 0, 0, 0.1)'
+                                  break;
+                              case 2:
+                                  color = 'rgba(255, 0, 0, 0.3)'
+                                  break;
+                              case 3:
+                                  color = 'rgba(255, 0, 0, 0.5)'
+                                  break;
+                              case 4:
+                                  color = 'rgba(255, 0, 0, 0.7)'
+                                  break;
+                              case 5:
+                                  color = 'rgba(255, 0, 0, 0.8)'
+                                  break;
+                              case 6:
+                                  color = 'rgba(255, 0, 0, 0.9)'
+                                  break;
+                              default:
+                                  break;
+                          }
+                          return color;
+                      }
+
+          var data = [1,2,3,4,5,6];
+          var colors = Array.from(data, x => levelColor(x));
+
+
+          var myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+                  datasets: [{
+                      data: data,
+                      label: ["A", "B"],
+                      backgroundColor: colors,
+                      borderColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)'
+                      ],
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero: true,
+                              callback: check   
+                          },
+                          position: 'left'
+                      }]
+                  },
+                  legend: {
+                      display: true,
+                  }
+              }
+          });
+          </script>
         </div>
         
       </div>
