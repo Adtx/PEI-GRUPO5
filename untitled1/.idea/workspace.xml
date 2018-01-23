@@ -17,8 +17,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="32" column="8" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            <state relative-caret-position="171">
+              <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#update_train_dataset#0;class#Main#0" expanded="false" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="Auto_tester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Auto_tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="694" column="84" lean-forward="true" selection-start-line="649" selection-start-column="43" selection-end-line="694" selection-end-column="84" />
+            <state relative-caret-position="11696">
+              <caret line="694" column="84" lean-forward="false" selection-start-line="649" selection-start-column="43" selection-end-line="694" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -41,7 +41,7 @@
       <file leaf-file-name="A1_Texts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/A1_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="408">
               <caret line="27" column="832" lean-forward="false" selection-start-line="27" selection-start-column="832" selection-end-line="27" selection-end-column="832" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -55,7 +55,7 @@
       <file leaf-file-name="A2_Texts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/A2_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
+            <state relative-caret-position="1955">
               <caret line="118" column="433" lean-forward="false" selection-start-line="118" selection-start-column="433" selection-end-line="118" selection-end-column="433" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,7 +69,7 @@
       <file leaf-file-name="B1_Texts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/B1_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
+            <state relative-caret-position="1870">
               <caret line="113" column="1708" lean-forward="false" selection-start-line="113" selection-start-column="1708" selection-end-line="113" selection-end-column="1708" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -83,7 +83,7 @@
       <file leaf-file-name="B2_Texts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/B2_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
+            <state relative-caret-position="2703">
               <caret line="162" column="835" lean-forward="false" selection-start-line="162" selection-start-column="835" selection-end-line="162" selection-end-column="835" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/C1_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="681">
-              <caret line="116" column="574" lean-forward="false" selection-start-line="116" selection-start-column="574" selection-end-line="116" selection-end-column="574" />
+              <caret line="146" column="487" lean-forward="false" selection-start-line="146" selection-start-column="487" selection-end-line="146" selection-end-column="487" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#100#101#0" expanded="true" />
@@ -111,8 +111,8 @@
       <file leaf-file-name="C2_Texts.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/C2_Texts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="273" lean-forward="false" selection-start-line="32" selection-start-column="273" selection-end-line="32" selection-end-column="273" />
+            <state relative-caret-position="681">
+              <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#100#101#0" expanded="true" />
@@ -191,13 +191,13 @@
         <option value="$PROJECT_DIR$/src/main/java/Readability.java" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/KNN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/C2_Texts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/C1_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/B2_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/B1_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/A2_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/A1_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/C2_Texts.java" />
+        <option value="$PROJECT_DIR$/src/main/java/C1_Texts.java" />
       </list>
     </option>
   </component>
@@ -233,9 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -266,6 +263,9 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -724,7 +724,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1701389" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1701389" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -757,7 +757,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39973786" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327654" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1100,39 +1100,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Auto_tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="694" column="84" lean-forward="true" selection-start-line="649" selection-start-column="43" selection-end-line="694" selection-end-column="84" />
+        <state relative-caret-position="11696">
+          <caret line="694" column="84" lean-forward="false" selection-start-line="649" selection-start-column="43" selection-end-line="694" selection-end-column="84" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/C2_Texts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="273" lean-forward="false" selection-start-line="32" selection-start-column="273" selection-end-line="32" selection-end-column="273" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#100#101#0" expanded="true" />
-            <element signature="e#128#129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/C1_Texts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="116" column="574" lean-forward="false" selection-start-line="116" selection-start-column="574" selection-end-line="116" selection-end-column="574" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#100#101#0" expanded="true" />
-            <element signature="e#128#129#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/B2_Texts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
+        <state relative-caret-position="2703">
           <caret line="162" column="835" lean-forward="false" selection-start-line="162" selection-start-column="835" selection-end-line="162" selection-end-column="835" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1144,7 +1120,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/B1_Texts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
+        <state relative-caret-position="1870">
           <caret line="113" column="1708" lean-forward="false" selection-start-line="113" selection-start-column="1708" selection-end-line="113" selection-end-column="1708" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1156,7 +1132,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/A2_Texts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
+        <state relative-caret-position="1955">
           <caret line="118" column="433" lean-forward="false" selection-start-line="118" selection-start-column="433" selection-end-line="118" selection-end-column="433" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1168,7 +1144,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/A1_Texts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="408">
           <caret line="27" column="832" lean-forward="false" selection-start-line="27" selection-start-column="832" selection-end-line="27" selection-end-column="832" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1178,10 +1154,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/C2_Texts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#100#101#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/C1_Texts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="146" column="487" lean-forward="false" selection-start-line="146" selection-start-column="487" selection-end-line="146" selection-end-column="487" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#100#101#0" expanded="true" />
+            <element signature="e#128#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" column="8" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="171">
+          <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#update_train_dataset#0;class#Main#0" expanded="false" />
