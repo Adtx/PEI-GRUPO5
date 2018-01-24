@@ -9,6 +9,33 @@ import java.util.Map;
 
 public class Auto_tester {
 
+    public void how_many_texts_per_level(){
+        List<String> texts=Arrays.asList();
+        A1_Texts a1=new A1_Texts();
+        texts=a1.get_texts();
+        System.out.println("Total de textos de treino nível A1: "+texts.size());
+
+        A2_Texts a2=new A2_Texts();
+        texts=a2.get_texts();
+        System.out.println("Total de textos de treino nível A2: "+texts.size());
+
+        B1_Texts b1=new B1_Texts();
+        texts=b1.get_texts();
+        System.out.println("Total de textos de treino nível B1: "+texts.size());
+
+        B2_Texts b2=new B2_Texts();
+        texts=b2.get_texts();
+        System.out.println("Total de textos de treino nível B2: "+texts.size());
+
+        C1_Texts c1=new C1_Texts();
+        texts=c1.get_texts();
+        System.out.println("Total de textos de treino nível C1: "+texts.size());
+
+        C2_Texts c2=new C2_Texts();
+        texts=c2.get_texts();
+        System.out.println("Total de textos de treino nível C2: "+texts.size());
+    }
+
     public void test_texts() throws IOException {
         System.out.println("entrei aqui");
         Test t=new Test();

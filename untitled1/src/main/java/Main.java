@@ -30,10 +30,12 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);*/
-        update_train_dataset();
+        //update_train_dataset();
+
 
         //train_all_classifiers();
-
+        Auto_tester t=new Auto_tester();
+        t.how_many_texts_per_level();
 
 
     }
