@@ -56,10 +56,31 @@
     </nav>
 
 
-  <!-- Contact Section -->
     <section id="test" style="background-color:#18bc9c; margin-top:25px;">
       <div class="container" >
         <br><br>
+        <!--
+        <h6 class="text-center" style="color:black">Histórico de avaliações</h6>
+        <p class="text-center" style="color:black">Pode visualizar, no gráfico seguinte, a sua evolução global.</p>
+        -->
+        <h6 class="text-center" style="color:black">Create new evaluation context</h6>
+        <p class="text-center" style="color:black">The following button allows you to create a new evaluation context.</p>
+        
+        <!--<hr class="star-primary" style="background-color:#18bc9c;">-->
+        
+        <div style="text-align:center">
+        <button type="button" id="create_context" class="btn btn-primary" style="cursor:pointer;" disabled> &nbsp; Create new evaluation context &nbsp; <i class="fa fa-plus-square"></i></button>
+      </div>
+
+      </div>
+    </section>
+
+
+
+
+  <!-- Contact Section -->
+    <section id="test" style="background-color:#18bc9c;">
+      <div class="container" >
         <!--
         <h6 class="text-center" style="color:black">Histórico de avaliações</h6>
         <p class="text-center" style="color:black">Pode visualizar, no gráfico seguinte, a sua evolução global.</p>
@@ -131,7 +152,7 @@
                       }
 
           var data = [1,3,2,2,4,6];
-          var labels = ["January", "February", "April", "July", "September", "December"];
+          var labels = ["José Pereira", "António Silva", "Carlos Teixeira", "Armando Noversa", "Tiago Cunha", "Diogo Dias"];
           var colors = Array.from(data, x => levelColor(x));
 
           var myChart = new Chart(ctx, {
@@ -185,7 +206,7 @@
           <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th>Date</th>
+                <th>Candidate</th>
                 <th>CEFR level</th>
                 <th>Errors</th>
                 <th>Readability</th>
@@ -197,7 +218,7 @@
 
             <tbody>
               <tr>
-                <td>22 Dec (2017)</td>
+                <td>José Pereira</td>
                 <td>A2</td>
                 <td>5/126</td>
                 <td>0.31</td>
@@ -206,7 +227,7 @@
                 <td>0.60</td>
               </tr>
               <tr>
-                <td>04 Jan (2018)</td>
+                <td>António Silva</td>
                 <td>B1</td>
                 <td>7/245</td>
                 <td>0.46</td>
@@ -215,7 +236,7 @@
                 <td>0.71</td>
               </tr>
               <tr>
-                <td>16 Jan (2018)</td>
+                <td>Carlos Teixeira</td>
                 <td>B1</td>
                 <td>9/220</td>
                 <td>0.53</td>

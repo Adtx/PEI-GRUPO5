@@ -55,8 +55,18 @@
     <section id="test" style="background-color:#18bc9c; margin-top:25px;">
       <div class="container" >
         <br><br>
+        <!--
         <h6 class="text-center" style="color:black">Escreva um texto sobre as suas atividades extra-curriculares</h6>
         <p class="text-center" style="color:black">É necessário escrever, no mínimo, 30 palavras. Contudo, são esperados textos maiores para níveis superiores.</p>
+        -->
+        <h6 class="text-center" style="color:black">Write a free text</h6>
+        <p class="text-center" style="color:black; font-size:16px;">(Suggestion: Your last holidays)</h6>
+        <p class="text-center" style="color:black">Your text must contain a minimum of 30 words. However, bigger texts are expected for higher levels.</p>
+        <!--
+        <h5 class="text-center" style="color:black">Write a free text</h5>
+        <h6 class="text-center" style="color:black">(Suggestion: Your last holidays)</h6>
+        <p class="text-center" style="color:black">Your text must contain a minimum of 30 words. However, bigger texts are expected on higher levels.</p>
+        -->
         
         <hr class="star-primary" style="background-color:#18bc9c;">
         <br>
@@ -71,10 +81,10 @@
         <br>
         <div class="row">
           <div class="col-sm-3" style="text-align:center" >
-            <button class="btn btn-danger" id="words"><i class="fa fa-tachometer"></i>&nbsp; 0 palavras</button>
+            <button class="btn btn-danger" id="words"><i class="fa fa-tachometer"></i>&nbsp; 0 words</button>
           </div>
           <div class="col-sm-6" style="text-align:center" >
-            <button type="button" id="submit" class="btn btn-primary" style="cursor:pointer;" disabled> <i class="fa fa-file-word-o"></i>&nbsp; Submeter &nbsp;</button>
+            <button type="button" id="submit" class="btn btn-primary" style="cursor:pointer;" disabled> &nbsp; Submit &nbsp; <i class="fa fa-file-word-o"></i></button>
           </div>
           <div class="col-sm-3">
           </div>
@@ -185,7 +195,7 @@
         var words = document.getElementById("words");
         words.innerHTML = '<i class="fa fa-tachometer"></i> &nbsp;' 
                 + number_of_words 
-                + ' palavras';
+                + ' words';
         
         if (number_of_words<30){
           submit.disabled = true;
