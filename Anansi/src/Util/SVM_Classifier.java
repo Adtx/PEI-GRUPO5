@@ -11,7 +11,7 @@ import java.util.List;
 public class SVM_Classifier {
 
     svm_parameter param;
-    List<double[]> data;
+    List<List<Double>> data;
     svm_problem prob;
     svm_model model;
 
@@ -65,14 +65,14 @@ public class SVM_Classifier {
     }
 
     private double predict(){
-        int total_features=data.get(0).length;
+        int total_features=data.get(0).size();
         svm_node[] x_test = new svm_node[total_features];
-        double[] current_case=data.get(0);
+        List<Double> current_case=data.get(0);
         int f=1;
         for(f=0;f<total_features;f++){
             x_test[f]= new svm_node();
             x_test[f].index = f+1;
-            x_test[f].value = current_case[f];
+            x_test[f].value = current_case.get(f);
         }
         //int level= (int) current_case[f];
         double d = svm.svm_predict(model, x_test);
@@ -83,15 +83,15 @@ public class SVM_Classifier {
     private void load_for_prediction(String teste_results,String separator){
         //String line = "";
         String cvsSplitBy = separator;
-        data=new ArrayList<double[]>();
+        data=new ArrayList<List<Double>>();
         // use ; as separator
         String[] values = teste_results.split(cvsSplitBy);
 
-        double[] doubleValues ={1.2,2.0};
+        ArrayList<Double> doubleValues = new ArrayList<Double>();
         int i=0;
         for (String s : values){
-            double temp = Double.parseDouble(s);
-            doubleValues[i] = temp;
+
+            doubleValues.add( Double.parseDouble(s));
             i++;
         }
 
@@ -103,37 +103,37 @@ public class SVM_Classifier {
     private void test_model(){
         //currently it is testing with training data, when we have more data adapt in order to train with other type of data
         load_data("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/test_results.csv",";");
-        int total_features=data.get(0).length-1;
+        int total_features=data.get(0).size()-1;
         for(int i = 0; i <= data.size()-1; i++){
             svm_node[] x_test = new svm_node[total_features];
-            double[] current_case=data.get(i);
+            List<Double> current_case=data.get(i);
             int f=1;
             for(f=0;f<total_features;f++){
                 x_test[f]= new svm_node();
                 x_test[f].index = f+1;
-                x_test[f].value = current_case[f];
+                x_test[f].value = current_case.get(f);
             }
-            int level= (int) current_case[f];
+            int level= Integer.parseInt(current_case.get(f).toString());
             double d = svm.svm_predict(model, x_test);
             System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
         }
     }
 
     private void prepare_data(){
-        int total_features=data.get(0).length-1;
+        int total_features=data.get(0).size()-1;
         prob = new svm_problem();
         prob.l = data.size()-1;
         prob.y = new double[prob.l];
         prob.x = new svm_node[prob.l][total_features];
         for(int i = 0; i < prob.l; i++){
-            double[] current_case=data.get(i);
+            List<Double> current_case=data.get(i);
             int f=0;
             for(f=0;f<total_features;f++){
                 prob.x[i][f] = new svm_node();
                 prob.x[i][f].index = f+1;
-                prob.x[i][f].value = current_case[f];
+                prob.x[i][f].value = current_case.get(f);
             }
-            prob.y[i] = current_case[f];
+            prob.y[i] = current_case.get(f);
         }
     }
 
@@ -165,7 +165,7 @@ public class SVM_Classifier {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = separator;
-        data=new ArrayList<double[]>();
+        data=new ArrayList<List<Double>>();
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
@@ -176,11 +176,10 @@ public class SVM_Classifier {
                 // use ; as separator
                 String[] values = line.split(cvsSplitBy);
 
-                double[] doubleValues ={1.2,2.0};
+                ArrayList<Double> doubleValues = new ArrayList<Double>();
                 int i=0;
                 for (String s : values){
-                    double temp = Double.parseDouble(s);
-                    doubleValues[i] = temp;
+                    doubleValues.add(Double.parseDouble(s));
                     i++;
                 }
 

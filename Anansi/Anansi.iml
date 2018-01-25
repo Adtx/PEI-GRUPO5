@@ -44,14 +44,69 @@
     <orderEntry type="library" exported="" name="languages-native-libs" level="project" />
     <orderEntry type="library" exported="" name="javax.annotation" level="project" />
     <orderEntry type="library" exported="" name="language-tool" level="project" />
-    <orderEntry type="library" name="jstl" level="project" />
-    <orderEntry type="library" name="orm" level="project" />
-    <orderEntry type="library" name="libsvm" level="project" />
-    <orderEntry type="library" name="sleep" level="project" />
-    <orderEntry type="library" name="weka" level="project" />
-    <orderEntry type="library" name="deeplearnin4j" level="project" />
-    <orderEntry type="library" name="nlp" level="project" />
-    <orderEntry type="library" name="bigram_model_script_reverse" level="project" />
-    <orderEntry type="library" name="nd4j" level="project" />
+    <orderEntry type="library" exported="" name="jstl" level="project" />
+    <orderEntry type="library" exported="" name="orm" level="project" />
+    <orderEntry type="library" exported="" name="libsvm" level="project" />
+    <orderEntry type="library" exported="" name="sleep" level="project" />
+    <orderEntry type="library" exported="" name="weka" level="project" />
+    <orderEntry type="library" exported="" name="deeplearnin4j" level="project" />
+    <orderEntry type="library" exported="" name="nlp" level="project" />
+    <orderEntry type="library" exported="" name="bigram_model_script_reverse" level="project" />
+    <orderEntry type="library" exported="" name="nd4j" level="project" />
+    <orderEntry type="library" exported="" name="en-chunker" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-chunker" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-pos-maxent" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-token" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-chunker.bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-pos-maxent.bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib/exec/en-token.bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

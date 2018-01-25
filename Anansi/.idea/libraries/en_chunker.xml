@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="en-chunker">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/exec/en-chunker" />
+      <root url="file://$PROJECT_DIR$/lib/exec/en-pos-maxent" />
+      <root url="file://$PROJECT_DIR$/lib/exec/en-token" />
+      <root url="file://$PROJECT_DIR$/lib/exec/en-chunker.bin" />
+      <root url="file://$PROJECT_DIR$/lib/exec/en-pos-maxent.bin" />
+      <root url="file://$PROJECT_DIR$/lib/exec/en-token.bin" />
+    </SOURCES>
+  </library>
+</component>

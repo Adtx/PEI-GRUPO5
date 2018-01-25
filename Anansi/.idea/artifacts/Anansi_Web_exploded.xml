@@ -20,10 +20,16 @@
           <element id="library" level="project" name="weka" />
           <element id="library" level="project" name="bigram_model_script_reverse" />
           <element id="library" level="project" name="nd4j" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-pos-maxent.bin" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-chunker.bin" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-token.bin" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Anansi/ejb/EJB" />
       <element id="module-output" name="Anansi" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-chunker.bin" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-token.bin" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/exec/en-pos-maxent.bin" />
     </root>
   </artifact>
 </component>

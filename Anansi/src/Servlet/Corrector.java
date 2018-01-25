@@ -103,7 +103,7 @@ public class Corrector  extends HttpServlet {
             //knn_classifier=new KNN("knn_arf");
             knn_classifier=new KNN();
             knn_classifier.train_model();
-            nn_classifier=new NeuralNet("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/MyMultiLayerNetwork.zip");
+            //nn_classifier=new NeuralNet("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/MyMultiLayerNetwork.zip");
             
             
             try {
@@ -115,7 +115,7 @@ public class Corrector  extends HttpServlet {
             System.out.println(test_result);
             double svm_test_grade=svm_classifier.predict(test_result,";");
             double knn_test_grade= knn_classifier.predict(test_result,";");
-            double nn_test_grade=nn_classifier.predict(test_result,";");
+            //double nn_test_grade=nn_classifier.predict(test_result,";");
 
 
 
@@ -172,7 +172,7 @@ public class Corrector  extends HttpServlet {
             }
 
             //Neural Net Grade
-            if(nn_test_grade==1){
+           /* if(nn_test_grade==1){
                 teste = (teste +"NN CEFR level: A1\n");
                 System.out.println("NN CEFR level: A1");
             }
@@ -196,7 +196,7 @@ public class Corrector  extends HttpServlet {
                 teste = (teste +"NN CEFR level: C2\n");
                 System.out.println("NN CEFR level: C2");
             }
-            
+            */
             
             
             /*
