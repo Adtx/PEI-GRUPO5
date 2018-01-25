@@ -107,7 +107,7 @@ public class Corrector {
             System.out.println(test_result);
             double svm_test_grade=svm_classifier.predict(test_result,";");
             double knn_test_grade= knn_classifier.predict(test_result,";");
-            double nn_test_grade=nn_classifier.predict(test_result,";");
+            double nn_test_grade=nn_classifier.predict(test_result,";")+1;
 
             //svm test grade
             if(svm_test_grade==1){

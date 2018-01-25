@@ -60,8 +60,8 @@ public class Main {
 
 
     public static void train_all_classifiers(){
-        SVM_Classifier svm= new SVM_Classifier();
-        svm.train_classifier();
+        //SVM_Classifier svm= new SVM_Classifier();
+        //svm.train_classifier();
         NeuralNet nn=new NeuralNet();
         nn.train_neural_net();
         //KNN knn_classifier=new KNN();

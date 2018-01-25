@@ -40,7 +40,10 @@ public class Readability {
     }
 
     public float flesch_kincaid_grade_level(int total_words,int total_sentences, int total_syllables){
-
+        //TODO: currently hot fix needs to be checked if this assumption makes sense
+        if(total_sentences==0){
+            total_sentences=1;
+        }
         float result= (float) (0.39*(total_words/total_sentences)+11.8*(total_syllables/total_words)-15.59);
         return result;
     }
