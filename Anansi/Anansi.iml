@@ -21,7 +21,9 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="ormmapping:PEIMVP.cfg.xml" />
+        </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/ormmapping/PEIMVP.cfg.xml" />
       </configuration>
@@ -44,5 +46,12 @@
     <orderEntry type="library" exported="" name="language-tool" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" name="orm" level="project" />
+    <orderEntry type="library" name="libsvm" level="project" />
+    <orderEntry type="library" name="sleep" level="project" />
+    <orderEntry type="library" name="weka" level="project" />
+    <orderEntry type="library" name="deeplearnin4j" level="project" />
+    <orderEntry type="library" name="nlp" level="project" />
+    <orderEntry type="library" name="bigram_model_script_reverse" level="project" />
+    <orderEntry type="library" name="nd4j" level="project" />
   </component>
 </module>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernate.Test" table="Test" lazy="false">
+		<id name="ID" column="ID" type="string">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="Type" column="Type" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="Description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="Content" column="Content" type="string" length="255" not-null="false" lazy="false"/>
+		<set name="ORM_Responses" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="TestID" not-null="true"/>
+			<one-to-many class="hibernate.Response"/>
+		</set>
+	</class>
+</hibernate-mapping>

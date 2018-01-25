@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sleep">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Outras_libs/atd/lib/cngram.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Outras_libs/atd/lib/moconti.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Outras_libs/atd/lib/sleep.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Outras_libs/atd/lib/spellutils.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

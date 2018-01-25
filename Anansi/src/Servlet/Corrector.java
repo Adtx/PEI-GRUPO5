@@ -1,5 +1,9 @@
 package Servlet;
 
+import Util.KNN;
+import Util.SVM_Classifier;
+import Util.NeuralNet;
+import Util.Test;
 import bean.Corrector.CorrectorBeanLocal;
 import bean.util.AppConfigBeanLocal;
 import bean_lookup.AppConfigBeanLookup;
@@ -85,7 +89,118 @@ public class Corrector  extends HttpServlet {
 
         try {
             HttpSession httpSession = request.getSession();
-// correctorBean.checker();
+            String teste = "";
+
+            
+            String s = "Isto é um maçã. A maca murcou.\nPararafo teste!";
+             SVM_Classifier svm_classifier;
+             KNN knn_classifier;
+             NeuralNet nn_classifier;
+             Test tester;
+
+            tester=new Test();
+            svm_classifier=new SVM_Classifier("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/svm_classifier");
+            //knn_classifier=new KNN("knn_arf");
+            knn_classifier=new KNN();
+            knn_classifier.train_model();
+            nn_classifier=new NeuralNet("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/MyMultiLayerNetwork.zip");
+            
+            
+            try {
+                tester.run_test(s);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            String test_result=tester.print_test();
+            System.out.println(test_result);
+            double svm_test_grade=svm_classifier.predict(test_result,";");
+            double knn_test_grade= knn_classifier.predict(test_result,";");
+            double nn_test_grade=nn_classifier.predict(test_result,";");
+
+
+
+            //svm test grade
+            if(svm_test_grade==1){
+                teste =(teste+"SVM CEFR level: A1\n");
+                System.out.println("SVM CEFR level: A1");
+            }
+            if(svm_test_grade==2){
+                teste = (teste+"SVM CEFR level: A2\n");
+                System.out.println("SVM CEFR level: A2");
+            }
+            if(svm_test_grade==3){
+                teste = (teste +"SVM CEFR level: B1\n");
+                System.out.println("SVM CEFR level: B1");
+            }
+            if(svm_test_grade==4){
+                teste = (teste +"SVM CEFR level: B2\n");
+                System.out.println("SVM CEFR level: B2");
+            }
+            if(svm_test_grade==5){
+                teste = (teste +"SVM CEFR level: C1\n");
+                System.out.println("SVM CEFR level: C1");
+            }
+            if(svm_test_grade==6){
+                teste = (teste +"SVM CEFR level: C2\n");
+                System.out.println("SVM CEFR level: C2");
+            }
+
+            //KNN grade
+            if(knn_test_grade==1){
+                teste = (teste +"KNN CEFR level: A1\n");
+                System.out.println("KNN CEFR level: A1");
+            }
+            if(knn_test_grade==2){
+                teste = (teste +"KNN CEFR level: A2\n");
+                System.out.println("KNN CEFR level: A2");
+            }
+            if(knn_test_grade==3){
+                teste = (teste +"KNN CEFR level: B1\n");
+                System.out.println("KNN CEFR level: B1");
+            }
+            if(knn_test_grade==4){
+                teste = (teste +"KNN CEFR level: B2\n");
+                System.out.println("KNN CEFR level: B2");
+            }
+            if(knn_test_grade==5){
+                teste = (teste +"KNN CEFR level: C1\n");
+                System.out.println("KNN CEFR level: C1");
+            }
+            if(knn_test_grade==6){
+                teste = (teste +"KNN CEFR level: C2\n");
+                System.out.println("KNN CEFR level: C2");
+            }
+
+            //Neural Net Grade
+            if(nn_test_grade==1){
+                teste = (teste +"NN CEFR level: A1\n");
+                System.out.println("NN CEFR level: A1");
+            }
+            if(nn_test_grade==2){
+                teste = (teste +"NN CEFR level: A2\n");
+                System.out.println("NN CEFR level: A2");
+            }
+            if(nn_test_grade==3){
+                teste = (teste +"NN CEFR level: B1\n");
+                System.out.println("NN CEFR level: B1");
+            }
+            if(nn_test_grade==4){
+                teste = (teste +"NN CEFR level: B2\n");
+                System.out.println("NN CEFR level: B2");
+            }
+            if(nn_test_grade==5){
+                teste = (teste +"NN CEFR level: C1\n");
+                System.out.println("NN CEFR level: C1");
+            }
+            if(nn_test_grade==6){
+                teste = (teste +"NN CEFR level: C2\n");
+                System.out.println("NN CEFR level: C2");
+            }
+            
+            
+            
+            /*
+            // correctorBean.checker();
 
             String teste="";
             int err_dif=0;
@@ -158,7 +273,10 @@ public class Corrector  extends HttpServlet {
             }
 
             System.out.println(teste);
-            teste = teste +  "\n\r\r\nErros faceis: "+ err_fac+ "  <-------> Erros dificeis: "+ err_dif;
+            teste = teste +  "\n\r\r\nErros faceis: "+ err_fac+ "  <-------> Erros dificeis: "+ err_dif; */
+
+
+
             httpSession.setAttribute("info", teste);
             String page = "corrector";
             request.setAttribute("req_project_name", appConfig.getProject() );
