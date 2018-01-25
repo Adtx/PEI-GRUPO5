@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,11 +13,11 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class TestDAO {
-	public static Test loadTestByORMID(String ID) throws PersistentException {
+	public static Test loadTestByORMID(int ID) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadTestByORMID(session, ID);
@@ -29,7 +28,7 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test getTestByORMID(String ID) throws PersistentException {
+	public static Test getTestByORMID(int ID) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return getTestByORMID(session, ID);
@@ -40,7 +39,7 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test loadTestByORMID(String ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Test loadTestByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadTestByORMID(session, ID, lockMode);
@@ -51,7 +50,7 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test getTestByORMID(String ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Test getTestByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return getTestByORMID(session, ID, lockMode);
@@ -62,9 +61,9 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test loadTestByORMID(PersistentSession session, String ID) throws PersistentException {
+	public static Test loadTestByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Test) session.load(Test.class, ID);
+			return (Test) session.load(Test.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -72,9 +71,9 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test getTestByORMID(PersistentSession session, String ID) throws PersistentException {
+	public static Test getTestByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (Test) session.get(Test.class, ID);
+			return (Test) session.get(Test.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -82,9 +81,9 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test loadTestByORMID(PersistentSession session, String ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Test loadTestByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Test) session.load(Test.class, ID, lockMode);
+			return (Test) session.load(Test.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -92,9 +91,9 @@ public class TestDAO {
 		}
 	}
 	
-	public static Test getTestByORMID(PersistentSession session, String ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Test getTestByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (Test) session.get(Test.class, ID, lockMode);
+			return (Test) session.get(Test.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -322,6 +321,10 @@ public class TestDAO {
 	
 	public static boolean deleteAndDissociate(Test test)throws PersistentException {
 		try {
+			if (test.getUser() != null) {
+				test.getUser().tests.remove(test);
+			}
+			
 			Response[] lResponsess = test.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setTest(null);
@@ -336,6 +339,10 @@ public class TestDAO {
 	
 	public static boolean deleteAndDissociate(Test test, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (test.getUser() != null) {
+				test.getUser().tests.remove(test);
+			}
+			
 			Response[] lResponsess = test.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setTest(null);

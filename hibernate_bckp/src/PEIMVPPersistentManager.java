@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -11,7 +10,6 @@
 /**
  * Licensee: 
  * License Type: Evaluation
-
  */
 import org.orm.*;
 import org.orm.cfg.JDBCConnectionSetting;

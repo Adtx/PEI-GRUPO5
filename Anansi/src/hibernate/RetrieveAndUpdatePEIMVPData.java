@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * Licensee: 
  * License Type: Evaluation
  */

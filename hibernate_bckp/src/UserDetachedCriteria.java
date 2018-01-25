@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -20,12 +19,18 @@ import org.orm.criteria.*;
 public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression Name;
+	public final StringExpression Email;
+	public final StringExpression Password;
+	public final CollectionExpression tests;
 	public final CollectionExpression responses;
 	
 	public UserDetachedCriteria() {
 		super(User.class, UserCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		Name = new StringExpression("Name", this.getDetachedCriteria());
+		Email = new StringExpression("Email", this.getDetachedCriteria());
+		Password = new StringExpression("Password", this.getDetachedCriteria());
+		tests = new CollectionExpression("ORM_Tests", this.getDetachedCriteria());
 		responses = new CollectionExpression("ORM_Responses", this.getDetachedCriteria());
 	}
 	
@@ -33,7 +38,14 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 		super(aDetachedCriteria, UserCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		Name = new StringExpression("Name", this.getDetachedCriteria());
+		Email = new StringExpression("Email", this.getDetachedCriteria());
+		Password = new StringExpression("Password", this.getDetachedCriteria());
+		tests = new CollectionExpression("ORM_Tests", this.getDetachedCriteria());
 		responses = new CollectionExpression("ORM_Responses", this.getDetachedCriteria());
+	}
+	
+	public TestDetachedCriteria createTestsCriteria() {
+		return new TestDetachedCriteria(createCriteria("ORM_Tests"));
 	}
 	
 	public ResponseDetachedCriteria createResponsesCriteria() {

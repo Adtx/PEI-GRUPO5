@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="languages-native-libs">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/language-native-libs/languages-native-libs.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

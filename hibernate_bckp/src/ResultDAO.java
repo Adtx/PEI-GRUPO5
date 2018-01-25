@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,7 +13,7 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class ResultDAO {
@@ -326,6 +325,10 @@ public class ResultDAO {
 				result.getResponse().setResult(null);
 			}
 			
+			ComponentResult[] lComponentResultss = result.componentResults.toArray();
+			for(int i = 0; i < lComponentResultss.length; i++) {
+				lComponentResultss[i].setResult(null);
+			}
 			return delete(result);
 		}
 		catch(Exception e) {
@@ -340,6 +343,10 @@ public class ResultDAO {
 				result.getResponse().setResult(null);
 			}
 			
+			ComponentResult[] lComponentResultss = result.componentResults.toArray();
+			for(int i = 0; i < lComponentResultss.length; i++) {
+				lComponentResultss[i].setResult(null);
+			}
 			try {
 				session.delete(result);
 				return true;

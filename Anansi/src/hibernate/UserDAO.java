@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -14,7 +13,7 @@ package hibernate;
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class UserDAO {
@@ -40,7 +39,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User loadUserByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User loadUserByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadUserByORMID(session, ID, lockMode);
@@ -51,7 +50,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User getUserByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User getUserByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return getUserByORMID(session, ID, lockMode);
@@ -82,7 +81,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User loadUserByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User loadUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (User) session.load(User.class, new Integer(ID), lockMode);
 		}
@@ -92,7 +91,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User getUserByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User getUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (User) session.get(User.class, new Integer(ID), lockMode);
 		}
@@ -113,7 +112,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static List queryUser(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryUser(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return queryUser(session, condition, orderBy, lockMode);
@@ -135,7 +134,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User[] listUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User[] listUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return listUserByQuery(session, condition, orderBy, lockMode);
@@ -162,7 +161,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static List queryUser(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryUser(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -190,7 +189,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User[] listUserByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User[] listUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			List list = queryUser(session, condition, orderBy, lockMode);
 			return (User[]) list.toArray(new User[list.size()]);
@@ -212,7 +211,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static User loadUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User loadUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadUserByQuery(session, condition, orderBy, lockMode);
@@ -231,7 +230,7 @@ public class UserDAO {
 			return null;
 	}
 	
-	public static User loadUserByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static User loadUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		User[] users = listUserByQuery(session, condition, orderBy, lockMode);
 		if (users != null && users.length > 0)
 			return users[0];
@@ -250,7 +249,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateUserByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return iterateUserByQuery(session, condition, orderBy, lockMode);
@@ -277,7 +276,7 @@ public class UserDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From User as User");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -322,6 +321,10 @@ public class UserDAO {
 	
 	public static boolean deleteAndDissociate(User user)throws PersistentException {
 		try {
+			Test[] lTestss = user.tests.toArray();
+			for(int i = 0; i < lTestss.length; i++) {
+				lTestss[i].setUser(null);
+			}
 			Response[] lResponsess = user.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setUser(null);
@@ -334,8 +337,12 @@ public class UserDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(User user, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(User user, PersistentSession session)throws PersistentException {
 		try {
+			Test[] lTestss = user.tests.toArray();
+			for(int i = 0; i < lTestss.length; i++) {
+				lTestss[i].setUser(null);
+			}
 			Response[] lResponsess = user.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setUser(null);

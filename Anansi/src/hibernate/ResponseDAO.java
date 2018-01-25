@@ -13,7 +13,7 @@ package hibernate; /**
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class ResponseDAO {
@@ -39,7 +39,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response loadResponseByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response loadResponseByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadResponseByORMID(session, ID, lockMode);
@@ -50,7 +50,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response getResponseByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response getResponseByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return getResponseByORMID(session, ID, lockMode);
@@ -81,7 +81,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response loadResponseByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response loadResponseByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (Response) session.load(Response.class, new Integer(ID), lockMode);
 		}
@@ -91,7 +91,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response getResponseByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response getResponseByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (Response) session.get(Response.class, new Integer(ID), lockMode);
 		}
@@ -112,7 +112,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static List queryResponse(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryResponse(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return queryResponse(session, condition, orderBy, lockMode);
@@ -134,7 +134,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response[] listResponseByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response[] listResponseByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return listResponseByQuery(session, condition, orderBy, lockMode);
@@ -161,7 +161,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static List queryResponse(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryResponse(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From Response as Response");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -189,7 +189,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response[] listResponseByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response[] listResponseByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			List list = queryResponse(session, condition, orderBy, lockMode);
 			return (Response[]) list.toArray(new Response[list.size()]);
@@ -211,7 +211,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static Response loadResponseByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response loadResponseByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadResponseByQuery(session, condition, orderBy, lockMode);
@@ -230,7 +230,7 @@ public class ResponseDAO {
 			return null;
 	}
 	
-	public static Response loadResponseByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static Response loadResponseByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		Response[] responses = listResponseByQuery(session, condition, orderBy, lockMode);
 		if (responses != null && responses.length > 0)
 			return responses[0];
@@ -249,7 +249,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateResponseByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateResponseByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return iterateResponseByQuery(session, condition, orderBy, lockMode);
@@ -276,7 +276,7 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateResponseByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateResponseByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From Response as Response");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -321,10 +321,6 @@ public class ResponseDAO {
 	
 	public static boolean deleteAndDissociate(Response response)throws PersistentException {
 		try {
-			if (response.getResult() != null) {
-				response.getResult().setResponse(null);
-			}
-			
 			if (response.getUser() != null) {
 				response.getUser().responses.remove(response);
 			}
@@ -337,6 +333,10 @@ public class ResponseDAO {
 			for(int i = 0; i < lComponentResultss.length; i++) {
 				lComponentResultss[i].setResponse(null);
 			}
+			if (response.getResult() != null) {
+				response.getResult().setResponse(null);
+			}
+			
 			return delete(response);
 		}
 		catch(Exception e) {
@@ -345,12 +345,8 @@ public class ResponseDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(Response response, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(Response response, PersistentSession session)throws PersistentException {
 		try {
-			if (response.getResult() != null) {
-				response.getResult().setResponse(null);
-			}
-			
 			if (response.getUser() != null) {
 				response.getUser().responses.remove(response);
 			}
@@ -363,6 +359,10 @@ public class ResponseDAO {
 			for(int i = 0; i < lComponentResultss.length; i++) {
 				lComponentResultss[i].setResponse(null);
 			}
+			if (response.getResult() != null) {
+				response.getResult().setResponse(null);
+			}
+			
 			try {
 				session.delete(response);
 				return true;

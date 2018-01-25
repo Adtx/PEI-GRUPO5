@@ -13,7 +13,7 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class ResponseDAO {
@@ -321,10 +321,6 @@ public class ResponseDAO {
 	
 	public static boolean deleteAndDissociate(Response response)throws PersistentException {
 		try {
-			if (response.getResult() != null) {
-				response.getResult().setResponse(null);
-			}
-			
 			if (response.getUser() != null) {
 				response.getUser().responses.remove(response);
 			}
@@ -337,6 +333,10 @@ public class ResponseDAO {
 			for(int i = 0; i < lComponentResultss.length; i++) {
 				lComponentResultss[i].setResponse(null);
 			}
+			if (response.getResult() != null) {
+				response.getResult().setResponse(null);
+			}
+			
 			return delete(response);
 		}
 		catch(Exception e) {
@@ -347,10 +347,6 @@ public class ResponseDAO {
 	
 	public static boolean deleteAndDissociate(Response response, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (response.getResult() != null) {
-				response.getResult().setResponse(null);
-			}
-			
 			if (response.getUser() != null) {
 				response.getUser().responses.remove(response);
 			}
@@ -363,6 +359,10 @@ public class ResponseDAO {
 			for(int i = 0; i < lComponentResultss.length; i++) {
 				lComponentResultss[i].setResponse(null);
 			}
+			if (response.getResult() != null) {
+				response.getResult().setResponse(null);
+			}
+			
 			try {
 				session.delete(response);
 				return true;

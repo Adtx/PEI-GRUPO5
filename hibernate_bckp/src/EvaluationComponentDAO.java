@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,7 +13,7 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class EvaluationComponentDAO {
@@ -315,6 +314,39 @@ public class EvaluationComponentDAO {
 			return true;
 		}
 		catch (Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean deleteAndDissociate(EvaluationComponent evaluationComponent)throws PersistentException {
+		try {
+			ComponentResult[] lComponentResultss = evaluationComponent.componentResults.toArray();
+			for(int i = 0; i < lComponentResultss.length; i++) {
+				lComponentResultss[i].setEvaluationComponent(null);
+			}
+			return delete(evaluationComponent);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw new PersistentException(e);
+		}
+	}
+	
+	public static boolean deleteAndDissociate(EvaluationComponent evaluationComponent, org.orm.PersistentSession session)throws PersistentException {
+		try {
+			ComponentResult[] lComponentResultss = evaluationComponent.componentResults.toArray();
+			for(int i = 0; i < lComponentResultss.length; i++) {
+				lComponentResultss[i].setEvaluationComponent(null);
+			}
+			try {
+				session.delete(evaluationComponent);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+		}
+		catch(Exception e) {
 			e.printStackTrace();
 			throw new PersistentException(e);
 		}

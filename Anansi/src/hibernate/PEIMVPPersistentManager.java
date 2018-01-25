@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -11,7 +10,6 @@ package hibernate;
 /**
  * Licensee: 
  * License Type: Evaluation
-
  */
 import org.orm.*;
 import org.orm.cfg.JDBCConnectionSetting;

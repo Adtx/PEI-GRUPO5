@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -19,26 +18,26 @@ import org.orm.criteria.*;
 
 public class ResponseCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
-	public final IntegerExpression resultId;
-	public final AssociationExpression result;
 	public final IntegerExpression userId;
 	public final AssociationExpression user;
-	public final StringExpression testId;
+	public final IntegerExpression testId;
 	public final AssociationExpression test;
 	public final StringExpression Content;
 	public final CollectionExpression componentResults;
+	public final IntegerExpression resultId;
+	public final AssociationExpression result;
 	
 	public ResponseCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
-		resultId = new IntegerExpression("result.ID", this);
-		result = new AssociationExpression("result", this);
 		userId = new IntegerExpression("user.ID", this);
 		user = new AssociationExpression("user", this);
-		testId = new StringExpression("test.ID", this);
+		testId = new IntegerExpression("test.ID", this);
 		test = new AssociationExpression("test", this);
 		Content = new StringExpression("Content", this);
 		componentResults = new CollectionExpression("ORM_ComponentResults", this);
+		resultId = new IntegerExpression("result.ID", this);
+		result = new AssociationExpression("result", this);
 	}
 	
 	public ResponseCriteria(PersistentSession session) {
@@ -47,10 +46,6 @@ public class ResponseCriteria extends AbstractORMCriteria {
 	
 	public ResponseCriteria() throws PersistentException {
 		this(PEIMVPPersistentManager.instance().getSession());
-	}
-	
-	public ResultCriteria createResultCriteria() {
-		return new ResultCriteria(createCriteria("result"));
 	}
 	
 	public UserCriteria createUserCriteria() {
@@ -63,6 +58,10 @@ public class ResponseCriteria extends AbstractORMCriteria {
 	
 	public ComponentResultCriteria createComponentResultsCriteria() {
 		return new ComponentResultCriteria(createCriteria("ORM_ComponentResults"));
+	}
+	
+	public ResultCriteria createResultCriteria() {
+		return new ResultCriteria(createCriteria("result"));
 	}
 	
 	public Response uniqueResponse() {

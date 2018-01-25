@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -21,9 +20,11 @@ public class ComponentResultDetachedCriteria extends AbstractORMDetachedCriteria
 	public final IntegerExpression ID;
 	public final IntegerExpression evaluationComponentId;
 	public final AssociationExpression evaluationComponent;
+	public final IntegerExpression resultId;
+	public final AssociationExpression result;
 	public final IntegerExpression responseId;
 	public final AssociationExpression response;
-	public final IntegerExpression Number;
+	public final DoubleExpression Number;
 	public final StringExpression Designation;
 	
 	public ComponentResultDetachedCriteria() {
@@ -31,9 +32,11 @@ public class ComponentResultDetachedCriteria extends AbstractORMDetachedCriteria
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		evaluationComponentId = new IntegerExpression("evaluationComponent.ID", this.getDetachedCriteria());
 		evaluationComponent = new AssociationExpression("evaluationComponent", this.getDetachedCriteria());
+		resultId = new IntegerExpression("result.ID", this.getDetachedCriteria());
+		result = new AssociationExpression("result", this.getDetachedCriteria());
 		responseId = new IntegerExpression("response.ID", this.getDetachedCriteria());
 		response = new AssociationExpression("response", this.getDetachedCriteria());
-		Number = new IntegerExpression("Number", this.getDetachedCriteria());
+		Number = new DoubleExpression("Number", this.getDetachedCriteria());
 		Designation = new StringExpression("Designation", this.getDetachedCriteria());
 	}
 	
@@ -42,14 +45,20 @@ public class ComponentResultDetachedCriteria extends AbstractORMDetachedCriteria
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		evaluationComponentId = new IntegerExpression("evaluationComponent.ID", this.getDetachedCriteria());
 		evaluationComponent = new AssociationExpression("evaluationComponent", this.getDetachedCriteria());
+		resultId = new IntegerExpression("result.ID", this.getDetachedCriteria());
+		result = new AssociationExpression("result", this.getDetachedCriteria());
 		responseId = new IntegerExpression("response.ID", this.getDetachedCriteria());
 		response = new AssociationExpression("response", this.getDetachedCriteria());
-		Number = new IntegerExpression("Number", this.getDetachedCriteria());
+		Number = new DoubleExpression("Number", this.getDetachedCriteria());
 		Designation = new StringExpression("Designation", this.getDetachedCriteria());
 	}
 	
 	public EvaluationComponentDetachedCriteria createEvaluationComponentCriteria() {
 		return new EvaluationComponentDetachedCriteria(createCriteria("evaluationComponent"));
+	}
+	
+	public ResultDetachedCriteria createResultCriteria() {
+		return new ResultDetachedCriteria(createCriteria("result"));
 	}
 	
 	public ResponseDetachedCriteria createResponseCriteria() {

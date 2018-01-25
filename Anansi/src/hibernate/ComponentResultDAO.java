@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -14,7 +13,7 @@ package hibernate;
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class ComponentResultDAO {
@@ -40,7 +39,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult loadComponentResultByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult loadComponentResultByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadComponentResultByORMID(session, ID, lockMode);
@@ -51,7 +50,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult getComponentResultByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult getComponentResultByORMID(int ID, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return getComponentResultByORMID(session, ID, lockMode);
@@ -82,7 +81,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult loadComponentResultByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult loadComponentResultByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (ComponentResult) session.load(ComponentResult.class, new Integer(ID), lockMode);
 		}
@@ -92,7 +91,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult getComponentResultByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult getComponentResultByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
 		try {
 			return (ComponentResult) session.get(ComponentResult.class, new Integer(ID), lockMode);
 		}
@@ -113,7 +112,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static List queryComponentResult(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryComponentResult(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return queryComponentResult(session, condition, orderBy, lockMode);
@@ -135,7 +134,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult[] listComponentResultByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult[] listComponentResultByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return listComponentResultByQuery(session, condition, orderBy, lockMode);
@@ -162,7 +161,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static List queryComponentResult(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static List queryComponentResult(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From ComponentResult as ComponentResult");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -190,7 +189,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult[] listComponentResultByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult[] listComponentResultByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			List list = queryComponentResult(session, condition, orderBy, lockMode);
 			return (ComponentResult[]) list.toArray(new ComponentResult[list.size()]);
@@ -212,7 +211,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static ComponentResult loadComponentResultByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult loadComponentResultByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return loadComponentResultByQuery(session, condition, orderBy, lockMode);
@@ -231,7 +230,7 @@ public class ComponentResultDAO {
 			return null;
 	}
 	
-	public static ComponentResult loadComponentResultByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static ComponentResult loadComponentResultByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		ComponentResult[] componentResults = listComponentResultByQuery(session, condition, orderBy, lockMode);
 		if (componentResults != null && componentResults.length > 0)
 			return componentResults[0];
@@ -250,7 +249,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateComponentResultByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateComponentResultByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = PEIMVPPersistentManager.instance().getSession();
 			return iterateComponentResultByQuery(session, condition, orderBy, lockMode);
@@ -277,7 +276,7 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static java.util.Iterator iterateComponentResultByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public static java.util.Iterator iterateComponentResultByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
 		StringBuffer sb = new StringBuffer("From ComponentResult as ComponentResult");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
@@ -323,7 +322,11 @@ public class ComponentResultDAO {
 	public static boolean deleteAndDissociate(ComponentResult componentResult)throws PersistentException {
 		try {
 			if (componentResult.getEvaluationComponent() != null) {
-				//componentResult.getEvaluationComponent().componentResult.remove(componentResult);
+				componentResult.getEvaluationComponent().componentResults.remove(componentResult);
+			}
+			
+			if (componentResult.getResult() != null) {
+				componentResult.getResult().componentResults.remove(componentResult);
 			}
 			
 			if (componentResult.getResponse() != null) {
@@ -338,10 +341,14 @@ public class ComponentResultDAO {
 		}
 	}
 	
-	public static boolean deleteAndDissociate(ComponentResult componentResult, org.orm.PersistentSession session)throws PersistentException {
+	public static boolean deleteAndDissociate(ComponentResult componentResult, PersistentSession session)throws PersistentException {
 		try {
 			if (componentResult.getEvaluationComponent() != null) {
-				//componentResult.getEvaluationComponent().componentResult.remove(componentResult);
+				componentResult.getEvaluationComponent().componentResults.remove(componentResult);
+			}
+			
+			if (componentResult.getResult() != null) {
+				componentResult.getResult().componentResults.remove(componentResult);
 			}
 			
 			if (componentResult.getResponse() != null) {

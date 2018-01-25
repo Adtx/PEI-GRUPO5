@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -21,9 +20,11 @@ public class ComponentResultCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression evaluationComponentId;
 	public final AssociationExpression evaluationComponent;
+	public final IntegerExpression resultId;
+	public final AssociationExpression result;
 	public final IntegerExpression responseId;
 	public final AssociationExpression response;
-	public final IntegerExpression Number;
+	public final DoubleExpression Number;
 	public final StringExpression Designation;
 	
 	public ComponentResultCriteria(Criteria criteria) {
@@ -31,9 +32,11 @@ public class ComponentResultCriteria extends AbstractORMCriteria {
 		ID = new IntegerExpression("ID", this);
 		evaluationComponentId = new IntegerExpression("evaluationComponent.ID", this);
 		evaluationComponent = new AssociationExpression("evaluationComponent", this);
+		resultId = new IntegerExpression("result.ID", this);
+		result = new AssociationExpression("result", this);
 		responseId = new IntegerExpression("response.ID", this);
 		response = new AssociationExpression("response", this);
-		Number = new IntegerExpression("Number", this);
+		Number = new DoubleExpression("Number", this);
 		Designation = new StringExpression("Designation", this);
 	}
 	
@@ -47,6 +50,10 @@ public class ComponentResultCriteria extends AbstractORMCriteria {
 	
 	public EvaluationComponentCriteria createEvaluationComponentCriteria() {
 		return new EvaluationComponentCriteria(createCriteria("evaluationComponent"));
+	}
+	
+	public ResultCriteria createResultCriteria() {
+		return new ResultCriteria(createCriteria("result"));
 	}
 	
 	public ResponseCriteria createResponseCriteria() {

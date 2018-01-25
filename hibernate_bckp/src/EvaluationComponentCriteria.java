@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -20,11 +19,13 @@ import org.orm.criteria.*;
 public class EvaluationComponentCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression Name;
+	public final CollectionExpression componentResults;
 	
 	public EvaluationComponentCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
 		Name = new StringExpression("Name", this);
+		componentResults = new CollectionExpression("ORM_ComponentResults", this);
 	}
 	
 	public EvaluationComponentCriteria(PersistentSession session) {
@@ -33,6 +34,10 @@ public class EvaluationComponentCriteria extends AbstractORMCriteria {
 	
 	public EvaluationComponentCriteria() throws PersistentException {
 		this(PEIMVPPersistentManager.instance().getSession());
+	}
+	
+	public ComponentResultCriteria createComponentResultsCriteria() {
+		return new ComponentResultCriteria(createCriteria("ORM_ComponentResults"));
 	}
 	
 	public EvaluationComponent uniqueEvaluationComponent() {

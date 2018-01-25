@@ -5,10 +5,22 @@
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UserID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>User.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
@@ -29,7 +41,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -40,7 +52,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -64,7 +76,29 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Email">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>true</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Password">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -78,18 +112,6 @@
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="ResultID">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Result.ID</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -111,8 +133,8 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
       <ReferencedColumn>Test.ID</ReferencedColumn>
-      <Type>27</Type>
-      <Length>255</Length>
+      <Type>9</Type>
+      <Length>10</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -122,8 +144,8 @@
     <Column name="Content">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
+      <Type>34</Type>
+      <Length>0</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -143,11 +165,34 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="ResponseID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Response.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="Designation">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Result">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>6</Type>
+      <Length>0</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -172,7 +217,7 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -191,22 +236,22 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="ResultID">
+    <Column name="EvaluationComponentID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Result.ID</ReferencedColumn>
+      <ReferencedColumn>EvaluationComponent.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="EvaluationComponentID">
+    <Column name="ResultID">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>EvaluationComponent.ID</ReferencedColumn>
+      <ReferencedColumn>Result.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -230,8 +275,8 @@
     <Column name="Number">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>10</Length>
+      <Type>6</Type>
+      <Length>0</Length>
       <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -243,14 +288,14 @@
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
     </Column>
   </Entity>
-  <ForeignKey name="Test - Response">
+  <ForeignKey name="FKResponse378903">
     <ReferenceTable>Response</ReferenceTable>
     <ReferencedTable>Test</ReferencedTable>
     <Columns>
@@ -260,27 +305,17 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="Response - ComponentResult">
-    <ReferenceTable>ComponentResult</ReferenceTable>
-    <ReferencedTable>Response</ReferencedTable>
+  <ForeignKey name="FKTest914004">
+    <ReferenceTable>Test</ReferenceTable>
+    <ReferencedTable>User</ReferencedTable>
     <Columns>
-      <Column>ResponseID</Column>
+      <Column>UserID</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="EC - CR">
-    <ReferenceTable>ComponentResult</ReferenceTable>
-    <ReferencedTable>EvaluationComponent</ReferencedTable>
-    <Columns>
-      <Column>EvaluationComponentID</Column>
-    </Columns>
-    <RefColumns>
-      <Column>ID</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="User - Response">
+  <ForeignKey name="FKResponse196604">
     <ReferenceTable>Response</ReferenceTable>
     <ReferencedTable>User</ReferencedTable>
     <Columns>
@@ -290,7 +325,27 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="CR - FinalResult">
+  <ForeignKey name="FKComponentR655149">
+    <ReferenceTable>ComponentResult</ReferenceTable>
+    <ReferencedTable>Response</ReferencedTable>
+    <Columns>
+      <Column>ResponseID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKResult911048">
+    <ReferenceTable>Result</ReferenceTable>
+    <ReferencedTable>Response</ReferencedTable>
+    <Columns>
+      <Column>ResponseID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKComponentR960522">
     <ReferenceTable>ComponentResult</ReferenceTable>
     <ReferencedTable>Result</ReferencedTable>
     <Columns>
@@ -300,11 +355,11 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="Response - Result">
-    <ReferenceTable>Response</ReferenceTable>
-    <ReferencedTable>Result</ReferencedTable>
+  <ForeignKey name="FKComponentR949775">
+    <ReferenceTable>ComponentResult</ReferenceTable>
+    <ReferencedTable>EvaluationComponent</ReferencedTable>
     <Columns>
-      <Column>ResultID</Column>
+      <Column>EvaluationComponentID</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>

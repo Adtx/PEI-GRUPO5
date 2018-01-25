@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -12,13 +11,18 @@ package hibernate;
  * Licensee: 
  * License Type: Evaluation
  */
-public class ComponentResult {
+import java.io.Serializable;
+public class ComponentResult implements Serializable {
 	public ComponentResult() {
 	}
 	
 	private void this_setOwner(Object owner, int key) {
 		if (key == ORMConstants.KEY_COMPONENTRESULT_RESPONSE) {
 			this.response = (Response) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_COMPONENTRESULT_RESULT) {
+			this.result = (Result) owner;
 		}
 		
 		else if (key == ORMConstants.KEY_COMPONENTRESULT_EVALUATIONCOMPONENT) {
@@ -35,11 +39,13 @@ public class ComponentResult {
 	
 	private int ID;
 	
-	private EvaluationComponent evaluationComponent;
+	public EvaluationComponent evaluationComponent;
+	
+	public Result result;
 	
 	public Response response;
 	
-	private int Number;
+	private double Number;
 	
 	private String Designation;
 	
@@ -55,11 +61,11 @@ public class ComponentResult {
 		return getID();
 	}
 	
-	public void setNumber(int value) {
+	public void setNumber(double value) {
 		this.Number = value;
 	}
 	
-	public int getNumber() {
+	public double getNumber() {
 		return Number;
 	}
 	
@@ -95,12 +101,36 @@ public class ComponentResult {
 		return response;
 	}
 	
-	public void setEvaluationComponent(EvaluationComponent value) {
-		if (evaluationComponent != null) {
-			evaluationComponent = null;
+	public void setResult(Result value) {
+		if (result != null) {
+			result.componentResults.remove(this);
 		}
 		if (value != null) {
-			evaluationComponent = value;
+			value.componentResults.add(this);
+		}
+	}
+	
+	public Result getResult() {
+		return result;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Result(Result value) {
+		this.result = value;
+	}
+	
+	private Result getORM_Result() {
+		return result;
+	}
+	
+	public void setEvaluationComponent(EvaluationComponent value) {
+		if (evaluationComponent != null) {
+			evaluationComponent.componentResults.remove(this);
+		}
+		if (value != null) {
+			value.componentResults.add(this);
 		}
 	}
 	

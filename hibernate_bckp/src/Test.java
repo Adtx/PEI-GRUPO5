@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,25 +11,9 @@
  * Licensee: 
  * License Type: Evaluation
  */
-public class Test {
+import java.io.Serializable;
+public class Test implements Serializable {
 	public Test() {
-	}
-	
-	public boolean equals(Object aObj) {
-		if (aObj == this)
-			return true;
-		if (!(aObj instanceof Test))
-			return false;
-		Test test = (Test)aObj;
-		if ((getID() != null && !getID().equals(test.getID())) || (getID() == null && test.getID() != null))
-			return false;
-		return true;
-	}
-	
-	public int hashCode() {
-		int hashcode = 0;
-		hashcode = hashcode + (getID() == null ? 0 : getID().hashCode());
-		return hashcode;
 	}
 	
 	private java.util.Set this_getSet (int key) {
@@ -41,14 +24,26 @@ public class Test {
 		return null;
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == ORMConstants.KEY_TEST_USER) {
+			this.user = (User) owner;
+		}
+	}
+	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
 		}
 		
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
+		}
+		
 	};
 	
-	private String ID;
+	private int ID;
+	
+	public User user;
 	
 	private int Type;
 	
@@ -58,15 +53,15 @@ public class Test {
 	
 	private java.util.Set ORM_responses = new java.util.HashSet();
 	
-	public void setID(String value) {
+	private void setID(int value) {
 		this.ID = value;
 	}
 	
-	public String getID() {
+	public int getID() {
 		return ID;
 	}
 	
-	public String getORMID() {
+	public int getORMID() {
 		return getID();
 	}
 	
@@ -92,6 +87,30 @@ public class Test {
 	
 	public String getContent() {
 		return Content;
+	}
+	
+	public void setUser(User value) {
+		if (user != null) {
+			user.tests.remove(this);
+		}
+		if (value != null) {
+			value.tests.add(this);
+		}
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_User(User value) {
+		this.user = value;
+	}
+	
+	private User getORM_User() {
+		return user;
 	}
 	
 	private void setORM_Responses(java.util.Set value) {

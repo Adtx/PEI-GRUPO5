@@ -10,6 +10,10 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
-		<property name="Name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="Name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_ComponentResults" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="EvaluationComponentID" not-null="true"/>
+			<one-to-many class="ComponentResult"/>
+		</set>
 	</class>
 </hibernate-mapping>

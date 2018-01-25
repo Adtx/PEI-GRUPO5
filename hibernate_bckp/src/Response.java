@@ -1,4 +1,3 @@
-package hibernate.src;
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,7 +11,8 @@ package hibernate.src;
  * Licensee: 
  * License Type: Evaluation
  */
-public class Response {
+import java.io.Serializable;
+public class Response implements Serializable {
 	public Response() {
 	}
 	
@@ -29,12 +29,12 @@ public class Response {
 			this.test = (Test) owner;
 		}
 		
-		else if (key == ORMConstants.KEY_RESPONSE_RESULT) {
-			this.result = (Result) owner;
-		}
-		
 		else if (key == ORMConstants.KEY_RESPONSE_USER) {
 			this.user = (User) owner;
+		}
+		
+		else if (key == ORMConstants.KEY_RESPONSE_RESULT) {
+			this.result = (Result) owner;
 		}
 	}
 	
@@ -51,8 +51,6 @@ public class Response {
 	
 	private int ID;
 	
-	public Result result;
-	
 	public User user;
 	
 	public Test test;
@@ -60,6 +58,8 @@ public class Response {
 	private String Content;
 	
 	private java.util.Set ORM_componentResults = new java.util.HashSet();
+	
+	public Result result;
 	
 	private void setID(int value) {
 		this.ID = value;
@@ -105,33 +105,6 @@ public class Response {
 		return test;
 	}
 	
-	public void setResult(Result value) {
-		if (this.result != value) {
-			Result lresult = this.result;
-			this.result = value;
-			if (value != null) {
-				result.setResponse(this);
-			}
-			if (lresult != null && lresult.getResponse() == this) {
-				lresult.setResponse(null);
-			}
-		}
-	}
-	
-	public Result getResult() {
-		return result;
-	}
-	
-	private void setORM_ComponentResults(java.util.Set value) {
-		this.ORM_componentResults = value;
-	}
-	
-	private java.util.Set getORM_ComponentResults() {
-		return ORM_componentResults;
-	}
-	
-	public final ComponentResultSetCollection componentResults = new ComponentResultSetCollection(this, _ormAdapter, ORMConstants.KEY_RESPONSE_COMPONENTRESULTS, ORMConstants.KEY_COMPONENTRESULT_RESPONSE, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
 	public void setUser(User value) {
 		if (user != null) {
 			user.responses.remove(this);
@@ -154,6 +127,33 @@ public class Response {
 	
 	private User getORM_User() {
 		return user;
+	}
+	
+	private void setORM_ComponentResults(java.util.Set value) {
+		this.ORM_componentResults = value;
+	}
+	
+	private java.util.Set getORM_ComponentResults() {
+		return ORM_componentResults;
+	}
+	
+	public final ComponentResultSetCollection componentResults = new ComponentResultSetCollection(this, _ormAdapter, ORMConstants.KEY_RESPONSE_COMPONENTRESULTS, ORMConstants.KEY_COMPONENTRESULT_RESPONSE, ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	public void setResult(Result value) {
+		if (this.result != value) {
+			Result lresult = this.result;
+			this.result = value;
+			if (value != null) {
+				result.setResponse(this);
+			}
+			if (lresult != null && lresult.getResponse() == this) {
+				lresult.setResponse(null);
+			}
+		}
+	}
+	
+	public Result getResult() {
+		return result;
 	}
 	
 	public String toString() {

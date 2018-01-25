@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,7 +13,7 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class ComponentResultDAO {
@@ -323,7 +322,11 @@ public class ComponentResultDAO {
 	public static boolean deleteAndDissociate(ComponentResult componentResult)throws PersistentException {
 		try {
 			if (componentResult.getEvaluationComponent() != null) {
-				//componentResult.getEvaluationComponent().componentResult.remove(componentResult);
+				componentResult.getEvaluationComponent().componentResults.remove(componentResult);
+			}
+			
+			if (componentResult.getResult() != null) {
+				componentResult.getResult().componentResults.remove(componentResult);
 			}
 			
 			if (componentResult.getResponse() != null) {
@@ -341,7 +344,11 @@ public class ComponentResultDAO {
 	public static boolean deleteAndDissociate(ComponentResult componentResult, org.orm.PersistentSession session)throws PersistentException {
 		try {
 			if (componentResult.getEvaluationComponent() != null) {
-				//componentResult.getEvaluationComponent().componentResult.remove(componentResult);
+				componentResult.getEvaluationComponent().componentResults.remove(componentResult);
+			}
+			
+			if (componentResult.getResult() != null) {
+				componentResult.getResult().componentResults.remove(componentResult);
 			}
 			
 			if (componentResult.getResponse() != null) {

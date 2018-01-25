@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -18,7 +17,9 @@ import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
 public class TestDetachedCriteria extends AbstractORMDetachedCriteria {
-	public final StringExpression ID;
+	public final IntegerExpression ID;
+	public final IntegerExpression userId;
+	public final AssociationExpression user;
 	public final IntegerExpression Type;
 	public final StringExpression Description;
 	public final StringExpression Content;
@@ -26,7 +27,9 @@ public class TestDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public TestDetachedCriteria() {
 		super(Test.class, TestCriteria.class);
-		ID = new StringExpression("ID", this.getDetachedCriteria());
+		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		userId = new IntegerExpression("user.ID", this.getDetachedCriteria());
+		user = new AssociationExpression("user", this.getDetachedCriteria());
 		Type = new IntegerExpression("Type", this.getDetachedCriteria());
 		Description = new StringExpression("Description", this.getDetachedCriteria());
 		Content = new StringExpression("Content", this.getDetachedCriteria());
@@ -35,11 +38,17 @@ public class TestDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public TestDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, TestCriteria.class);
-		ID = new StringExpression("ID", this.getDetachedCriteria());
+		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		userId = new IntegerExpression("user.ID", this.getDetachedCriteria());
+		user = new AssociationExpression("user", this.getDetachedCriteria());
 		Type = new IntegerExpression("Type", this.getDetachedCriteria());
 		Description = new StringExpression("Description", this.getDetachedCriteria());
 		Content = new StringExpression("Content", this.getDetachedCriteria());
 		responses = new CollectionExpression("ORM_Responses", this.getDetachedCriteria());
+	}
+	
+	public UserDetachedCriteria createUserCriteria() {
+		return new UserDetachedCriteria(createCriteria("user"));
 	}
 	
 	public ResponseDetachedCriteria createResponsesCriteria() {

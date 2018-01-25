@@ -11,12 +11,16 @@
  * Licensee: 
  * License Type: Evaluation
  */
-public class User {
+import java.io.Serializable;
+public class User implements Serializable {
 	public User() {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == ORMConstants.KEY_USER_RESPONSES) {
+		if (key == ORMConstants.KEY_USER_TESTS) {
+			return ORM_tests;
+		}
+		else if (key == ORMConstants.KEY_USER_RESPONSES) {
 			return ORM_responses;
 		}
 		
@@ -33,6 +37,12 @@ public class User {
 	private int ID;
 	
 	private String Name;
+	
+	private String Email;
+	
+	private String Password;
+	
+	private java.util.Set ORM_tests = new java.util.HashSet();
 	
 	private java.util.Set ORM_responses = new java.util.HashSet();
 	
@@ -55,6 +65,32 @@ public class User {
 	public String getName() {
 		return Name;
 	}
+	
+	public void setEmail(String value) {
+		this.Email = value;
+	}
+	
+	public String getEmail() {
+		return Email;
+	}
+	
+	public void setPassword(String value) {
+		this.Password = value;
+	}
+	
+	public String getPassword() {
+		return Password;
+	}
+	
+	private void setORM_Tests(java.util.Set value) {
+		this.ORM_tests = value;
+	}
+	
+	private java.util.Set getORM_Tests() {
+		return ORM_tests;
+	}
+	
+	public final TestSetCollection tests = new TestSetCollection(this, _ormAdapter, ORMConstants.KEY_USER_TESTS, ORMConstants.KEY_TEST_USER, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Responses(java.util.Set value) {
 		this.ORM_responses = value;

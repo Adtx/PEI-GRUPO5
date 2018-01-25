@@ -16,6 +16,10 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_COMPONENTRESULT_RESPONSE = 629134214;
 	
+	final int KEY_COMPONENTRESULT_RESULT = 492278946;
+	
+	final int KEY_EVALUATIONCOMPONENT_COMPONENTRESULTS = 1450742711;
+	
 	final int KEY_RESPONSE_COMPONENTRESULTS = -1534842793;
 	
 	final int KEY_RESPONSE_RESULT = -295219781;
@@ -30,6 +34,10 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_TEST_RESPONSES = 1431466245;
 	
+	final int KEY_TEST_USER = 823888696;
+	
 	final int KEY_USER_RESPONSES = -1394989826;
+	
+	final int KEY_USER_TESTS = -366201651;
 	
 }

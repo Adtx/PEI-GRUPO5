@@ -10,9 +10,13 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
+		<many-to-one name="evaluationComponent" cascade="lock" column="EvaluationComponentID" class="EvaluationComponent" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="result" cascade="lock" column="ResultID" class="Result" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
 		<many-to-one name="response" cascade="lock" column="ResponseID" class="Response" not-null="true" lazy="proxy" access="field">
 		</many-to-one>
-		<property name="Number" column="Number" type="integer" length="10" not-null="true" lazy="false"/>
-		<property name="Designation" column="Designation" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="Number" column="Number" type="double" not-null="true" lazy="false"/>
+		<property name="Designation" column="Designation" type="string" length="255" not-null="true" lazy="false"/>
 	</class>
 </hibernate-mapping>

@@ -1,5 +1,4 @@
-package hibernate;
-/**
+package hibernate; /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
  * This is an automatic generated file. It will be regenerated every time 
@@ -19,18 +18,20 @@ import org.orm.criteria.*;
 
 public class ResultCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
-	public final StringExpression Designation;
-	public final CollectionExpression componentResults;
 	public final IntegerExpression responseId;
 	public final AssociationExpression response;
+	public final StringExpression Designation;
+	public final DoubleExpression result;
+	public final CollectionExpression componentResults;
 	
 	public ResultCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
-		Designation = new StringExpression("Designation", this);
-		componentResults = new CollectionExpression("ORM_ComponentResults", this);
 		responseId = new IntegerExpression("response.ID", this);
 		response = new AssociationExpression("response", this);
+		Designation = new StringExpression("Designation", this);
+		result = new DoubleExpression("result", this);
+		componentResults = new CollectionExpression("ORM_ComponentResults", this);
 	}
 	
 	public ResultCriteria(PersistentSession session) {
@@ -41,12 +42,12 @@ public class ResultCriteria extends AbstractORMCriteria {
 		this(PEIMVPPersistentManager.instance().getSession());
 	}
 	
-	public ComponentResultCriteria createComponentResultsCriteria() {
-		return new ComponentResultCriteria(createCriteria("ORM_ComponentResults"));
-	}
-	
 	public ResponseCriteria createResponseCriteria() {
 		return new ResponseCriteria(createCriteria("response"));
+	}
+	
+	public ComponentResultCriteria createComponentResultsCriteria() {
+		return new ComponentResultCriteria(createCriteria("ORM_ComponentResults"));
 	}
 	
 	public Result uniqueResult2() {

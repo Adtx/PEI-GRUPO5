@@ -17,11 +17,11 @@ License Type: Evaluation
 		<mkdir dir="${classes.dir}" />
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="${javac.debug}">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 			</classpath>
 		</javac>
 		<copy todir="${classes.dir}">
-			<fileset dir="/bean/src">
+			<fileset dir="${src.dir}">
 				<exclude name="**/*.java" />
 			</fileset>
 		</copy>
@@ -34,7 +34,7 @@ License Type: Evaluation
 	<target name="createSchema" description="Run create data schema sample">
 		<java classname="CreatePEIMVPDatabaseSchema" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
@@ -43,7 +43,7 @@ License Type: Evaluation
 	<target name="createdata" description="Run create test data sample">
 		<java classname="CreatePEIMVPData" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
@@ -52,7 +52,7 @@ License Type: Evaluation
 	<target name="retrievedata" description="Run retrieve data sample">
 		<java classname="RetrieveAndUpdatePEIMVPData" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
@@ -61,7 +61,7 @@ License Type: Evaluation
 	<target name="deletedata" description="Run delete data sample">
 		<java classname="DeletePEIMVPData" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
@@ -70,7 +70,7 @@ License Type: Evaluation
 	<target name="dropschema" description="Run drop schema sample">
 		<java classname="DropPEIMVPDatabaseSchema" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>
@@ -79,7 +79,7 @@ License Type: Evaluation
 	<target name="listdata" description="Run list data sample">
 		<java classname="ListPEIMVPData" fork="true">
 			<classpath>
-				<fileset dir="/bean/lib" includes="*.jar"/>
+				<fileset dir="${lib.dir}" includes="*.jar"/>
 				<pathelement location="${classes.dir}"/>
 			</classpath>
 		</java>

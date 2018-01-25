@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -14,7 +13,7 @@
  */
 import org.orm.*;
 import org.hibernate.Query;
-
+import org.hibernate.LockMode;
 import java.util.List;
 
 public class UserDAO {
@@ -322,6 +321,10 @@ public class UserDAO {
 	
 	public static boolean deleteAndDissociate(User user)throws PersistentException {
 		try {
+			Test[] lTestss = user.tests.toArray();
+			for(int i = 0; i < lTestss.length; i++) {
+				lTestss[i].setUser(null);
+			}
 			Response[] lResponsess = user.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setUser(null);
@@ -336,6 +339,10 @@ public class UserDAO {
 	
 	public static boolean deleteAndDissociate(User user, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			Test[] lTestss = user.tests.toArray();
+			for(int i = 0; i < lTestss.length; i++) {
+				lTestss[i].setUser(null);
+			}
 			Response[] lResponsess = user.responses.toArray();
 			for(int i = 0; i < lResponsess.length; i++) {
 				lResponsess[i].setUser(null);

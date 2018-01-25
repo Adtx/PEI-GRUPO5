@@ -1,4 +1,3 @@
-
 /**
  * "Visual Paradigm: DO NOT MODIFY THIS FILE!"
  * 
@@ -12,7 +11,8 @@
  * Licensee: 
  * License Type: Evaluation
  */
-public class Result {
+import java.io.Serializable;
+public class Result implements Serializable {
 	public Result() {
 	}
 	
@@ -33,11 +33,13 @@ public class Result {
 	
 	private int ID;
 	
+	public Response response;
+	
 	private String Designation;
 	
-	private java.util.Set ORM_componentResults = new java.util.HashSet();
+	private Double result;
 	
-	public Response response;
+	private java.util.Set ORM_componentResults = new java.util.HashSet();
 	
 	private void setID(int value) {
 		this.ID = value;
@@ -59,15 +61,17 @@ public class Result {
 		return Designation;
 	}
 	
-	private void setORM_ComponentResults(java.util.Set value) {
-		this.ORM_componentResults = value;
+	public void setResult(double value) {
+		setResult(new Double(value));
 	}
 	
-	private java.util.Set getORM_ComponentResults() {
-		return ORM_componentResults;
+	public void setResult(Double value) {
+		this.result = value;
 	}
 	
-	public final ComponentResultSetCollection componentResults = new ComponentResultSetCollection(this, _ormAdapter, ORMConstants.KEY_RESULT_COMPONENTRESULTS, ORMConstants.KEY_MUL_MANY_TO_MANY);
+	public Double getResult() {
+		return result;
+	}
 	
 	public void setResponse(Response value) {
 		if (this.response != value) {
@@ -85,6 +89,16 @@ public class Result {
 	public Response getResponse() {
 		return response;
 	}
+	
+	private void setORM_ComponentResults(java.util.Set value) {
+		this.ORM_componentResults = value;
+	}
+	
+	private java.util.Set getORM_ComponentResults() {
+		return ORM_componentResults;
+	}
+	
+	public final ComponentResultSetCollection componentResults = new ComponentResultSetCollection(this, _ormAdapter, ORMConstants.KEY_RESULT_COMPONENTRESULTS, ORMConstants.KEY_COMPONENTRESULT_RESULT, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getID());
