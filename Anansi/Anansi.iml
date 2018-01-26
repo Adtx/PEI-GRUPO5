@@ -108,5 +108,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="nd4j_native_platform" level="project" />
   </component>
 </module>

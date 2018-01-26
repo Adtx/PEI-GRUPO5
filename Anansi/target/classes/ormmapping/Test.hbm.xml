@@ -6,15 +6,13 @@ License Type: Evaluation
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 	<class name="hibernate.Test" table="Test" lazy="false">
-		<id name="ID" column="ID" type="integer" unsaved-value="0">
-			<generator class="native">
+		<id name="ID" column="ID" type="string">
+			<generator class="assigned">
 			</generator>
 		</id>
-		<many-to-one name="user" cascade="lock" column="UserID" class="hibernate.User" not-null="false" lazy="proxy" access="field">
-		</many-to-one>
 		<property name="Type" column="Type" type="integer" length="10" not-null="true" lazy="false"/>
-		<property name="Description" column="Description" type="string" length="255" not-null="true" lazy="false"/>
-		<property name="Content" column="Content" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="Description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="Content" column="Content" type="string" length="255" not-null="false" lazy="false"/>
 		<set name="ORM_Responses" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="TestID" not-null="true"/>
 			<one-to-many class="hibernate.Response"/>

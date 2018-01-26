@@ -10,13 +10,7 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="response" column="ResponseID" class="hibernate.Response" cascade="save-update,lock" unique="true" not-null="true" lazy="proxy" access="field">
-		</many-to-one>
-		<property name="Designation" column="Designation" type="string" length="255" not-null="true" lazy="false"/>
-		<property name="result" column="Result" type="double" not-null="false" lazy="false"/>
-		<set name="ORM_ComponentResults" lazy="true" cascade="save-update,lock" inverse="true">
-			<key column="ResultID" not-null="true"/>
-			<one-to-many class="hibernate.ComponentResult"/>
-		</set>
+		<property name="Designation" column="Designation" type="string" length="255" not-null="false" lazy="false"/>
+		<one-to-one name="response" class="hibernate.Response" cascade="save-update,lock" property-ref="result" lazy="proxy" access="field"/>
 	</class>
 </hibernate-mapping>
