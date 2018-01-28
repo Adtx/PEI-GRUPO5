@@ -99,6 +99,9 @@ public class SVM_Classifier {
     private void test_model(){
         //currently it is testing with training data, when we have more data adapt in order to train with other type of data
         load_data("test_results.csv",";");
+        double accuracy=0;
+        double right=0;
+        double total=0;
         int total_features=data.get(0).length-1;
         for(int i = 0; i <= data.size()-1; i++){
             svm_node[] x_test = new svm_node[total_features];
@@ -112,7 +115,12 @@ public class SVM_Classifier {
             int level= (int) current_case[f];
             double d = svm.svm_predict(model, x_test);
             System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
+            total=total+1;
+            if(level==d){
+                right=right+1;
+            }
         }
+        System.out.println("\n\n SVM Acuracy: "+(right/total)*100+" %");
     }
 
     private void prepare_data(){

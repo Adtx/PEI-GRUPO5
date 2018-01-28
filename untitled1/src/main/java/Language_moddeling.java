@@ -43,12 +43,12 @@ public class Language_moddeling {
     }
 
 
-    public float bigram_model_value(String text) {
+    public double bigram_model_value(String text) {
         sentences=new ArrayList<>();
         sentence_spliter(text);
         ScriptLoader loader=new ScriptLoader();
         ScriptInstance script=null;
-        float res=0;
+        double res=0;
         try {
             script = loader.loadScript("bigram_model_script.ls");
         }catch (YourCodeSucksException syntaxErrors){
@@ -76,12 +76,12 @@ public class Language_moddeling {
     return res;
      }
 
-    public float bigram_model_value_reverse(String text) {
+    public double bigram_model_value_reverse(String text) {
         sentences=new ArrayList<>();
         sentence_spliter(text);
         ScriptLoader loader=new ScriptLoader();
         ScriptInstance script=null;
-        float res=0;
+        double res=0;
         try {
             script = loader.loadScript("bigram_model_script_reverse.ls");
         }catch (YourCodeSucksException syntaxErrors){
@@ -109,7 +109,7 @@ public class Language_moddeling {
         return res;
     }
 
-    public float exp() {
+    public double exp() {
       /*  sentences=new ArrayList<>();
         sentence_spliter();*/
         load_bigram_model();
@@ -117,7 +117,7 @@ public class Language_moddeling {
         ScriptInstance script = null;
         String s = "Yesterday Tom had his breakfast. He then went for a walk with his dog and some friends. After the walk they had a picnic. Everybody had a good day. In the evening Tom was tired and went to bed.\n";
 
-        float res = 0;
+        double res = 0;
         try {
             script = loader.loadScript("exp.ls");
             //script.runScript();

@@ -273,6 +273,7 @@ public class KNN {
 
         try {
             result= knn.classifyInstance(iExample);
+            //knn.classifyInstance(iExample).
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -330,6 +331,65 @@ public class KNN {
                 .toArray();
 
         data.add(doubleValues);
+    }
+
+    public void test_model(){
+        //currently it is testing with training data, when we have more data adapt in order to train with other type of data
+        //load_data("test_results.csv",";");
+        //String csvFile = data_file;
+        BufferedReader br = null;
+        String line = "";
+        //String cvsSplitBy = separator;
+        double acuracy=0;
+        double right=0;
+        double total=0;
+
+
+        try {
+            br = new BufferedReader(new FileReader("test_results.csv"));
+            line=br.readLine(); // this will read the first line
+
+            line = null;
+            while ((line = br.readLine()) != null) {
+                data = new ArrayList<>();
+                // use ; as separator
+                String[] values = line.split(";");
+
+                double[] doubleValues = Arrays.stream(values)
+                        .mapToDouble(Double::parseDouble)
+                        .toArray();
+
+                int level= (int) doubleValues[doubleValues.length-1];
+
+                doubleValues=Arrays.copyOf(doubleValues, doubleValues.length-1);
+
+                data.add(doubleValues);
+
+                double prediction= predict();
+
+                System.out.println("KNN Prediction: "+prediction+"   Actual level;  "+level );
+                total=total+1;
+                if(prediction==level){
+                    right=right+1;
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        System.out.println("\n\n KNN Acuracy: "+(right/total)*100+" %");
     }
 
     /*public void test_model(){

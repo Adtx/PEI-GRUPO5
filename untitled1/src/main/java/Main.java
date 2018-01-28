@@ -31,16 +31,27 @@ public class Main {
         frame.pack();
         frame.setVisible(true);*/
         //update_train_dataset();
-
-
+        //update_test_dataset();
         //train_all_classifiers();
-        Auto_tester t=new Auto_tester();
-        t.how_many_texts_per_level();
+        Normalize n= new Normalize();
+
+        double[] test= {1,2,3,4,5};
+        double[] means={3,3,3,3,3};
+        double deviation=n.deviation(test,3);
+        System.out.println(deviation);
+        double[] deviations={deviation,deviation,deviation,deviation,deviation};
+
+
+        n.normalize(test,means,deviations);
+
+        /*Auto_tester t=new Auto_tester();
+        t.how_many_texts_per_level();*/
 
 
     }
 
     private static void update_train_dataset(){
+        System.out.println("A imprimir dataset de treino");
         Auto_tester t=new Auto_tester();
         try {
             t.train_texts();
@@ -50,6 +61,7 @@ public class Main {
     }
 
     private static void update_test_dataset(){
+        System.out.println("A imprimir dataset de teste");
         Auto_tester t=new Auto_tester();
         try {
             t.test_texts();
@@ -60,12 +72,14 @@ public class Main {
 
 
     public static void train_all_classifiers(){
-        //SVM_Classifier svm= new SVM_Classifier();
-        //svm.train_classifier();
+        System.out.println("A treinar os classificadores");
+        SVM_Classifier svm= new SVM_Classifier();
+        svm.train_classifier();
         NeuralNet nn=new NeuralNet();
         nn.train_neural_net();
-        //KNN knn_classifier=new KNN();
-        //knn_classifier.test_model();
+        KNN knn_classifier=new KNN();
+        knn_classifier.train_model();
+        knn_classifier.test_model();
 
     }
 

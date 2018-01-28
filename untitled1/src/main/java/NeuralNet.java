@@ -47,14 +47,14 @@ public class NeuralNet {
 
     public void train_neural_net(){
         int seed = 123;
-        double learningRate = 0.01;
+        double learningRate = 0.00001;
         int batchSize = 5;
-        int nEpochs = 500;
+        int nEpochs = 200;
 
         //need to be changed manually in case of change to the train/test file
-        int numInputs = 41;
+        int numInputs = 27;
         int numOutputs = 6;
-        int numHiddenNodes = 60;
+        int numHiddenNodes = 120;
 
         String filenameTrain="train_results_neural_net.csv";
         String filenameTest="test_results_neural_net.csv";
@@ -101,10 +101,14 @@ public class NeuralNet {
                         .weightInit(WeightInit.XAVIER)
                         .activation(Activation.RELU)
                         .build())
-                .layer(1, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
+                .layer(1, new DenseLayer.Builder().nIn(numHiddenNodes).nOut(60)
+                        .weightInit(WeightInit.XAVIER)
+                        .activation(Activation.RELU)
+                        .build())
+                .layer(2, new OutputLayer.Builder(LossFunction.NEGATIVELOGLIKELIHOOD)
                         .weightInit(WeightInit.XAVIER)
                         .activation(Activation.SOFTMAX).weightInit(WeightInit.XAVIER)
-                        .nIn(numHiddenNodes).nOut(numOutputs).build())
+                        .nIn(60).nOut(numOutputs).build())
                 .pretrain(false).backprop(true).build();
 
 

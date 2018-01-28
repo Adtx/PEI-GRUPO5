@@ -14,39 +14,39 @@ public class Test {
     private int total_different_words;
     private int different_advanced_words;
     private int total_paragraphs;
-    private float words_per_sentence;
-    private float sentences_per_paragraph;
+    private double words_per_sentence;
+    private double sentences_per_paragraph;
 
     //readibility scores
-    private float flesch_reading_ease;
-    private float flesch_kinkaid;
-    private float gunning_fog;
-    private float coleman_liau;
-    private float smog_grade;
-    private float automated_readibility_index;
+    private double flesch_reading_ease;
+    private double flesch_kinkaid;
+    private double gunning_fog;
+    private double coleman_liau;
+    private double smog_grade;
+    private double automated_readibility_index;
 
     //lexical density
     private double lexical_density;
 
     //lexical richness
-    private float beyond_2000;
-    private float advanced_ttr;
-    private float advanced_guiraud;
-    private float ttr;
-    private float rttr;
-    private float cttr;
-    private float m;
-    private float h;
-    private float s;
-    private float u;
-    private float mwf;
-    private float r;
+    private double beyond_2000;
+    private double advanced_ttr;
+    private double advanced_guiraud;
+    private double ttr;
+    private double rttr;
+    private double cttr;
+    private double m;
+    private double h;
+    private double s;
+    private double u;
+    private double mwf;
+    private double r;
 
     //language modeling
-    private float bigram_model;
-    private float bigram_perplexety;
-    private float bigram_model_reverse;
-    private float bigram_perplexety_reverse;
+    private double bigram_model;
+    private double bigram_perplexety;
+    private double bigram_model_reverse;
+    private double bigram_perplexety_reverse;
 
 
     //for better optimization
@@ -58,19 +58,19 @@ public class Test {
     private Lexical_Richness lr;
 
     //level of words
-    private float a1_words;
-    private float a2_words;
-    private float b1_words;
-    private float b2_words;
-    private float c1_words;
-    private float c2_words;
+    private double a1_words;
+    private double a2_words;
+    private double b1_words;
+    private double b2_words;
+    private double c1_words;
+    private double c2_words;
 
 
     //mistake stats
     private int simple_errors;
     private int complex_errors;
-    private float simple_errors_per_word;
-    private float complex_errors_per_word;
+    private double simple_errors_per_word;
+    private double complex_errors_per_word;
 
     public Test(){
         lm=new Language_moddeling();
@@ -98,8 +98,8 @@ public class Test {
         common_words=lsem.common_words();
         different_advanced_words=lsem.different_advanced_words(repeated_words);
         total_paragraphs=ts.count_paragraphs(texto);
-        words_per_sentence=total_words/(float)total_sentences;
-        sentences_per_paragraph=total_sentences/(float)total_paragraphs;
+        words_per_sentence=total_words/(double)total_sentences;
+        sentences_per_paragraph=total_sentences/(double)total_paragraphs;
 
         //Calculate all readibility scores
         flesch_kinkaid=rs.flesch_kincaid_grade_level(total_words,total_sentences,total_syllables);
@@ -129,11 +129,11 @@ public class Test {
         //language modelling
         bigram_model=lm.bigram_model_value(texto);
         bigram_model_reverse=lm.bigram_model_value_reverse(texto);
-        //bigram_perplexety=(float) Math.pow(2,(-bigram_model/total_words));
-        //bigram_perplexety=(float)  nthroot(total_words,bigram_model);
-        //bigram_perplexety_reverse=(float)  nthroot(total_words,bigram_model_reverse);
-        bigram_perplexety=(float)  bigram_model;
-        bigram_perplexety_reverse=(float)  bigram_model_reverse;
+        //bigram_perplexety=(double) Math.pow(2,(-bigram_model/total_words));
+        //bigram_perplexety=(double)  nthroot(total_words,bigram_model);
+        //bigram_perplexety_reverse=(double)  nthroot(total_words,bigram_model_reverse);
+        bigram_perplexety=(double)  bigram_model;
+        bigram_perplexety_reverse=(double)  bigram_model_reverse;
 
         //words per level
 
@@ -154,8 +154,66 @@ public class Test {
         //return new Test_Result();
     }
 
-
     public String print_test() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(total_words);
+        sb.append(';');
+        sb.append(total_sentences);
+        sb.append(';');
+        sb.append(total_syllables);
+        sb.append(';');
+        sb.append(complex_words);
+        sb.append(';');
+        sb.append(letter_count);
+        sb.append(';');
+        sb.append(common_words);
+        sb.append(';');
+        sb.append(total_different_words);
+        sb.append(';');
+        sb.append(different_advanced_words);
+        sb.append(';');
+        sb.append(advanced_ttr);
+        sb.append(';');
+        sb.append(advanced_guiraud);
+        sb.append(';');
+        sb.append(ttr);
+        sb.append(';');
+        sb.append(rttr);
+        sb.append(';');
+        sb.append(cttr);
+        sb.append(';');
+        sb.append(h);
+        sb.append(';');
+        sb.append(s);
+        sb.append(';');
+        sb.append(mwf);
+        sb.append(';');
+        sb.append(r);
+        sb.append(';');
+        sb.append(bigram_perplexety);
+        sb.append(';');
+        sb.append(a1_words);
+        sb.append(';');
+        sb.append(a2_words);
+        sb.append(';');
+        sb.append(b1_words);
+        sb.append(';');
+        sb.append(b2_words);
+        sb.append(';');
+        sb.append(c1_words);
+        sb.append(';');
+        sb.append(c2_words);
+        sb.append(';');
+        sb.append(bigram_perplexety_reverse);
+        sb.append(';');
+        sb.append(simple_errors_per_word);
+        sb.append(';');
+        sb.append(complex_errors_per_word);
+        return sb.toString();
+    }
+
+
+    public String print_full_test() {
         StringBuilder sb = new StringBuilder();
         sb.append(total_words);
         sb.append(';');
@@ -300,35 +358,35 @@ public class Test {
         return total_paragraphs;
     }
 
-    public float get_words_per_sentence(){
+    public double get_words_per_sentence(){
         return words_per_sentence;
     }
 
-    public float get_sentences_per_paragraph(){
+    public double get_sentences_per_paragraph(){
         return sentences_per_paragraph;
     }
 
-    public float get_flesh_reading_ease(){
+    public double get_flesh_reading_ease(){
         return flesch_reading_ease;
     }
 
-    public float get_flesch_kinkaid(){
+    public double get_flesch_kinkaid(){
         return flesch_kinkaid;
     }
 
-    public float get_gunning_fog(){
+    public double get_gunning_fog(){
         return gunning_fog;
     }
 
-    public float get_coleman_liau(){
+    public double get_coleman_liau(){
         return coleman_liau;
     }
 
-    public float get_smog_grade(){
+    public double get_smog_grade(){
         return smog_grade;
     }
 
-    public float get_automated_readibility_index(){
+    public double get_automated_readibility_index(){
         return automated_readibility_index;
     }
 
@@ -336,91 +394,91 @@ public class Test {
         return lexical_density;
     }
 
-    public float get_beyond_2000(){
+    public double get_beyond_2000(){
         return beyond_2000;
     }
 
-    public float get_advanced_ttr(){
+    public double get_advanced_ttr(){
         return advanced_ttr;
     }
 
-    public float get_advanced_guiraud(){
+    public double get_advanced_guiraud(){
         return advanced_guiraud;
     }
 
-    public float get_ttr(){
+    public double get_ttr(){
         return ttr;
     }
 
-    public float get_rttr(){
+    public double get_rttr(){
         return rttr;
     }
 
-    public float get_cttr(){
+    public double get_cttr(){
         return cttr;
     }
 
-    public float get_m(){
+    public double get_m(){
         return m;
     }
 
-    public float get_h(){
+    public double get_h(){
         return h;
     }
 
-    public float get_s(){
+    public double get_s(){
         return s;
     }
 
-    public float get_u(){
+    public double get_u(){
         return u;
     }
 
-    public float get_mwf(){
+    public double get_mwf(){
         return mwf;
     }
 
-    public float get_r(){
+    public double get_r(){
         return r;
     }
 
-    public float get_bigram_model(){
+    public double get_bigram_model(){
         return bigram_model;
     }
 
-    public float get_bigram_perplexity(){
+    public double get_bigram_perplexity(){
         return bigram_perplexety;
     }
 
-    public float get_bigram_model_reverse(){
+    public double get_bigram_model_reverse(){
         return bigram_model_reverse;
     }
 
-    public float get_bigram_perplexity_reverse(){
+    public double get_bigram_perplexity_reverse(){
         return bigram_perplexety_reverse;
     }
 
-    public float get_a1_words(){
+    public double get_a1_words(){
         return a1_words;
     }
 
-    public float get_a2_words(){
+    public double get_a2_words(){
         return a2_words;
     }
 
-    public float get_b1_words(){
+    public double get_b1_words(){
         return b1_words;
     }
 
-    public float get_b2_words(){
+    public double get_b2_words(){
         return b2_words;
     }
 
-    public float get_c1_words(){
+    public double get_c1_words(){
         return c1_words;
     }
 
-    public float get_c2_words(){
+    public double get_c2_words(){
         return c2_words;
     }
 
@@ -432,11 +490,11 @@ public class Test {
         return complex_errors;
     }
 
-    public float get_simple_errors_per_word(){
+    public double get_simple_errors_per_word(){
         return simple_errors_per_word;
     }
 
-    public float get_complex_errors_per_word(){
+    public double get_complex_errors_per_word(){
         return complex_errors_per_word;
     }
 }
