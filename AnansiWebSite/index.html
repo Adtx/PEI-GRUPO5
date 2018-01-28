@@ -67,24 +67,24 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="loginForm" method="get" action="./writing.html">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Email</label>
-                  <input class="form-control" id="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
-                  <p class="help-block text-danger"></p>
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
+                  <p class="help-block text-danger" form="loginForm"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Palavra-passe</label>
-                  <input class="form-control" id="password" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe.">
+                  <input class="form-control" id="password" name="pwd" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe." form="loginForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Entrar</button>
+                <button type="submit" style="cursor:pointer" class="btn btn-success btn-lg" id="sendMessageButton" form="loginForm">Entrar</button>
               </div>
             </form>
           </div>
@@ -103,25 +103,25 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="registerForm"  method="get" action="./index.html">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Nome completo</label>
-                  <input class="form-control" id="name" type="text" placeholder="Nome completo" required data-validation-required-message="Por favor insira o seu nome.">
+                  <input class="form-control" id="name" name="name" type="text" placeholder="Nome completo" required data-validation-required-message="Por favor insira o seu nome."  form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Email</label>
-                  <input class="form-control" id="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email." form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Telemóvel</label>
-                  <input class="form-control" id="phone" type="tel" placeholder="Telemóvel" required data-validation-required-message="Por favor insira o seu número de telemóvel.">
+                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="Telemóvel" required data-validation-required-message="Por favor insira o seu número de telemóvel." form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -129,14 +129,14 @@
                 <div class="form-group floating-label-form-group controls">
                   <div class="form-group floating-label-form-group controls">
                   <label>Palavra-passe</label>
-                  <input class="form-control" id="password" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe.">
+                  <input class="form-control" id="password" name="pwd" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe."  form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <br>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Registar</button>
+                <button type="submit" style="cursor:pointer" class="btn btn-success btn-lg" id="sendMessageButton" form="registerForm">Registar</button>
               </div>
             </form>
           </div>

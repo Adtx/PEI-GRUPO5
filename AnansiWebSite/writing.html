@@ -62,48 +62,56 @@
         <h6 class="text-center" style="color:black">Write a free text</h6>
         
         
-        <div class="row">
-          <div class="col-sm-6">
-            <p class="text-right" style="color:black; font-size:16px;">(Suggestion 1:<b> Your last holidays</b>)</p>
-          </div>
-          <div class="col-sm-6">
-            <p class="text-left" style="color:black; font-size:16px;">(Suggestion 2:<b> Your hobbies</b>)</p>
-          </div>
-        </div>
-        
         <!--
         <p class="text-center" style="color:black; font-size:16px;margin-bottom:0px;">(Suggestion 1:<b> Your last holidays</b>)</p>
         <p class="text-center" style="color:black; font-size:16px;">(Suggestion 2:<b> Your hobbies</b>)</p>
         -->
 
-        <p class="text-center" style="color:black">Your text must contain a minimum of 30 words. However, bigger texts are expected for higher levels.</p>
+        <p class="text-center" style="color:black"><icon class="fa fa-exclamation-circle" style=""></icon> Your text must contain a minimum of 30 words. However, bigger texts are expected for higher levels.</p>
         <!--
         <h5 class="text-center" style="color:black">Write a free text</h5>
         <h6 class="text-center" style="color:black">(Suggestion: Your last holidays)</h6>
         <p class="text-center" style="color:black">Your text must contain a minimum of 30 words. However, bigger texts are expected on higher levels.</p>
         -->
         
+
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="text-right" style="color:black; font-size:18px;"><icon class="fa fa-lightbulb-o" style="color:#2c3e50;"></icon> Suggestion 1:<b> Your last holidays</b></p>
+          </div>
+          <div class="col-sm-6">
+            <p class="text-left" style="color:black; font-size:18px;"><icon class="fa fa-lightbulb-o" style="color:#2c3e50;"></icon> Suggestion 2:<b> Your hobbies</b></p>
+          </div>
+        </div>
+
         <hr class="star-primary" style="background-color:#18bc9c;">
+        
+        
+
         <br>
-        <div class="row">
-          <textarea onkeyup="verify(this)" class="form-control" rows="8" id="text"></textarea>
-          <!--<textarea onkeyup="verify(this)" class="form-control" rows="8" id="text" onpaste="return false;"></textarea>-->
-        </div>
-        <!--<div style="text-align:center" >
+        
+        <form action="./writing.html">
+          <div class="row">
+            <textarea onkeyup="verify(this)" class="form-control" name="text" rows="8" id="text"></textarea>
+            <!--<textarea onkeyup="verify(this)" class="form-control" rows="8" id="text" onpaste="return false;"></textarea>-->
+          </div>
+          <!--<div style="text-align:center" >
+            <br>
+            <button type="button" id="submit" class="btn btn-primary">Submeter</button>
+          </div>-->
           <br>
-          <button type="button" id="submit" class="btn btn-primary">Submeter</button>
-        </div>-->
-        <br>
-        <div class="row">
-          <div class="col-sm-3" style="text-align:center" >
-            <button class="btn btn-danger" id="words"><i class="fa fa-tachometer"></i>&nbsp; 0 words</button>
+          <div class="row">
+            <div class="col-sm-3" style="text-align:center" >
+              <p id="words" style="color:#c82333;"><i class="fa fa-exclamation-triangle" style="color:#c82333;"></i>&nbsp; 0 words</p>
+            </div>
+            <div class="col-sm-6" style="text-align:center" >
+              <button type="submit" id="submit" class="btn btn-primary" style="cursor:pointer;" disabled> &nbsp; Submit &nbsp;</button>
+                <!--<i class="fa fa-file-word-o"></i>-->
+            </div>
+            <div class="col-sm-3">
+            </div>
           </div>
-          <div class="col-sm-6" style="text-align:center" >
-            <button type="button" id="submit" class="btn btn-primary" style="cursor:pointer;" disabled> &nbsp; Submit &nbsp; <i class="fa fa-file-word-o"></i></button>
-          </div>
-          <div class="col-sm-3">
-          </div>
-        </div>
+        </form>
         
       </div>
     </section>
@@ -208,17 +216,23 @@
 
         var submit = document.getElementById("submit");
         var words = document.getElementById("words");
-        words.innerHTML = '<i class="fa fa-tachometer"></i> &nbsp;' 
-                + number_of_words 
-                + ' words';
         
         if (number_of_words<30){
           submit.disabled = true;
-          words.className="btn btn-danger";
+          //words.className="btn btn-danger";
+
+          words.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#c82333;"></i> &nbsp;' 
+                + number_of_words 
+                + ' words';
+          words.style.color="#c82333";
         }
         else {
           submit.disabled = false;
-          words.className="btn btn-default";
+          //words.className="btn btn-success";
+          words.innerHTML = '<i class="fa fa-tachometer" style="color:green"></i> &nbsp;' 
+                + number_of_words 
+                + ' words';
+          words.style.color="white";
         }
       }
     </script>
