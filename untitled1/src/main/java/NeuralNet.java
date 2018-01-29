@@ -195,6 +195,7 @@ public class NeuralNet {
     private void load_for_prediction(String teste_results, String separator) {
         String cvsSplitBy = separator;
         data=new ArrayList<>();
+        Normalize n= new Normalize();
         //System.out.println(line);
         // use ; as separator
         String[] values = teste_results.split(cvsSplitBy);
@@ -203,6 +204,8 @@ public class NeuralNet {
                 .mapToDouble(Double::parseDouble)
                 .toArray();
 
-        data.add(doubleValues);
+        double[] normalized_values=n.normalize(doubleValues);
+
+        data.add(normalized_values);
     }
 }

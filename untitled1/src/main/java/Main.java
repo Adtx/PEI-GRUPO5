@@ -25,15 +25,15 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        /*JFrame frame = new JFrame("Corrector");
+        JFrame frame = new JFrame("Corrector");
         frame.setContentPane(new Corrector().Panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);*/
+        frame.setVisible(true);
         //update_train_dataset();
         //update_test_dataset();
         //train_all_classifiers();
-        Normalize n= new Normalize();
+        /*Normalize n= new Normalize();
 
         double[] test= {1,2,3,4,5};
         double[] means={3,3,3,3,3};
@@ -42,8 +42,8 @@ public class Main {
         double[] deviations={deviation,deviation,deviation,deviation,deviation};
 
 
-        n.normalize(test,means,deviations);
-
+        n.normalize(test,means,deviations);*/
+        //update_normalized_datasets();
         /*Auto_tester t=new Auto_tester();
         t.how_many_texts_per_level();*/
 
@@ -65,6 +65,16 @@ public class Main {
         Auto_tester t=new Auto_tester();
         try {
             t.test_texts();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void update_normalized_datasets(){
+        System.out.println("A imprimir datasets normalizados");
+        Auto_tester t=new Auto_tester();
+        try {
+            t.create_normalized_datasets();
         } catch (IOException e) {
             e.printStackTrace();
         }

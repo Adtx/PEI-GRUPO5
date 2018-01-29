@@ -1,3 +1,5 @@
+import org.apache.commons.lang.ArrayUtils;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,10 +39,648 @@ public class Auto_tester {
     private ArrayList<Double> bigram_perplexity_reverse;
     private ArrayList<Double> simple_errors_per_word;
     private ArrayList<Double> comples_errors_per_word;
-    private ArrayList<Double> lvl;
+    private ArrayList<Integer> lvl;
 
-    private void add_train_case(String ss,double nivel){
+    private ArrayList<Double> means;
+    private ArrayList<Double> deviations;
+
+    public Auto_tester(){
+        total_words= new ArrayList<>();
+        total_sentences= new ArrayList<>();
+        total_sylables= new ArrayList<>();
+        complex_words= new ArrayList<>();
+        letter_count= new ArrayList<>();
+        common_words= new ArrayList<>();
+        total_different_words= new ArrayList<>();
+        different_advanced_words= new ArrayList<>();
+        advanced_ttr= new ArrayList<>();
+        advanced_guiraud= new ArrayList<>();
+        ttr= new ArrayList<>();
+        rttr= new ArrayList<>();
+        cttr= new ArrayList<>();
+        h= new ArrayList<>();
+        s= new ArrayList<>();
+        mwf= new ArrayList<>();
+        r= new ArrayList<>();
+        bigram_perplexity= new ArrayList<>();
+        a1_words= new ArrayList<>();
+        a2_words= new ArrayList<>();
+        b1_words= new ArrayList<>();
+        b2_words= new ArrayList<>();
+        c1_words= new ArrayList<>();
+        c2_words= new ArrayList<>();
+        bigram_perplexity_reverse= new ArrayList<>();
+        simple_errors_per_word= new ArrayList<>();
+        comples_errors_per_word= new ArrayList<>();
+        lvl= new ArrayList<>();;
+
+        means= new ArrayList<>();
+        deviations= new ArrayList<>();
+    }
+
+    public void create_normalized_datasets() throws IOException {
+        print_normalized_train_set();
+        print_normalized_test_set();
+    }
+
+    private void print_normalized_train_set() throws IOException {
+        train_texts_normalized();
+        PrintWriter pw = new PrintWriter(new File("train_results.csv"));
+        PrintWriter pw2 = new PrintWriter(new File("train_results_neural_net.csv"));
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        Normalize n=new Normalize();
+        //Double[] l_means=new Double[means.size()];
+        //l_means=means.toArray(l_means);
+        Double[] l_means=means.toArray(new Double[means.size()]);
+        Double[] l_deviations=deviations.toArray(new Double[deviations.size()]);
+
+        //FILE FOR EVERYONE
+        sb.append("total_words");
+        sb.append(';');
+        sb.append("total_sentences");
+        sb.append(';');
+        sb.append("total_syllables");
+        sb.append(';');
+        sb.append("complex_words");
+        sb.append(';');
+        sb.append("letter_count");
+        sb.append(';');
+        sb.append("common_words");
+        sb.append(';');
+        sb.append("total_different_words");
+        sb.append(';');
+        sb.append("different_advanced_words");
+        sb.append(';');
+      /*
+      sb.append("flesch_reading_ease");
+      sb.append(';');
+      sb.append("flesch_kinkaid");
+      sb.append(';');
+      sb.append("gunning_fog");
+      sb.append(';');
+      sb.append("coleman_liau");
+      sb.append(';');
+      sb.append("smog_grade");
+      sb.append(';');
+      sb.append("automated_readibility_index");
+      sb.append(';');
+      sb.append("lexical_density");
+      sb.append(';');
+      sb.append("beyond_2000");
+      sb.append(';');
+      */
+        sb.append("advanced_ttr");
+        sb.append(';');
+        sb.append("advanced_guiraud");
+        sb.append(';');
+        sb.append("ttr");
+        sb.append(';');
+        sb.append("rttr");
+        sb.append(';');
+        sb.append("cttr");
+        sb.append(';');
+      /*
+      sb.append("m");
+      sb.append(';');
+      */
+        sb.append("h");
+        sb.append(';');
+        sb.append("s");
+        sb.append(';');
+      /*
+      sb.append("u");
+      sb.append(';');
+      */
+        sb.append("mwf");
+        sb.append(';');
+        sb.append("r");
+        sb.append(';');
+      /*
+      sb.append("bigram_model");
+      sb.append(';');
+      */
+        sb.append("bigram_perplexety");
+        sb.append(';');
+        sb.append("a1_words");
+        sb.append(';');
+        sb.append("a2_words");
+        sb.append(';');
+        sb.append("b1_words");
+        sb.append(';');
+        sb.append("b2_words");
+        sb.append(';');
+        sb.append("c1_words");
+        sb.append(';');
+        sb.append("c2_words");
+        sb.append(';');
+      /*
+      sb.append("bigram_model_reverse");
+      sb.append(';');
+      */
+        sb.append("bigram_perplexety_reverse");
+        sb.append(';');
+      /*
+      sb.append("words_per_sentence");
+      sb.append(';');
+      sb.append("sentences_per_paragraph");
+      sb.append(';');
+      */
+        sb.append("simple_errors_per_word");
+        sb.append(';');
+        sb.append("complex_errors_per_word");
+        sb.append(';');
+        sb.append("level");
+        sb.append('\n');
+
+        //FILE FOR NEURAL NET
+        sb2.append("level");
+        sb2.append(';');
+        sb2.append("total_words");
+        sb2.append(';');
+        sb2.append("total_sentences");
+        sb2.append(';');
+        sb2.append("total_syllables");
+        sb2.append(';');
+        sb2.append("complex_words");
+        sb2.append(';');
+        sb2.append("letter_count");
+        sb2.append(';');
+        sb2.append("common_words");
+        sb2.append(';');
+        sb2.append("total_different_words");
+        sb2.append(';');
+        sb2.append("different_advanced_words");
+        sb2.append(';');
+      /*
+      sb2.append("flesch_reading_ease");
+      sb2.append(';');
+      sb2.append("flesch_kinkaid");
+      sb2.append(';');
+      sb2.append("gunning_fog");
+      sb2.append(';');
+      sb2.append("coleman_liau");
+      sb2.append(';');
+      sb2.append("smog_grade");
+      sb2.append(';');
+      sb2.append("automated_readibility_index");
+      sb2.append(';');
+      sb2.append("lexical_density");
+      sb2.append(';');
+      sb2.append("beyond_2000");
+      sb2.append(';');
+      */
+        sb2.append("advanced_ttr");
+        sb2.append(';');
+        sb2.append("advanced_guiraud");
+        sb2.append(';');
+        sb2.append("ttr");
+        sb2.append(';');
+        sb2.append("rttr");
+        sb2.append(';');
+        sb2.append("cttr");
+        sb2.append(';');
+      /*
+      sb2.append("m");
+      sb2.append(';');
+      */
+        sb2.append("h");
+        sb2.append(';');
+        sb2.append("s");
+        sb2.append(';');
+      /*
+      sb2.append("u");
+      sb2.append(';');
+      */
+        sb2.append("mwf");
+        sb2.append(';');
+        sb2.append("r");
+        sb2.append(';');
+      /*
+      sb2.append("bigram_model");
+      sb2.append(';');
+      */
+        sb2.append("bigram_perplexety");
+        sb2.append(';');
+        sb2.append("a1_words");
+        sb2.append(';');
+        sb2.append("a2_words");
+        sb2.append(';');
+        sb2.append("b1_words");
+        sb2.append(';');
+        sb2.append("b2_words");
+        sb2.append(';');
+        sb2.append("c1_words");
+        sb2.append(';');
+        sb2.append("c2_words");
+        sb2.append(';');
+      /*
+      sb2.append("bigram_model_reverse");
+      sb2.append(';');
+      */
+        sb2.append("bigram_perplexety_reverse");
+        sb2.append(';');
+      /*
+      sb2.append("words_per_sentence");
+      sb2.append(';');
+      sb2.append("sentences_per_paragraph");
+      sb2.append(';');
+      */
+        sb2.append("simple_errors_per_word");
+        sb2.append(';');
+        sb2.append("complex_errors_per_word");
+        sb2.append('\n');
+
+        for(int i=0;i<lvl.size();i++){
+            ArrayList<Double> to_normalize= new ArrayList<>();
+            to_normalize.add(total_words.get(i));
+            to_normalize.add(total_sentences.get(i));
+            to_normalize.add(total_sylables.get(i));
+            to_normalize.add(complex_words.get(i));
+            to_normalize.add(letter_count.get(i));
+            to_normalize.add(common_words.get(i));
+            to_normalize.add(total_different_words.get(i));
+            to_normalize.add(different_advanced_words.get(i));
+            to_normalize.add(advanced_ttr.get(i));
+            to_normalize.add(advanced_guiraud.get(i));
+            to_normalize.add(ttr.get(i));
+            to_normalize.add(rttr.get(i));
+            to_normalize.add(cttr.get(i));
+            to_normalize.add(h.get(i));
+            to_normalize.add(s.get(i));
+            to_normalize.add(mwf.get(i));
+            to_normalize.add(r.get(i));
+            to_normalize.add(bigram_perplexity.get(i));
+            to_normalize.add(a1_words.get(i));
+            to_normalize.add(a2_words.get(i));
+            to_normalize.add(b1_words.get(i));
+            to_normalize.add(b2_words.get(i));
+            to_normalize.add(c1_words.get(i));
+            to_normalize.add(c2_words.get(i));
+            to_normalize.add(bigram_perplexity_reverse.get(i));
+            to_normalize.add(simple_errors_per_word.get(i));
+            to_normalize.add(comples_errors_per_word.get(i));
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append((lvl.get(i)-1)+";");
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";"+lvl.get(i)+"\n");
+        }
+
+        pw.write(sb.toString());
+        pw.close();
+        pw2.write(sb2.toString());
+        pw2.close();
+        System.out.println("done!");
+
+    }
+
+    private void print_normalized_test_set() throws IOException{
+        Test t=new Test();
+        PrintWriter pw = new PrintWriter(new File("test_results.csv"));
+        PrintWriter pw2 = new PrintWriter(new File("test_results_neural_net.csv"));
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        Normalize n=new Normalize();
+        Double[] l_means=means.toArray(new Double[means.size()]);
+        Double[] l_deviations=deviations.toArray(new Double[deviations.size()]);
+
+
+        //FILE FOR EVERYONE
+        sb.append("total_words");
+        sb.append(';');
+        sb.append("total_sentences");
+        sb.append(';');
+        sb.append("total_syllables");
+        sb.append(';');
+        sb.append("complex_words");
+        sb.append(';');
+        sb.append("letter_count");
+        sb.append(';');
+        sb.append("common_words");
+        sb.append(';');
+        sb.append("total_different_words");
+        sb.append(';');
+        sb.append("different_advanced_words");
+        sb.append(';');
+      /*
+      sb.append("flesch_reading_ease");
+      sb.append(';');
+      sb.append("flesch_kinkaid");
+      sb.append(';');
+      sb.append("gunning_fog");
+      sb.append(';');
+      sb.append("coleman_liau");
+      sb.append(';');
+      sb.append("smog_grade");
+      sb.append(';');
+      sb.append("automated_readibility_index");
+      sb.append(';');
+      sb.append("lexical_density");
+      sb.append(';');
+      sb.append("beyond_2000");
+      sb.append(';');
+      */
+        sb.append("advanced_ttr");
+        sb.append(';');
+        sb.append("advanced_guiraud");
+        sb.append(';');
+        sb.append("ttr");
+        sb.append(';');
+        sb.append("rttr");
+        sb.append(';');
+        sb.append("cttr");
+        sb.append(';');
+      /*
+      sb.append("m");
+      sb.append(';');
+      */
+        sb.append("h");
+        sb.append(';');
+        sb.append("s");
+        sb.append(';');
+      /*
+      sb.append("u");
+      sb.append(';');
+      */
+        sb.append("mwf");
+        sb.append(';');
+        sb.append("r");
+        sb.append(';');
+      /*
+      sb.append("bigram_model");
+      sb.append(';');
+      */
+        sb.append("bigram_perplexety");
+        sb.append(';');
+        sb.append("a1_words");
+        sb.append(';');
+        sb.append("a2_words");
+        sb.append(';');
+        sb.append("b1_words");
+        sb.append(';');
+        sb.append("b2_words");
+        sb.append(';');
+        sb.append("c1_words");
+        sb.append(';');
+        sb.append("c2_words");
+        sb.append(';');
+      /*
+      sb.append("bigram_model_reverse");
+      sb.append(';');
+      */
+        sb.append("bigram_perplexety_reverse");
+        sb.append(';');
+      /*
+      sb.append("words_per_sentence");
+      sb.append(';');
+      sb.append("sentences_per_paragraph");
+      sb.append(';');
+      */
+        sb.append("simple_errors_per_word");
+        sb.append(';');
+        sb.append("complex_errors_per_word");
+        sb.append(';');
+        sb.append("level");
+        sb.append('\n');
+
+        //FILE FOR NEURAL NET
+        sb2.append("level");
+        sb2.append(';');
+        sb2.append("total_words");
+        sb2.append(';');
+        sb2.append("total_sentences");
+        sb2.append(';');
+        sb2.append("total_syllables");
+        sb2.append(';');
+        sb2.append("complex_words");
+        sb2.append(';');
+        sb2.append("letter_count");
+        sb2.append(';');
+        sb2.append("common_words");
+        sb2.append(';');
+        sb2.append("total_different_words");
+        sb2.append(';');
+        sb2.append("different_advanced_words");
+        sb2.append(';');
+      /*
+      sb2.append("flesch_reading_ease");
+      sb2.append(';');
+      sb2.append("flesch_kinkaid");
+      sb2.append(';');
+      sb2.append("gunning_fog");
+      sb2.append(';');
+      sb2.append("coleman_liau");
+      sb2.append(';');
+      sb2.append("smog_grade");
+      sb2.append(';');
+      sb2.append("automated_readibility_index");
+      sb2.append(';');
+      sb2.append("lexical_density");
+      sb2.append(';');
+      sb2.append("beyond_2000");
+      sb2.append(';');
+      */
+        sb2.append("advanced_ttr");
+        sb2.append(';');
+        sb2.append("advanced_guiraud");
+        sb2.append(';');
+        sb2.append("ttr");
+        sb2.append(';');
+        sb2.append("rttr");
+        sb2.append(';');
+        sb2.append("cttr");
+        sb2.append(';');
+      /*
+      sb2.append("m");
+      sb2.append(';');
+      */
+        sb2.append("h");
+        sb2.append(';');
+        sb2.append("s");
+        sb2.append(';');
+      /*
+      sb2.append("u");
+      sb2.append(';');
+      */
+        sb2.append("mwf");
+        sb2.append(';');
+        sb2.append("r");
+        sb2.append(';');
+      /*
+      sb2.append("bigram_model");
+      sb2.append(';');
+      */
+        sb2.append("bigram_perplexety");
+        sb2.append(';');
+        sb2.append("a1_words");
+        sb2.append(';');
+        sb2.append("a2_words");
+        sb2.append(';');
+        sb2.append("b1_words");
+        sb2.append(';');
+        sb2.append("b2_words");
+        sb2.append(';');
+        sb2.append("c1_words");
+        sb2.append(';');
+        sb2.append("c2_words");
+        sb2.append(';');
+      /*
+      sb2.append("bigram_model_reverse");
+      sb2.append(';');
+      */
+        sb2.append("bigram_perplexety_reverse");
+        sb2.append(';');
+      /*
+      sb2.append("words_per_sentence");
+      sb2.append(';');
+      sb2.append("sentences_per_paragraph");
+      sb2.append(';');
+      */
+        sb2.append("simple_errors_per_word");
+        sb2.append(';');
+        sb2.append("complex_errors_per_word");
+        sb2.append('\n');
+
+        String[] values;
+        double[] doubleValues;
+        ArrayList<Double> to_normalize= new ArrayList<>();
+        String teste_results="";
+        for(String s:a1){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("0;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";1\n");
+        }
+        for(String s:a2){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("1;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";2\n");
+        }
+        for(String s:b1){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("2;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";3\n");
+        }
+        for(String s:b2){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("3;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";4\n");
+        }
+        for(String s:c1){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("4;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";5\n");
+        }
+        for(String s:c2){
+            to_normalize= new ArrayList<>();
+            t.run_test(s);
+            sb2.append("5;");
+            teste_results=t.print_test();
+            values = teste_results.split(";");
+
+            doubleValues = Arrays.stream(values)
+                    .mapToDouble(Double::parseDouble)
+                    .toArray();
+
+            Double[] doubleArray = ArrayUtils.toObject(doubleValues);
+            to_normalize.addAll(Arrays.asList(doubleArray));
+
+            to_normalize=n.normalize(to_normalize,l_means,l_deviations);
+            sb2.append(normalized_values_to_string(to_normalize)+"\n");
+            sb.append(normalized_values_to_string(to_normalize));
+            sb.append(";6\n");
+        }
+
+        pw.write(sb.toString());
+        pw.close();
+        pw2.write(sb2.toString());
+        pw2.close();
+        System.out.println("done!");
+    }
+
+    private String normalized_values_to_string(ArrayList<Double> values){
+        StringBuilder sb = new StringBuilder();
+        for(double d:values){
+            sb.append(d+";");
+        }
+        sb.setLength(sb.length() - 1);
+        return sb.toString();
+    }
+
+    private void add_train_case(String ss,int nivel){
+        //System.out.println(ss);
         String[] values = ss.split(";");
+        //System.out.println(values.length);
         total_words.add(Double.parseDouble(values[0]));
         total_sentences.add(Double.parseDouble(values[1]));
         total_sylables.add(Double.parseDouble(values[2]));
@@ -57,21 +697,22 @@ public class Auto_tester {
         h.add(Double.parseDouble(values[13]));
         s.add(Double.parseDouble(values[14]));
         mwf.add(Double.parseDouble(values[15]));
-        r.add(Double.parseDouble(values[17]));
-        bigram_perplexity.add(Double.parseDouble(values[18]));
-        a1_words.add(Double.parseDouble(values[19]));
-        a2_words.add(Double.parseDouble(values[20]));
-        b1_words.add(Double.parseDouble(values[21]));
-        b2_words.add(Double.parseDouble(values[22]));
-        c1_words.add(Double.parseDouble(values[23]));
-        c2_words.add(Double.parseDouble(values[24]));
-        bigram_perplexity_reverse.add(Double.parseDouble(values[25]));
-        simple_errors_per_word.add(Double.parseDouble(values[26]));
-        comples_errors_per_word.add(Double.parseDouble(values[27]));
+        r.add(Double.parseDouble(values[16]));
+        bigram_perplexity.add(Double.parseDouble(values[17]));
+        a1_words.add(Double.parseDouble(values[18]));
+        a2_words.add(Double.parseDouble(values[19]));
+        b1_words.add(Double.parseDouble(values[20]));
+        b2_words.add(Double.parseDouble(values[21]));
+        c1_words.add(Double.parseDouble(values[22]));
+        c2_words.add(Double.parseDouble(values[23]));
+        bigram_perplexity_reverse.add(Double.parseDouble(values[24]));
+        simple_errors_per_word.add(Double.parseDouble(values[25]));
+        comples_errors_per_word.add(Double.parseDouble(values[26]));
         lvl.add(nivel);
     }
 
-    public void train_texts_normalized() throws IOException {
+
+    private void train_texts_normalized() throws IOException {
         Test t=new Test();
         List<String> texts=Arrays.asList();
         A1_Texts a1=new A1_Texts();
@@ -129,17 +770,155 @@ public class Auto_tester {
     }
 
     private void normalize_everything() {
-        ArrayList<Double> means= new ArrayList<>();
-        ArrayList<Double> deviations= new ArrayList<>();
         Normalize n= new Normalize();
         double mean=0;
         double deviation=0;
-        //calculate the means
+        //calculate the means and deviations
         mean=n.mean(total_words);
         deviation=n.deviation(total_words,mean);
         means.add(mean);
         deviations.add(deviation);
 
+        mean=n.mean(total_sentences);
+        deviation=n.deviation(total_sentences,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(total_sylables);
+        deviation=n.deviation(total_sylables,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(complex_words);
+        deviation=n.deviation(complex_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(letter_count);
+        deviation=n.deviation(letter_count,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(common_words);
+        deviation=n.deviation(common_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(total_different_words);
+        deviation=n.deviation(total_different_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(different_advanced_words);
+        deviation=n.deviation(different_advanced_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(advanced_ttr);
+        deviation=n.deviation(advanced_ttr,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(advanced_guiraud);
+        deviation=n.deviation(advanced_guiraud,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(ttr);
+        deviation=n.deviation(ttr,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(rttr);
+        deviation=n.deviation(rttr,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(cttr);
+        deviation=n.deviation(cttr,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(h);
+        deviation=n.deviation(h,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(s);
+        deviation=n.deviation(s,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(mwf);
+        deviation=n.deviation(mwf,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(r);
+        deviation=n.deviation(r,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(bigram_perplexity);
+        deviation=n.deviation(bigram_perplexity,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(a1_words);
+        deviation=n.deviation(a1_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(a2_words);
+        deviation=n.deviation(a2_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(b1_words);
+        deviation=n.deviation(b1_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(b2_words);
+        deviation=n.deviation(b2_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(c1_words);
+        deviation=n.deviation(c1_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(c2_words);
+        deviation=n.deviation(c2_words,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(bigram_perplexity_reverse);
+        deviation=n.deviation(bigram_perplexity_reverse,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(simple_errors_per_word);
+        deviation=n.deviation(simple_errors_per_word,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        mean=n.mean(comples_errors_per_word);
+        deviation=n.deviation(comples_errors_per_word,mean);
+        means.add(mean);
+        deviations.add(deviation);
+
+        System.out.println("MEANS");
+        for(double d:means){
+            System.out.println(d);
+        }
+
+        System.out.println("DEVIATIONS");
+        for(double d:deviations){
+            System.out.println(d);
+        }
+        System.out.println("ADD IN NORMALIZE CLASS");
     }
 
 

@@ -234,12 +234,12 @@ public class KNN {
             e.printStackTrace();
         }
         try {
-        BufferedWriter writer = new BufferedWriter(
-                new FileWriter("knn_arf"));
-        writer.write(isTrainingSet.toString());
-        writer.newLine();
-        writer.flush();
-        writer.close();
+            BufferedWriter writer = new BufferedWriter(
+                    new FileWriter("knn_arf"));
+            writer.write(isTrainingSet.toString());
+            writer.newLine();
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -323,6 +323,7 @@ public class KNN {
         String cvsSplitBy = separator;
         data=new ArrayList<>();
 
+        Normalize n= new Normalize();
         // use ; as separator
         String[] values = teste_results.split(cvsSplitBy);
 
@@ -330,7 +331,9 @@ public class KNN {
                 .mapToDouble(Double::parseDouble)
                 .toArray();
 
-        data.add(doubleValues);
+        double[] normalized_values=n.normalize(doubleValues);
+
+        data.add(normalized_values);
     }
 
     public void test_model(){
@@ -395,7 +398,6 @@ public class KNN {
     /*public void test_model(){
         // Test the model need to be implemented when i have a testing set
         // tutorial here https://weka.wikispaces.com/Programmatic+Use
-
         /*Evaluation eTest = null;
         try {
             eTest = new Evaluation(isTrainingSet);
@@ -403,14 +405,10 @@ public class KNN {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         // Print the result à la Weka explorer:
         String strSummary = eTest.toSummaryString();
         System.out.println(strSummary);
-
         // Get the confusion matrix
         double[][] cmMatrix = eTest.confusionMatrix();
     }*/
 }
-

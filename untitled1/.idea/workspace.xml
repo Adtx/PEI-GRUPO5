@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+            <state relative-caret-position="108">
+              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -26,15 +26,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Auto_tester.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Auto_tester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Auto_tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="140" column="34" lean-forward="false" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
+            <state relative-caret-position="-421">
+              <caret line="679" column="45" lean-forward="false" selection-start-line="679" selection-start-column="45" selection-end-line="679" selection-end-column="45" />
               <folding>
-                <element signature="method#add_train_case#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#Auto_tester#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#print_normalized_train_set#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#print_normalized_test_set#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#normalized_values_to_string#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#train_texts_normalized#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#normalize_everything#0;class#Auto_tester#0" expanded="false" />
                 <element signature="method#how_many_texts_per_level#0;class#Auto_tester#0" expanded="false" />
                 <element signature="method#test_texts#0;class#Auto_tester#0" expanded="false" />
+                <element signature="method#train_texts#0;class#Auto_tester#0" expanded="false" />
                 <element signature="method#train_texts_removal#0;class#Auto_tester#0" expanded="false" />
               </folding>
             </state>
@@ -44,7 +50,7 @@
       <file leaf-file-name="Corrector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Corrector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="425">
               <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="37" />
               <folding />
             </state>
@@ -54,14 +60,11 @@
       <file leaf-file-name="SVM_Classifier.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SVM_Classifier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="87" column="58" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="58" />
+            <state relative-caret-position="114">
+              <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
               <folding>
                 <element signature="method#SVM_Classifier#1;class#SVM_Classifier#0" expanded="false" />
                 <element signature="method#save_model#0;class#SVM_Classifier#0" expanded="false" />
-                <element signature="method#prepare_data#0;class#SVM_Classifier#0" expanded="false" />
-                <element signature="method#test#0;class#SVM_Classifier#0" expanded="false" />
-                <element signature="method#tutorial_test#0;class#SVM_Classifier#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -70,14 +73,16 @@
       <file leaf-file-name="Normalize.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Normalize.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+            <state relative-caret-position="108">
+              <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#deviation#0;class#Normalize#0" expanded="false" />
                 <element signature="method#deviation#1;class#Normalize#0" expanded="false" />
                 <element signature="method#mean#0;class#Normalize#0" expanded="false" />
                 <element signature="method#mean#1;class#Normalize#0" expanded="false" />
+                <element signature="e#3424#3425#0" expanded="true" />
+                <element signature="e#3474#3475#0" expanded="true" />
                 <element signature="method#normaldistribution#0;class#Normalize#0" expanded="false" />
               </folding>
             </state>
@@ -87,8 +92,8 @@
       <file leaf-file-name="NeuralNet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NeuralNet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+            <state relative-caret-position="505">
+              <caret line="206" column="59" lean-forward="true" selection-start-line="206" selection-start-column="59" selection-end-line="206" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -97,8 +102,8 @@
       <file leaf-file-name="KNN.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/KNN.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="122" column="14" lean-forward="false" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
+            <state relative-caret-position="590">
+              <caret line="414" column="0" lean-forward="true" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
               <folding>
                 <element signature="method#KNN#1;class#KNN#0" expanded="false" />
                 <element signature="method#readDataFile#0;class#KNN#0" expanded="false" />
@@ -115,7 +120,7 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
+            <state relative-caret-position="3502">
               <caret line="207" column="23" lean-forward="false" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
               <folding>
                 <element signature="e#9657#9658#0" expanded="true" />
@@ -137,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>baumol pre</find>
       <find>for sensor</find>
       <find>along with a ren</find>
       <find>In Amman</find>
@@ -167,6 +171,7 @@
       <find>wtf</find>
       <find>int</find>
       <find>float</find>
+      <find>add_tra</find>
     </findStrings>
     <replaceStrings>
       <replace>float</replace>
@@ -211,13 +216,13 @@
         <option value="$PROJECT_DIR$/src/main/java/C2_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/C1_Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/B1_Texts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SVM_Classifier.java" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/NeuralNet.java" />
         <option value="$PROJECT_DIR$/src/main/java/KNN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SVM_Classifier.java" />
         <option value="$PROJECT_DIR$/src/main/java/Normalize.java" />
         <option value="$PROJECT_DIR$/src/main/java/Auto_tester.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
@@ -255,8 +260,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -287,7 +292,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -746,8 +751,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17406876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17621776" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -762,6 +766,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -803,7 +808,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1096,7 +1101,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Corrector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
+        <state relative-caret-position="425">
           <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="37" />
           <folding />
         </state>
@@ -1104,7 +1109,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="3502">
           <caret line="207" column="23" lean-forward="false" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
           <folding>
             <element signature="e#9657#9658#0" expanded="true" />
@@ -1116,8 +1121,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/KNN.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="122" column="14" lean-forward="false" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
+        <state relative-caret-position="590">
+          <caret line="414" column="0" lean-forward="true" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
           <folding>
             <element signature="method#KNN#1;class#KNN#0" expanded="false" />
             <element signature="method#readDataFile#0;class#KNN#0" expanded="false" />
@@ -1132,60 +1137,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NeuralNet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+        <state relative-caret-position="505">
+          <caret line="206" column="59" lean-forward="true" selection-start-line="206" selection-start-column="59" selection-end-line="206" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SVM_Classifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="87" column="58" lean-forward="true" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="58" />
-          <folding>
-            <element signature="method#SVM_Classifier#1;class#SVM_Classifier#0" expanded="false" />
-            <element signature="method#save_model#0;class#SVM_Classifier#0" expanded="false" />
-            <element signature="method#prepare_data#0;class#SVM_Classifier#0" expanded="false" />
-            <element signature="method#test#0;class#SVM_Classifier#0" expanded="false" />
-            <element signature="method#tutorial_test#0;class#SVM_Classifier#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Normalize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+        <state relative-caret-position="108">
+          <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#deviation#0;class#Normalize#0" expanded="false" />
             <element signature="method#deviation#1;class#Normalize#0" expanded="false" />
             <element signature="method#mean#0;class#Normalize#0" expanded="false" />
             <element signature="method#mean#1;class#Normalize#0" expanded="false" />
+            <element signature="e#3424#3425#0" expanded="true" />
+            <element signature="e#3474#3475#0" expanded="true" />
             <element signature="method#normaldistribution#0;class#Normalize#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SVM_Classifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
+          <folding>
+            <element signature="method#SVM_Classifier#1;class#SVM_Classifier#0" expanded="false" />
+            <element signature="method#save_model#0;class#SVM_Classifier#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Auto_tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="140" column="34" lean-forward="false" selection-start-line="140" selection-start-column="34" selection-end-line="140" selection-end-column="34" />
+        <state relative-caret-position="-421">
+          <caret line="679" column="45" lean-forward="false" selection-start-line="679" selection-start-column="45" selection-end-line="679" selection-end-column="45" />
           <folding>
-            <element signature="method#add_train_case#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#Auto_tester#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#print_normalized_train_set#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#print_normalized_test_set#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#normalized_values_to_string#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#train_texts_normalized#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#normalize_everything#0;class#Auto_tester#0" expanded="false" />
             <element signature="method#how_many_texts_per_level#0;class#Auto_tester#0" expanded="false" />
             <element signature="method#test_texts#0;class#Auto_tester#0" expanded="false" />
+            <element signature="method#train_texts#0;class#Auto_tester#0" expanded="false" />
             <element signature="method#train_texts_removal#0;class#Auto_tester#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
