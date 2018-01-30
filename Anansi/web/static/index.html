@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>Anansi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
               <a class="nav-link js-scroll-trigger" href="#login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#registar">Registar</a>
+              <a class="nav-link js-scroll-trigger" href="#registar">Register</a>
             </li>
           </ul>
         </div>
@@ -51,9 +51,9 @@
       <div class="container">
         <img class="img-fluid" src="img/logoAnansi.png" alt="">
         <div class="intro-text">
-          <span class="name">Seja bem vindo!</span>
+          <span class="name">Welcome!</span>
           <hr class="star-light">
-          <span class="skills">Bla bla bla</span>
+          <span class="skills">Ready for evaluating your CEFR writing level?</span>
         </div>
       </div>
     </header>
@@ -67,24 +67,24 @@
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="loginForm" method="get" action="./writing.html">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Email</label>
-                  <input class="form-control" id="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
-                  <p class="help-block text-danger"></p>
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
+                  <p class="help-block text-danger" form="loginForm"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                  <label>Password</label>
-                  <input class="form-control" id="password" type="password" placeholder="Password" required data-validation-required-message="Por favor a sua password.">
+                  <label>Palavra-passe</label>
+                  <input class="form-control" id="password" name="pwd" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe." form="loginForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Entrar</button>
+                <button type="submit" style="cursor:pointer" class="btn btn-success btn-lg" id="sendMessageButton" form="loginForm">Entrar</button>
               </div>
             </form>
           </div>
@@ -97,46 +97,46 @@
     <!-- Register Section -->
     <section id="registar">
       <div class="container">
-        <h2 class="text-center">Registar</h2>
+        <h2 class="text-center">Register</h2>
         <hr class="star-primary">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="registerForm"  method="get" action="./index.html">
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                  <label>Name completo</label>
-                  <input class="form-control" id="name" type="text" placeholder="Nome completo" required data-validation-required-message="Por favor insira o seu nome.">
+                  <label>Nome completo</label>
+                  <input class="form-control" id="name" name="name" type="text" placeholder="Nome completo" required data-validation-required-message="Por favor insira o seu nome."  form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Email</label>
-                  <input class="form-control" id="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email.">
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Email" required data-validation-required-message="Por favor insira o seu email." form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
-                  <label>Número de telemóvel</label>
-                  <input class="form-control" id="phone" type="tel" placeholder="Número de telemóvel" required data-validation-required-message="Por favor insira o seu número de telemóvel.">
+                  <label>Telemóvel</label>
+                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="Telemóvel" required data-validation-required-message="Por favor insira o seu número de telemóvel." form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <div class="form-group floating-label-form-group controls">
-                  <label>Password</label>
-                  <input class="form-control" id="password" type="password" placeholder="Password" required data-validation-required-message="Por favor a sua password.">
+                  <label>Palavra-passe</label>
+                  <input class="form-control" id="password" name="pwd" type="password" placeholder="Palavra-passe" required data-validation-required-message="Por favor insira a sua palavra-passe."  form="registerForm">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
               <br>
               <div id="success"></div>
               <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Submeter</button>
+                <button type="submit" style="cursor:pointer" class="btn btn-success btn-lg" id="sendMessageButton" form="registerForm">Registar</button>
               </div>
             </form>
           </div>
@@ -146,6 +146,7 @@
 
     <!-- Footer -->
     <footer class="text-center">
+      <!--
       <div class="footer-above">
         <div class="container">
           <div class="row">
@@ -192,11 +193,12 @@
           </div>
         </div>
       </div>
+      -->
       <div class="footer-below">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              Copyright &copy; Your Website 2017
+              Copyright &copy; Anansi 2018
             </div>
           </div>
         </div>

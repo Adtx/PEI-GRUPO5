@@ -20,6 +20,9 @@ public class AppConfigBean implements AppConfigBeanLocal {
         pageTitle = new HashMap<String,String>();
         pageTitle.put("home","Anansi");
         pageTitle.put("corrector","Anansi - Correção");
+        pageTitle.put("profile", "Anansi - Perfil de Utilizador");
+        pageTitle.put("companyProfile", "Anansi - Perfil da Empresa");
+        pageTitle.put("writing", " Anansi - Escrita");
         //pageTitle.put("register","Registar");
         //pageTitle.put("my_account","A minha conta");
         //pageTitle.put("client_area","Área de cliente");
@@ -45,6 +48,17 @@ public class AppConfigBean implements AppConfigBeanLocal {
         correcao.add("util/corrector.jsp");
         pageTemplates.put("corrector",correcao);
 
+        List profile = new ArrayList<String>();
+        profile.add("util/profile.jsp");
+        pageTemplates.put("profile",profile);
+
+        List company_profile = new ArrayList<String>();
+        company_profile.add("util/company_profile.jsp");
+        pageTemplates.put("companyProfile",company_profile);
+
+        List writing = new ArrayList<String>();
+        writing.add("util/writing.jsp");
+        pageTemplates.put("writing",writing);
 
     }
 

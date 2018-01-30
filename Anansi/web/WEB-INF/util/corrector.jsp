@@ -12,7 +12,7 @@
 
 </head>
 <body>
-<h1>PQP JA FUNCA</h1>
+<h1>JA FUNCA</h1>
 
 <span> ${info} </span>
 

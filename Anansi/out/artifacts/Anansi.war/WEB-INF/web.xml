@@ -32,4 +32,38 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
+
+
+    <!-- COMPANY PROFILE -->
+    <servlet>
+        <servlet-name>companyProfile</servlet-name>
+        <servlet-class>Servlet.CompanyProfile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>companyProfile</servlet-name>
+        <url-pattern>/companyProfile</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- PROFILE -->
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <servlet-class>Servlet.Profile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- WRITING -->
+    <servlet>
+        <servlet-name>writing</servlet-name>
+        <servlet-class>Servlet.Writing</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>writing</servlet-name>
+        <url-pattern>/writing</url-pattern>
+    </servlet-mapping>
+
 </web-app>

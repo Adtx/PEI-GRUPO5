@@ -10,7 +10,13 @@ License Type: Evaluation
 			<generator class="native">
 			</generator>
 		</id>
-		<property name="Name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="Name" column="Name" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="Email" column="Email" unique="true" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="Password" column="Password" type="string" length="255" not-null="true" lazy="false"/>
+		<set name="ORM_Tests" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="UserID" not-null="false"/>
+			<one-to-many class="hibernate.Test"/>
+		</set>
 		<set name="ORM_Responses" lazy="true" cascade="save-update,lock" inverse="true">
 			<key column="UserID" not-null="true"/>
 			<one-to-many class="hibernate.Response"/>

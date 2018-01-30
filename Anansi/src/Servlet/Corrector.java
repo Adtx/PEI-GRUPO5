@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -87,9 +88,10 @@ public class Corrector  extends HttpServlet {
         AppConfigBeanLocal appConfig = AppConfigBeanLookup.getAppConfigBean();
         CorrectorBeanLocal correctorBean = CorrectorBeanLookup.getCorrectorBean();
 
+        String teste = request.getParameter("texto");
+        System.out.println("UPS!!!!!! " + teste);
         try {
             HttpSession httpSession = request.getSession();
-            String teste = "";
 
             
             String s = "Isto é um maçã. A maca murcou.\nPararafo teste!";
