@@ -37,7 +37,7 @@ public class Normalize {
     public double[] normalize(double a[], double mean[], double deviation[]){
         for(int k=0;k<a.length;k++){
             a[k] = (a[k]-mean[k])/deviation[k];
-            System.out.println(a[k]);
+            //System.out.println(a[k]);
         }
         return a;
     }
@@ -45,7 +45,7 @@ public class Normalize {
     public double[] normalize(double a[]){
         for(int k=0;k<a.length;k++){
             a[k] = (a[k]-mean[k])/deviation[k];
-            System.out.println(a[k]);
+            //System.out.println(a[k]);
         }
         return a;
     }

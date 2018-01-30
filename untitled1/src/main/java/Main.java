@@ -25,11 +25,13 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        JFrame frame = new JFrame("Corrector");
+        /*JFrame frame = new JFrame("Corrector");
         frame.setContentPane(new Corrector().Panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(true);*/
+        CSV_Tester csv=new CSV_Tester();
+        csv.test_csv_file("csv_test_doc.csv","csv_result_document.csv");
         //update_train_dataset();
         //update_test_dataset();
         //train_all_classifiers();
