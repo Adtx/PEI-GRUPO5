@@ -167,6 +167,7 @@ public class UserDAO {
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
 			sb.append(" Order By ").append(orderBy);
+
 		try {
 			Query query = session.createQuery(sb.toString());
 			query.setLockMode("User", lockMode);
@@ -180,6 +181,7 @@ public class UserDAO {
 	
 	public static User[] listUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
 		try {
+			System.out.println("teste4");
 			List list = queryUser(session, condition, orderBy);
 			return (User[]) list.toArray(new User[list.size()]);
 		}

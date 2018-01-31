@@ -143,17 +143,17 @@ public class KNN {
         try {
             br = new BufferedReader(new FileReader(csvFile));
             line=br.readLine(); // this will read the first line
-            System.out.println(line);
+            //System.outprintln(line);
             //this part is specific for the KNN because we don't print our files like weka
             String[] attributes= line.split(cvsSplitBy);
             attributes_names=attributes;
-            //System.out.println(attributes.length);
+            ////System.outprintln(attributes.length);
 
 
 
             line = null;
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                //System.outprintln(line);
 
                 // use ; as separator
                 String[] values = line.split(cvsSplitBy);
@@ -343,7 +343,7 @@ public class KNN {
 
         //Will print 0 if it's a "yes", and 1 if it's a "no"
         try {
-            System.out.println(knn.classifyInstance(dataset.instance(0)));
+            //System.outprintln(knn.classifyInstance(dataset.instance(0)));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -390,7 +390,7 @@ public class KNN {
 
         // Print the result à la Weka explorer:
         String strSummary = eTest.toSummaryString();
-        System.out.println(strSummary);
+        //System.outprintln(strSummary);
 
         // Get the confusion matrix
         double[][] cmMatrix = eTest.confusionMatrix();

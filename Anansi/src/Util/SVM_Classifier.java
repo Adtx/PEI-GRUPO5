@@ -113,9 +113,9 @@ public class SVM_Classifier {
                 x_test[f].index = f+1;
                 x_test[f].value = current_case.get(f);
             }
-            int level= Integer.parseInt(current_case.get(f).toString());
+            int level= current_case.get(f).intValue();
             double d = svm.svm_predict(model, x_test);
-            System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
+            //System.out.println("Y = "+level+ "\t\t\t The predicton = " + d);
         }
     }
 
@@ -252,8 +252,8 @@ public class SVM_Classifier {
             x_test[1].index = 2;
             x_test[1].value = (i/2%2==0)?-1:1;
             double d = svm.svm_predict(model, x_test);
-            System.out.println("X[0] = " + x_test[0].value + "  X[1] = " + x_test[1].value + "\t\t\t Y = "
-                    + ((x_test[0].value == 1 && x_test[1].value == 1)?1:-1) + "\t\t\t The predicton = " + d);
+            //System.out.println("X[0] = " + x_test[0].value + "  X[1] = " + x_test[1].value + "\t\t\t Y = "
+            //        + ((x_test[0].value == 1 && x_test[1].value == 1)?1:-1) + "\t\t\t The predicton = " + d);
         }
     }
 
@@ -290,7 +290,7 @@ public class SVM_Classifier {
             prob.x[i][0].value = (i%2!=0)?-1:1;
             prob.x[i][1].value = (i/2%2==0)?-1:1;
             prob.y[i] = (prob.x[i][0].value == 1 && prob.x[i][1].value == 1)?1:-1;
-            System.out.println("X = [ " + prob.x[i][0].value + ", " + prob.x[i][1].value + " ] \t ->  " + prob.y[i] );
+            //System.outprintln("X = [ " + prob.x[i][0].value + ", " + prob.x[i][1].value + " ] \t ->  " + prob.y[i] );
         }
         svm_model model = svm.svm_train(prob, param);
 
@@ -305,8 +305,8 @@ public class SVM_Classifier {
             x_test[1].index = 2;
             x_test[1].value = (i/2%2==0)?-1:1;
             double d = svm.svm_predict(model, x_test);
-            System.out.println("X[0] = " + x_test[0].value + "  X[1] = " + x_test[1].value + "\t\t\t Y = "
-                    + ((x_test[0].value == 1 && x_test[1].value == 1)?1:-1) + "\t\t\t The predicton = " + d);
+            //System.outprintln("X[0] = " + x_test[0].value + "  X[1] = " + x_test[1].value + "\t\t\t Y = "
+            //        + ((x_test[0].value == 1 && x_test[1].value == 1)?1:-1) + "\t\t\t The predicton = " + d);
         }
     }
 

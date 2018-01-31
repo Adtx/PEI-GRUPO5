@@ -19,7 +19,7 @@
 <!-- PAGE TITLE -->
 <c:choose>
     <c:when test="${ req_page_title != null }">
-        <c:set var="page_title" value=" - ${ req_page_title }"/>
+        <c:set var="page_title" value="${ req_page_title }"/>
     </c:when>
     <c:otherwise>
         <c:set var="page_title" value="Anansi - Home"/>
@@ -54,35 +54,44 @@
 <!-- PAGE OUTPUT -->
 <html lang="pt-PT">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
     <base href="http://localhost:8080/${ project_name }/"/>
 
     <title>${ page_title }</title>
 
-    <script src="static/js/tether.min.js"></script>
-    <script src="static/js/jquery-3.1.1.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-
-    <script src="static/js/jquery-ui.min.js"></script>
-    <script src="static/js/moment.js"></script>
-
-    <script src="static/js/ripples.js"></script>
-    <script src="static/js/material.min.js"></script>
-    <!--script src="static/js/jquery.dropdown.js"></script-->
-
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/tether.min.css">
-
-    <!-- Bootstrap Material Design -->
-    <link rel="stylesheet" type="text/css" href="static/css/bootstrap-material-design.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/ripples.min.css">
 
 
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="static/js/jqBootstrapValidation.js"></script>
+    <script src="static/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="static/js/freelancer.min.js"></script>
+
+    <script src="static/Chart.min.js"></script>
 
 
-    <!--link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" /-->
-    <link rel="stylesheet" type="text/css" href="static/css/timepicker.css"/>
 </head>
 
 

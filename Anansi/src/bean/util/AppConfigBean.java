@@ -18,7 +18,7 @@ public class AppConfigBean implements AppConfigBeanLocal {
     static {
         //--- < URL-PATH, PAGE TITLE > ---//
         pageTitle = new HashMap<String,String>();
-        pageTitle.put("home","Anansi");
+        pageTitle.put("home","Anansi - Home");
         pageTitle.put("corrector","Anansi - Correção");
         pageTitle.put("profile", "Anansi - Perfil de Utilizador");
         pageTitle.put("companyProfile", "Anansi - Perfil da Empresa");

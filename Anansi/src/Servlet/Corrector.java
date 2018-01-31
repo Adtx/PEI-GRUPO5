@@ -89,12 +89,13 @@ public class Corrector  extends HttpServlet {
         CorrectorBeanLocal correctorBean = CorrectorBeanLookup.getCorrectorBean();
 
         String teste = request.getParameter("texto");
-        System.out.println("UPS!!!!!! " + teste);
+        //System.out.println("UPS!!!!!! " + teste);
         try {
             HttpSession httpSession = request.getSession();
 
             
-            String s = "Isto é um maçã. A maca murcou.\nPararafo teste!";
+            String s = teste;
+            teste="";
              SVM_Classifier svm_classifier;
              KNN knn_classifier;
              NeuralNet nn_classifier;
@@ -103,6 +104,7 @@ public class Corrector  extends HttpServlet {
             tester=new Test();
             svm_classifier=new SVM_Classifier("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/svm_classifier");
             //knn_classifier=new KNN("knn_arf");
+            svm_classifier.train_classifier();
             knn_classifier=new KNN();
             knn_classifier.train_model();
             //nn_classifier=new NeuralNet("/Users/andrepinto/GitHub/PEI-GRUPO5/Anansi/MyMultiLayerNetwork.zip");
@@ -276,7 +278,6 @@ public class Corrector  extends HttpServlet {
 
             System.out.println(teste);
             teste = teste +  "\n\r\r\nErros faceis: "+ err_fac+ "  <-------> Erros dificeis: "+ err_dif; */
-
 
 
             httpSession.setAttribute("info", teste);

@@ -12,6 +12,7 @@ package hibernate; /**
  * License Type: Evaluation
  */
 import java.io.Serializable;
+
 public class User implements Serializable {
 	public User() {
 	}
@@ -35,7 +36,7 @@ public class User implements Serializable {
 	};
 	
 	private int ID;
-	
+
 	private String Name;
 	
 	private String Email;
