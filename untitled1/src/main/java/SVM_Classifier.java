@@ -80,6 +80,8 @@ public class SVM_Classifier {
         return  d;
     }
 
+
+
     private void load_for_prediction(String teste_results,String separator){
         //String line = "";
         String cvsSplitBy = separator;
@@ -95,6 +97,7 @@ public class SVM_Classifier {
         double[] normalized_values=n.normalize(doubleValues);
 
         data.add(normalized_values);
+        //data.add(doubleValues);
     }
 
 
@@ -105,6 +108,18 @@ public class SVM_Classifier {
         double accuracy=0;
         double right=0;
         double total=0;
+        double correct_one=0;
+        double correct_two=0;
+        double correct_three=0;
+        double correct_four=0;
+        double correct_five=0;
+        double correct_six=0;
+        double total_one=0;
+        double total_two=0;
+        double total_three=0;
+        double total_four=0;
+        double total_five=0;
+        double total_six=0;
         int total_features=data.get(0).length-1;
         for(int i = 0; i <= data.size()-1; i++){
             svm_node[] x_test = new svm_node[total_features];
@@ -121,9 +136,51 @@ public class SVM_Classifier {
             total=total+1;
             if(level==d){
                 right=right+1;
+                if(level==1){
+                    correct_one=correct_one+1;
+                }
+                if(level==2){
+                    correct_two=correct_two+1;
+                }
+                if(level==3){
+                    correct_three=correct_three+1;
+                }
+                if(level==4){
+                    correct_four=correct_four+1;
+                }
+                if(level==5){
+                    correct_five=correct_five+1;
+                }
+                if(level==6){
+                    correct_six=correct_six+1;
+                }
+            }
+            if(d==1){
+                total_one=total_one+1;
+            }
+            if(d==2){
+                total_two=total_two+1;
+            }
+            if(d==3){
+                total_three=total_three+1;
+            }
+            if(d==4){
+                total_four=total_four+1;
+            }
+            if(d==5){
+                total_five=total_five+1;
+            }
+            if(d==6){
+                total_six=total_six+1;
             }
         }
         System.out.println("\n\n SVM Acuracy: "+(right/total)*100+" %");
+        System.out.println("SVM A1 accuracy: "+ (correct_one/total_one)*100+" %");
+        System.out.println("SVM A2 accuracy: "+ (correct_two/total_two)*100+" %");
+        System.out.println("SVM B1 accuracy: "+ (correct_three/total_three)*100+" %");
+        System.out.println("SVM B2 accuracy: "+ (correct_four/total_four)*100+" %");
+        System.out.println("SVM C1 accuracy: "+ (correct_five/total_five)*100+" %");
+        System.out.println("SVM C2 accuracy: "+ (correct_six/total_six)*100+" %");
     }
 
     private void prepare_data(){
@@ -173,12 +230,18 @@ public class SVM_Classifier {
         String line = "";
         String cvsSplitBy = separator;
         data=new ArrayList<>();
+        int counter=0;
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
             br.readLine(); // this will read the first line
             line=null;
             while ((line = br.readLine()) != null) {
+                if(counter==0){
+                    System.out.println(line);
+                    counter=counter+1;
+                }
+                //
                 //System.out.println(line);
                 // use ; as separator
                 String[] values = line.split(cvsSplitBy);

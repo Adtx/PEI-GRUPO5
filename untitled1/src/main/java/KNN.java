@@ -173,7 +173,7 @@ public class KNN {
     }
 
     public void train_model(){
-        //load and prepare training
+        //load and prepare trainin
         load_data("train_results.csv",";");
 
 
@@ -334,6 +334,7 @@ public class KNN {
         double[] normalized_values=n.normalize(doubleValues);
 
         data.add(normalized_values);
+        //data.add(doubleValues);
     }
 
     public void test_model(){
@@ -346,7 +347,18 @@ public class KNN {
         double acuracy=0;
         double right=0;
         double total=0;
-
+        double correct_one=0;
+        double correct_two=0;
+        double correct_three=0;
+        double correct_four=0;
+        double correct_five=0;
+        double correct_six=0;
+        double total_one=0;
+        double total_two=0;
+        double total_three=0;
+        double total_four=0;
+        double total_five=0;
+        double total_six=0;
 
         try {
             br = new BufferedReader(new FileReader("test_results.csv"));
@@ -374,6 +386,42 @@ public class KNN {
                 total=total+1;
                 if(prediction==level){
                     right=right+1;
+                    if(level==1){
+                        correct_one=correct_one+1;
+                    }
+                    if(level==2){
+                        correct_two=correct_two+1;
+                    }
+                    if(level==3){
+                        correct_three=correct_three+1;
+                    }
+                    if(level==4){
+                        correct_four=correct_four+1;
+                    }
+                    if(level==5){
+                        correct_five=correct_five+1;
+                    }
+                    if(level==6){
+                        correct_six=correct_six+1;
+                    }
+                }
+                if(prediction==1){
+                    total_one=total_one+1;
+                }
+                if(prediction==2){
+                    total_two=total_two+1;
+                }
+                if(prediction==3){
+                    total_three=total_three+1;
+                }
+                if(prediction==4){
+                    total_four=total_four+1;
+                }
+                if(prediction==5){
+                    total_five=total_five+1;
+                }
+                if(prediction==6){
+                    total_six=total_six+1;
                 }
 
             }
@@ -393,6 +441,12 @@ public class KNN {
         }
 
         System.out.println("\n\n KNN Acuracy: "+(right/total)*100+" %");
+        System.out.println("KNN A1 accuracy: "+ (correct_one/total_one)*100+" %");
+        System.out.println("KNN A2 accuracy: "+ (correct_two/total_two)*100+" %");
+        System.out.println("KNN B1 accuracy: "+ (correct_three/total_three)*100+" %");
+        System.out.println("KNN B2 accuracy: "+ (correct_four/total_four)*100+" %");
+        System.out.println("KNN C1 accuracy: "+ (correct_five/total_five)*100+" %");
+        System.out.println("KNN C2 accuracy: "+ (correct_six/total_six)*100+" %");
     }
 
     /*public void test_model(){

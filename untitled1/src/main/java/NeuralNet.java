@@ -207,5 +207,6 @@ public class NeuralNet {
         double[] normalized_values=n.normalize(doubleValues);
 
         data.add(normalized_values);
+        //data.add(doubleValues);
     }
 }
