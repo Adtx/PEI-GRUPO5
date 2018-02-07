@@ -130,7 +130,7 @@
         <hr class="star-primary" style="background-color:#18bc9c;">
         <!--<hr class="star-primary" style="background-color:#18bc9c;">-->
         
-        <div style="border: 2px solid #212529; border-radius:10px; padding:20px;">
+        <div class="row" style="border: 2px solid #212529; border-radius:10px; padding:20px;">
           <form class="form-inline" action="./company_profile.html">
             <div class="form-group col-sm-4" style="text-align:center">
               <input type="text" class="form-control" id="name" placeholder="Enter context name" name="name">
@@ -140,6 +140,30 @@
             </div>
             <div class="form-group col-sm-4" style="text-align:center">
               <button type="submit" id="create_context" class="btn btn-primary" style="cursor:pointer;"> &nbsp; Create new evaluation context &nbsp; <i class="fa fa-plus-square"></i></button>
+            </div>            
+          </form>
+        </div>
+
+        <br><br><br><br>
+
+
+        <h6 class="text-center" style="color:black">Submit .CSV file</h6>
+
+        <p class="text-center" style="color:black">The following form allows you to submit a .csv file containing texts.</p>
+        <hr class="star-primary" style="background-color:#18bc9c;">
+        <!--<hr class="star-primary" style="background-color:#18bc9c;">-->
+        
+        <div style="padding:20px;">
+          <form class="form-horizontal" action="./company_profile.html">
+            <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="form-group col-sm-6" style="text-align:center">
+              <input type="file" accept=".csv" class="form-control" id="csv_file_input_id" value="Select file" name="csv_file_name">
+            </div>
+            <div class="col-sm-3"></div></div>
+
+            <div class="form-group" style="text-align:center">
+              <button type="submit" id="create_context" class="btn btn-primary" style="cursor:pointer;"> &nbsp; Submit file &nbsp; <i class="fa fa-file"></i></button>
             </div>            
           </form>
         </div>
