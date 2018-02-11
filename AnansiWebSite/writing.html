@@ -204,36 +204,29 @@
     <script>
       function verify(textarea){
         var text = textarea.value.trim();
-        var number_of_words = text.split(" ").length;  
-        if (text == '') number_of_words = 0;
-
-        /*alert(
-          '|' + textarea.value.trim() + '|\n' 
-          + '|' + textarea.value.trim() + '|\n' 
-          + '|' + textarea.value.trim().split(" ") + '|\n' 
-          + '|' + textarea.value.trim().split(" ").length
-        );*/
-
         var submit = document.getElementById("submit");
         var words = document.getElementById("words");
         
+        var number_of_words;
+        if (text == '') number_of_words = 0;
+        else number_of_words = text.match(/[a-zA-Z0-9]+/g).length;
+        
+        var disabled, color, text;
+        
         if (number_of_words<30){
-          submit.disabled = true;
-          //words.className="btn btn-danger";
-
-          words.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#c82333;"></i> &nbsp;' 
-                + number_of_words 
-                + ' words';
-          words.style.color="#c82333";
+          disabled = true;
+          text = '<i class="fa fa-exclamation-triangle" style="color:#c82333;"></i> &nbsp;';
+          color="#c82333";
         }
         else {
-          submit.disabled = false;
-          //words.className="btn btn-success";
-          words.innerHTML = '<i class="fa fa-tachometer" style="color:green"></i> &nbsp;' 
-                + number_of_words 
-                + ' words';
-          words.style.color="white";
+          disabled = false;
+          text = '<i class="fa fa-tachometer" style="color:green"></i> &nbsp;';
+          color="white";
         }
+
+        submit.disabled = disabled;
+        words.innerHTML = text + number_of_words + ' words';
+        words.style.color = color;
       }
     </script>
 
