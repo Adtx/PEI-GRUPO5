@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernate.ComponentResult" table="ComponentResult" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="evaluationComponent" cascade="lock" column="EvaluationComponentID" class="hibernate.EvaluationComponent" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="result" cascade="lock" column="ResultID" class="hibernate.Result" not-null="false" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="response" cascade="lock" column="ResponseID" class="hibernate.Response" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="Number" column="Number" type="double" not-null="true" lazy="false"/>
+		<property name="Designation" column="Designation" type="string" length="255" not-null="false" lazy="false"/>
+	</class>
+</hibernate-mapping>

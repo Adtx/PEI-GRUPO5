@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: 
+License Type: Evaluation
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="hibernate.Response" table="Response" lazy="false">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="user" cascade="lock" column="UserID" class="hibernate.User" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="test" cascade="lock" column="TestID" class="hibernate.Test" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="Content" column="Content" type="text" not-null="true" lazy="false"/>
+		<property name="date" column="`Date`" type="timestamp" not-null="false" lazy="false"/>
+		<property name="month" column="Month" type="integer" length="11" not-null="false" lazy="false"/>
+		<property name="day" column="Day" type="integer" length="11" not-null="false" lazy="false"/>
+		<property name="year" column="Year" type="integer" length="11" not-null="false" lazy="false"/>
+		<many-to-one name="context" cascade="lock" column="ContextID" class="hibernate.Context" not-null="false" lazy="proxy" access="field">
+		</many-to-one>
+		<set name="ORM_ComponentResults" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="ResponseID" not-null="true"/>
+			<one-to-many class="hibernate.ComponentResult"/>
+		</set>
+		<one-to-one name="result" class="hibernate.Result" cascade="save-update,lock" property-ref="response" lazy="proxy" access="field"/>
+	</class>
+</hibernate-mapping>
